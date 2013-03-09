@@ -6,6 +6,7 @@ package com.derp_octo_lana.app.views
 	// Imports
 	//
 	//--------------------------------------------------------------------------
+	import com.derp_octo_lana.app.events.MainEvent;
 	import com.godpaper.as3.utils.LogUtil;
 	
 	import mx.logging.ILogger;

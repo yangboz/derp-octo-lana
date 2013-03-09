@@ -3,6 +3,8 @@ package com.derp_octo_lana.app.bootstraps
 {
 	import com.derp_octo_lana.app.views.MainView;
 	import com.derp_octo_lana.app.views.MainViewMediator;
+	import com.derp_octo_lana.app.views.SplashScreen;
+	import com.derp_octo_lana.app.views.SplashScreenMediator;
 	import com.derp_octo_lana.app.views.SubView;
 	import com.derp_octo_lana.app.views.SubViewMediator;
 	
@@ -58,6 +60,7 @@ package com.derp_octo_lana.app.bootstraps
 		{
 			mediatorMap.mapView(MainView,MainViewMediator);
 			mediatorMap.mapView(SubView,SubViewMediator);
+			mediatorMap.mapView(SplashScreen,SplashScreenMediator);
 		} 
 		//--------------------------------------------------------------------------
 		//
