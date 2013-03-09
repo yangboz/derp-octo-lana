@@ -67,9 +67,9 @@ package com.derp_octo_lana.app.context
 		override public function startup():void
 		{
 			//Bootstrap now.
-			new BootstrapViewMediators(this.mediatorMap);
 			new BootstrapModels(this.injector);
 			new BootstrapCommands(this.commandMap);
+			new BootstrapViewMediators(this.mediatorMap);
 			//
 			super.startup();
 		}
