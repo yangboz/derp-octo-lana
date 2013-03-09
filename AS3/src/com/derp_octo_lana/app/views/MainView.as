@@ -7,6 +7,8 @@ package com.derp_octo_lana.app.views
 	//
 	//--------------------------------------------------------------------------
 	import com.derp_octo_lana.app.context.MainStarlingViewContext;
+	import com.godpaper.as3.utils.LogUtil;
+	import mx.logging.ILogger;
 	
 	import org.robotlegs.mvcs.StarlingContext;
 	
@@ -34,7 +36,7 @@ package com.derp_octo_lana.app.views
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		
+		private static const LOG:ILogger = LogUtil.getLogger(MainView);
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -81,7 +83,7 @@ package com.derp_octo_lana.app.views
 		//--------------------------------------------------------------------------
 		private function onAddedToStage():void
 		{
-			//
+			LOG.info("application start {0}", "MainView");
 			var subView:SubView = new SubView();
 			this.addChild(subView);
 			//Test mediator on remove,3 sec.
