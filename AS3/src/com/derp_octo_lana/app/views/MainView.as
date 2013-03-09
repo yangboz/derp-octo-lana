@@ -11,15 +11,12 @@ package com.derp_octo_lana.app.views
 	import com.godpaper.as3.utils.LogUtil;
 	
 	import flash.ui.Mouse;
-	import flash.utils.setTimeout;
 	
 	import mx.logging.ILogger;
 	
 	import feathers.controls.ScreenNavigator;
 	import feathers.controls.ScreenNavigatorItem;
 	import feathers.motion.transitions.ScreenSlidingStackTransitionManager;
-	import feathers.skins.IFeathersTheme;
-	import feathers.themes.AzureTheme;
 	import feathers.themes.MetalWorksMobileTheme;
 	
 	import org.robotlegs.mvcs.StarlingContext;
@@ -99,11 +96,6 @@ package com.derp_octo_lana.app.views
 		//--------------------------------------------------------------------------
 		private function onAddedToStage():void
 		{
-//			LOG.info("application start {0}", "MainView");
-//			var subView:SubView = new SubView();
-//			this.addChild(subView);
-//			//Test mediator on remove,3 sec.
-//			setTimeout(subView.parent.removeChild,3000,subView);
 			//this is supposed to be an example mobile app, but it is also shown
 			//as a preview in Flash Player on the web. we're making a special
 			//case to pretend that the web SWF is running in the theme's "ideal"

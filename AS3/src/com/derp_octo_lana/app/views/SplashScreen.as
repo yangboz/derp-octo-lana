@@ -13,12 +13,9 @@ package com.derp_octo_lana.app.views
 	
 	import mx.logging.ILogger;
 	
-	import feathers.controls.Label;
 	import feathers.controls.ProgressBar;
 	import feathers.controls.Screen;
 	import feathers.controls.ScrollContainer;
-	import feathers.controls.Scroller;
-	import feathers.core.PopUpManager;
 	import feathers.layout.VerticalLayout;
 	
 	import starling.animation.Transitions;

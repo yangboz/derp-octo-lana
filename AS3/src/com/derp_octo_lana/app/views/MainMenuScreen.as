@@ -10,11 +10,6 @@ package com.derp_octo_lana.app.views
 	import feathers.controls.ButtonGroup;
 	import feathers.controls.Header;
 	import feathers.controls.Screen;
-	
-	import feathers.controls.Button;
-	import feathers.controls.ButtonGroup;
-	import feathers.controls.Header;
-	import feathers.controls.Screen;
 	import feathers.data.ListCollection;
 	
 	import starling.display.DisplayObject;

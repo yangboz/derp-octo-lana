@@ -5,8 +5,6 @@ package com.derp_octo_lana.app.bootstraps
 	import com.derp_octo_lana.app.views.MainViewMediator;
 	import com.derp_octo_lana.app.views.SplashScreen;
 	import com.derp_octo_lana.app.views.SplashScreenMediator;
-	import com.derp_octo_lana.app.views.SubView;
-	import com.derp_octo_lana.app.views.SubViewMediator;
 	
 	import org.robotlegs.core.IStarlingMediatorMap;
 
@@ -59,7 +57,6 @@ package com.derp_octo_lana.app.bootstraps
 		public function BootstrapViewMediators(mediatorMap:IStarlingMediatorMap)
 		{
 			mediatorMap.mapView(MainView,MainViewMediator);
-			mediatorMap.mapView(SubView,SubViewMediator);
 			mediatorMap.mapView(SplashScreen,SplashScreenMediator);
 		} 
 		//--------------------------------------------------------------------------
