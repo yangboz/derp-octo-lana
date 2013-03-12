@@ -1,22 +1,18 @@
 
-package com.derp_octo_lana.app.views
-{
+package com.derp_octo_lana.app.views {
+	import feathers.controls.Button;
+	import feathers.controls.Header;
+	import feathers.controls.Screen;
+
+	import starling.display.DisplayObject;
+	import starling.events.Event;
+
+	import com.derp_octo_lana.app.consts.FlexGlobals;
 	//--------------------------------------------------------------------------
 	//
 	// Imports
 	//
-	//--------------------------------------------------------------------------
-	import com.derp_octo_lana.app.consts.FlexGlobals;
-	import com.godpaper.as3.utils.LogUtil;
-	
-	import mx.logging.ILogger;
-	
-	import feathers.controls.Button;
-	import feathers.controls.Header;
-	import feathers.controls.Screen;
-	
-	import starling.display.DisplayObject;
-	import starling.events.Event;
+	// --------------------------------------------------------------------------
 
 	/**
 	 * ScreenBase.as class. 
@@ -34,14 +30,13 @@ package com.derp_octo_lana.app.views
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-		private var _header:Header;
 		private var _backButton:Button;
 		//
 		protected var headerTitle:String = "Screen Title";
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		private static const LOG:ILogger = LogUtil.getLogger(ScreenBase);
+//		private static const LOG:ILogger = LogUtil.getLogger(ScreenBase);
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -52,7 +47,7 @@ package com.derp_octo_lana.app.views
 		// Protected properties
 		//
 		//--------------------------------------------------------------------------
-		
+		protected var _header:Header;
 		//--------------------------------------------------------------------------
 		//
 		// Constructor
