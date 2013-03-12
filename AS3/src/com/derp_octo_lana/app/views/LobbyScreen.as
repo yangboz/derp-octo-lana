@@ -54,7 +54,7 @@ package com.derp_octo_lana.app.views
 		private var _font:BitmapFont;
 		private var _list:List;
 		private var _pageIndicator:PageIndicator;
-		private var _header:Header;
+		//private var _header:Header;
 		//
 		private var _button_back:Button;
 		private var _button_create:Button;
