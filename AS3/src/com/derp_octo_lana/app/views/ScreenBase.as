@@ -9,15 +9,15 @@ package com.derp_octo_lana.app.views
 	import com.derp_octo_lana.app.consts.FlexGlobals;
 	import com.godpaper.as3.utils.LogUtil;
 	
+	import mx.logging.ILogger;
+	
 	import feathers.controls.Button;
 	import feathers.controls.Header;
 	import feathers.controls.Screen;
 	
-	import mx.logging.ILogger;
-	
+	import starling.display.DisplayObject;
 	import starling.events.Event;
-	
-	
+
 	/**
 	 * ScreenBase.as class. 
 	 * @author Administrator
@@ -34,25 +34,24 @@ package com.derp_octo_lana.app.views
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-		
+		private var _header:Header;
+		private var _backButton:Button;
+		//
+		protected var headerTitle:String = "Screen Title";
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		protected static const LOG:ILogger = LogUtil.getLogger(HelpScreen);
+		private static const LOG:ILogger = LogUtil.getLogger(ScreenBase);
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
 		//
 		//--------------------------------------------------------------------------
-		
-		
 		//--------------------------------------------------------------------------
 		//
 		// Protected properties
 		//
 		//--------------------------------------------------------------------------
-		protected var _backBtn : Button;
-		protected var _header : Header;
 		
 		//--------------------------------------------------------------------------
 		//
@@ -74,24 +73,43 @@ package com.derp_octo_lana.app.views
 		// Protected methods
 		//
 		//--------------------------------------------------------------------------
-		 
-		
-		protected function createHeader(title:String):void
+		override protected function initialize():void
 		{
 			this._header = new Header();
-			this._header.title = title;
+			this._header.title = this.headerTitle;
 			this.addChild(this._header);
-			
+			//left items
+			this._header.leftItems = this.getHeaderLeftItems();
+			//right items
+			this._header.rightItems = this.getHeaderRightItems();
 		}
-		
-		protected function createButton(label:String):void
+		//
+		override protected function draw():void
 		{
-			this._backBtn = new Button();
-			this._backBtn.label = label;
-			this._backBtn.addEventListener(Event.TRIGGERED, triggeredHandler);
+			this._header.width = this.actualWidth;
+			this._header.validate();
 		}
-		
-		protected function triggeredHandler(event:Event):void
+		//For override
+		//
+		protected function getHeaderLeftItems():Vector.<DisplayObject>
+		{
+			//
+			this._backButton = new Button();
+			this._backButton.label = "BACK";
+			this._backButton.addEventListener(Event.TRIGGERED, back_button_triggeredHandler);
+			var items:Vector.<DisplayObject>  = new Vector.<DisplayObject>();
+			items.push(_backButton);
+			return items;
+		}
+		//
+		protected function getHeaderRightItems():Vector.<DisplayObject>
+		{
+			var items:Vector.<DisplayObject>  = new Vector.<DisplayObject>();
+//			items.push(_backButton);
+			return items;
+		}
+		//
+		protected function back_button_triggeredHandler(event:Event):void
 		{
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_MAIN_MENU);
 		}
