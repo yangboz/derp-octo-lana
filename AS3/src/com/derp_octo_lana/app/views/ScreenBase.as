@@ -76,14 +76,15 @@ package com.derp_octo_lana.app.views
 		//--------------------------------------------------------------------------
 		 
 		
-		protected function createBtn(title:String):void
+		protected function createHeader(title:String):void
 		{
 			this._header = new Header();
 			this._header.title = title;
 			this.addChild(this._header);
+			
 		}
 		
-		protected function createBtn(label:String):void
+		protected function createButton(label:String):void
 		{
 			this._backBtn = new Button();
 			this._backBtn.label = label;
