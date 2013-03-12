@@ -34,6 +34,7 @@ package com.derp_octo_lana.app.consts
 		public static const SCREEN_GAME:String = "screen_game";
 		public static const SCREEN_HANDSHAKE:String = "screen_handshake";
 		public static const SCREEN_SETTINGS:String = "screen_settings";
+		public static const SCREEN_HELP:String = "screen_help";
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
