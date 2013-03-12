@@ -7,9 +7,13 @@ package
 	//
 	//--------------------------------------------------------------------------
 	import com.derp_octo_lana.app.views.MainView;
+	import com.godpaper.as3.utils.LogUtil;
 	
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.geom.Rectangle;
+	
+	import mx.logging.ILogger;
 	
 	import org.robotlegs.mvcs.StarlingContext;
 	
@@ -44,7 +48,7 @@ package
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		
+		private static const LOG:ILogger = LogUtil.getLogger(Main);
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -85,12 +89,42 @@ package
 		{
 			_starling = new Starling(MainView, stage);
 			_starling.start();
+			// loader info.
+			this.loaderInfo.addEventListener(flash.events.Event.COMPLETE, loaderInfoCompleteHandler);
 		}
 		//--------------------------------------------------------------------------
 		//
 		// Private methods
 		//
 		//--------------------------------------------------------------------------
+		//
+		private function loaderInfoCompleteHandler(event:flash.events.Event):void
+		{
+			LOG.debug("creationCompleteHandler@loaderInfo_complete");
+			//
+			this.stage.addEventListener(flash.events.Event.RESIZE, stageResizeHandler, false, 0, true);
+			//Deative,active event listeners.
+			//			this.stage.addEventListener(Event.DEACTIVATE, stageDeactivateHandler, false, 0, true);
+		}
+		//
+		private function stageResizeHandler(event:flash.events.Event):void
+		{
+			LOG.debug("stage_resizeHandler");
+			this._starling.stage.stageWidth=this.stage.stageWidth;
+			this._starling.stage.stageHeight=this.stage.stageHeight;
+			
+			const viewPort:Rectangle=this._starling.viewPort;
+			viewPort.width=this.stage.stageWidth;
+			viewPort.height=this.stage.stageHeight;
+			try
+			{
+				this._starling.viewPort=viewPort;
+			}
+			catch (error:Error)
+			{
+			}
+		}
+
 	}
 	
 }
