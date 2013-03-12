@@ -133,7 +133,8 @@ package com.derp_octo_lana.app.views {
 		private function button_triggeredHandler(event:Event):void
 		{
 			const button:Button = Button(event.currentTarget);
-			trace(button.label + " triggered.");
+			//trace(button.label + " triggered.");
+			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_HELP);
 		}
 		//
 		private function play_button_triggeredHandler(event:Event):void
