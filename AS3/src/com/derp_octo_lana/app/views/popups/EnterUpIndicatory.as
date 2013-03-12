@@ -98,10 +98,11 @@ package com.derp_octo_lana.app.views.popups
 			this._container.addChild(this._buttonsContainer);
 			//text inputs
 			this._nameInput = new TextInput();
-			this._nameInput.height = 25;
+//			this._nameInput.height = 25;
 			this._inputsContainer.addChild(this._nameInput);
 			//Default name 
-			this._nameInput.text = UIDUtil.createUID().substr(0,8);
+//			this._nameInput.text = UIDUtil.createUID().substr(0,8);
+			this._nameInput.text = "";
 			//buttons 
 			this._cancelBtn = new Button();
 			this._cancelBtn.label = "Cancel";
@@ -136,7 +137,7 @@ package com.derp_octo_lana.app.views.popups
 			{
 				const content:Label = new Label();
 				content.text = "Please input your name!";
-				Callout.show(DisplayObject(content), this._nameInput, Callout.DIRECTION_LEFT);
+				Callout.show(DisplayObject(content), this._nameInput, Callout.DIRECTION_UP);
 				return;
 			}
 			//Register player role name

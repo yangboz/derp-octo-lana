@@ -104,9 +104,9 @@ package com.derp_octo_lana.app.views.popups
 			this._container.addChild(this._buttonsContainer);
 			//text inputs
 			this._nameInput = new TextInput();
-			this._nameInput.height = 25;
-			this._nameInput.width = 125;
-			this._nameInput.text = "Amazing Game-".concat(UIDUtil.createUID().substr(0,4));
+//			this._nameInput.height = 25;
+//			this._nameInput.width = 125;
+//			this._nameInput.text = "Amazing Game-".concat(UIDUtil.createUID().substr(0,4));
 			this._inputsContainer.addChild(this._nameInput);
 			//buttons 
 			this._cancelBtn = new Button();
@@ -147,7 +147,7 @@ package com.derp_octo_lana.app.views.popups
 			{
 				const content:Label = new Label();
 				content.text = "Please input game name!";
-				Callout.show(DisplayObject(content), this._nameInput, Callout.DIRECTION_LEFT);
+				Callout.show(DisplayObject(content), this._nameInput, Callout.DIRECTION_UP);
 				return;
 			}
 			//Set up a new game room here.
