@@ -61,6 +61,8 @@ package com.derp_octo_lana.app.views
 		public function HelpScreen()
 		{
 			super();
+			
+			this.headerTitle = '帮助';
 		} 
 		//--------------------------------------------------------------------------
 		//
@@ -73,11 +75,7 @@ package com.derp_octo_lana.app.views
 		// Protected methods
 		//
 		//--------------------------------------------------------------------------
-		override protected function initialize():void
-		{
-			this.headerTitle = 'Help Screen';
-			super.initialize();
-		}
+		 
 		//--------------------------------------------------------------------------
 		//
 		// Private methods
