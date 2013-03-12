@@ -42,13 +42,13 @@ package com.derp_octo_lana.app.views {
 		override protected function initialize() : void {
 			super.initialize();
 			_back=new Button();
-			_back.label="back";
+			_back.label="BACK";
 			_back.addEventListener(Event.TRIGGERED, backhandler);
 			
 			this._header = new Header();
 			this._header.title = "设置";
 			this.addChild(this._header);
-			this._header.rightItems = new <DisplayObject>
+			this._header.leftItems = new <DisplayObject>
 				[
 					this._back
 				];
