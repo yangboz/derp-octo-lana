@@ -1,22 +1,22 @@
 
 package com.derp_octo_lana.app.views {
+	import com.derp_octo_lana.app.consts.FlexGlobals;
+	import com.derp_octo_lana.app.context.MainStarlingViewContext;
+	import com.godpaper.as3.utils.LogUtil;
+	
 	import feathers.controls.ScreenNavigator;
 	import feathers.controls.ScreenNavigatorItem;
 	import feathers.motion.transitions.ScreenSlidingStackTransitionManager;
 	import feathers.themes.MetalWorksMobileTheme;
-
+	
+	import flash.ui.Mouse;
+	
+	import mx.logging.ILogger;
+	
+	import org.robotlegs.mvcs.StarlingContext;
+	
 	import starling.display.Sprite;
 	import starling.events.Event;
-
-	import com.derp_octo_lana.app.consts.FlexGlobals;
-	import com.derp_octo_lana.app.context.MainStarlingViewContext;
-	import com.godpaper.as3.utils.LogUtil;
-
-	import org.robotlegs.mvcs.StarlingContext;
-
-	import mx.logging.ILogger;
-
-	import flash.ui.Mouse;
 	//--------------------------------------------------------------------------
 	//
 	// Imports
@@ -113,6 +113,8 @@ package com.derp_octo_lana.app.views {
 			this._navigator.addScreen(FlexGlobals.SCREEN_MAIN_MENU, new ScreenNavigatorItem(MainMenuScreen));
 			this._navigator.addScreen(FlexGlobals.SCREEN_SETTINGS, new ScreenNavigatorItem(SettingScreen));
 			this._navigator.addScreen(FlexGlobals.SCREEN_GAME, new ScreenNavigatorItem(GameScreen));
+			this._navigator.addScreen(FlexGlobals.SCREEN_HELP, new ScreenNavigatorItem(HelpScreen));
+			
 			//Store the navigator ref to FlexGlobals.
 			FlexGlobals.screenNavigator = this._navigator;
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_SPLASH);//Screen swither here.
