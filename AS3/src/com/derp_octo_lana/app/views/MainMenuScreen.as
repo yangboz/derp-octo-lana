@@ -1,19 +1,20 @@
 
-package com.derp_octo_lana.app.views
-{
-	//--------------------------------------------------------------------------
-	//
-	// Imports
-	//
-	//--------------------------------------------------------------------------
+package com.derp_octo_lana.app.views {
 	import feathers.controls.Button;
 	import feathers.controls.ButtonGroup;
 	import feathers.controls.Header;
 	import feathers.controls.Screen;
 	import feathers.data.ListCollection;
-	
+
 	import starling.display.DisplayObject;
 	import starling.events.Event;
+
+	import com.derp_octo_lana.app.consts.FlexGlobals;
+	//--------------------------------------------------------------------------
+	//
+	// Imports
+	//
+	// --------------------------------------------------------------------------
 	
 	[Event(name="complete",type="starling.events.Event")]
 	/**
@@ -116,7 +117,8 @@ package com.derp_octo_lana.app.views
 		//--------------------------------------------------------------------------
 		private function onBackButton():void
 		{
-			this.dispatchEventWith(Event.COMPLETE);
+			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_SETTINGS);
+//			this.dispatchEventWith(Event.COMPLETE);
 		}
 		
 		private function backButton_triggeredHandler(event:Event):void
