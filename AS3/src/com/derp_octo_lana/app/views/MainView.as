@@ -112,6 +112,7 @@ package com.derp_octo_lana.app.views
 			//
 			this._navigator.addScreen(FlexGlobals.SCREEN_SPLASH, new ScreenNavigatorItem(SplashScreen));
 			this._navigator.addScreen(FlexGlobals.SCREEN_MAIN_MENU, new ScreenNavigatorItem(MainMenuScreen));
+			this._navigator.addScreen(FlexGlobals.SCREEN_GAME, new ScreenNavigatorItem(GameScreen));
 			
 			//Store the navigator ref to FlexGlobals.
 			FlexGlobals.screenNavigator = this._navigator;
