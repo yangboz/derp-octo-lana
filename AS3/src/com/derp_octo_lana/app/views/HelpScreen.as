@@ -6,17 +6,9 @@ package com.derp_octo_lana.app.views
 	// Imports
 	//
 	//--------------------------------------------------------------------------
-	import com.derp_octo_lana.app.consts.FlexGlobals;
 	import com.godpaper.as3.utils.LogUtil;
 	
 	import mx.logging.ILogger;
-	
-	import feathers.controls.Button;
-	import feathers.controls.Header;
-	import feathers.controls.Screen;
-	
-	import starling.display.DisplayObject;
-	import starling.events.Event;
 	
 	
 	/**

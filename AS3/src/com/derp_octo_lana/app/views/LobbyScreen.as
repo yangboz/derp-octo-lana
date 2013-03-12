@@ -9,7 +9,6 @@ package com.derp_octo_lana.app.views
 	import com.derp_octo_lana.app.views.popups.AnewGameIndicatory;
 	import com.derp_octo_lana.app.views.popups.EnterUpIndicatory;
 	import com.derp_octo_lana.app.views.popups.ThinkIndicatory;
-	import com.godpaper.as3.plugins.playerIO.PlayerIoPlugin;
 	import com.godpaper.as3.utils.LogUtil;
 	
 	import mx.logging.ILogger;

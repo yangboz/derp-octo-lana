@@ -126,7 +126,7 @@ package com.derp_octo_lana.app.views.popups
 			//Remove the pop-up.
 			PopUpManager.removePopUp(this);
 			//Screen swither here.
-			FlexGlobals.screenNavigator.showScreen(DefaultConstants.SCREEN_MAIN_MENU);
+			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_MAIN_MENU);
 			//Signal broad casting
 			this.signal_exit_game.dispatch();
 		}
