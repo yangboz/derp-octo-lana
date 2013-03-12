@@ -132,7 +132,7 @@ package com.derp_octo_lana.app.views {
 		private function play_button_triggeredHandler(event:Event):void
 		{
 			event;
-			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_GAME);
+			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_LOOBY);
 		}
 	}
 	

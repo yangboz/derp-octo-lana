@@ -1,87 +1,81 @@
-
-package com.derp_octo_lana.app.bootstraps
+package com.derp_octo_lana.app.models.vos
 {
-	import com.derp_octo_lana.app.views.GameScreen;
-	import com.derp_octo_lana.app.views.GameScreenMediator;
-	import com.derp_octo_lana.app.views.LobbyScreen;
-	import com.derp_octo_lana.app.views.LobbyScreenMediator;
-	import com.derp_octo_lana.app.views.MainView;
-	import com.derp_octo_lana.app.views.MainViewMediator;
-	import com.derp_octo_lana.app.views.SplashScreen;
-	import com.derp_octo_lana.app.views.SplashScreenMediator;
-	
-	import org.robotlegs.core.IStarlingMediatorMap;
-
 	//--------------------------------------------------------------------------
 	//
-	// Imports
+	//  Imports
 	//
 	//--------------------------------------------------------------------------
 	
 	/**
-	 * BootstrapViewMediators.as class. 
+	 * UserVO.as class.   	
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
-	 * Created Mar 8, 2013 11:17:48 PM
-	 * @history 05/00/12,
-	 */ 
-	public class BootstrapViewMediators
-	{ 
+	 * Created Jul 18, 2012 3:50:47 PM
+	 */   	 
+	public class UserVO
+	{		
 		//--------------------------------------------------------------------------
 		//
-		// Variables
+		//  Variables
 		//
 		//--------------------------------------------------------------------------
-		
+		public var peerID:String="";//p2p peer id.
+		public var roleIndex:int=-1;//user selected role index.
+		public var roleName:String="";//user inputed role name.
+		public var action:String = ACTION_IDLE;//the role's action.
 		//----------------------------------
-		// CONSTANTS
+		//  CONSTANTS
 		//----------------------------------
-		
+		//
+		public static const ACTION_IDLE:String = "idle";
+		public static const ACTION_PLAY:String = "play";
 		//--------------------------------------------------------------------------
 		//
-		// Public properties
+		//  Public properties
 		//
-		//--------------------------------------------------------------------------
-		
-		
-		//--------------------------------------------------------------------------
+		//-------------------------------------------------------------------------- 
 		//
-		// Protected properties
-		//
-		//--------------------------------------------------------------------------
-		
-		
-		//--------------------------------------------------------------------------
-		//
-		// Constructor
-		//
-		//--------------------------------------------------------------------------
-		public function BootstrapViewMediators(mediatorMap:IStarlingMediatorMap)
+		public function get shortenPeerId():String
 		{
-			mediatorMap.mapView(MainView,MainViewMediator);
-			mediatorMap.mapView(SplashScreen,SplashScreenMediator);
-			mediatorMap.mapView(GameScreen,GameScreenMediator);
-			mediatorMap.mapView(LobbyScreen,LobbyScreenMediator);
-		} 
+			return this.peerID.substr(0,5).concat("...");
+		}
 		//--------------------------------------------------------------------------
 		//
-		// Public methods
+		//  Protected properties
+		//
+		//-------------------------------------------------------------------------- 
+		
+		//--------------------------------------------------------------------------
+		//
+		//  Constructor
+		//
+		//--------------------------------------------------------------------------
+		public function UserVO()
+		{
+		}     	
+		//--------------------------------------------------------------------------
+		//
+		//  Public methods
+		//
+		//--------------------------------------------------------------------------
+		public function toString():String
+		{
+			return "UserVO:"+shortenPeerId;
+		}
+		//--------------------------------------------------------------------------
+		//
+		//  Protected methods
 		//
 		//--------------------------------------------------------------------------
 		
 		//--------------------------------------------------------------------------
 		//
-		// Protected methods
+		//  Private methods
 		//
 		//--------------------------------------------------------------------------
 		
-		//--------------------------------------------------------------------------
-		//
-		// Private methods
-		//
-		//--------------------------------------------------------------------------
 	}
 	
 }
