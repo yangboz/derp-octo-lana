@@ -97,7 +97,7 @@ package com.godpaper.as3.plugins.playerIO
 		//  Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function PlayerIoPlugin(gameID:String="", boardID:String="")
+		public function PlayerIoPlugin(gameID:String="derpoctolana-8ufe3d0mnkwc4zbirzfrg", boardID:String="DerpOctoLana")
 		{
 			_model = new PlayerIoModel();
 			_model.gameID = gameID;
