@@ -1,6 +1,7 @@
 
 package com.derp_octo_lana.app.consts
 {
+	import flash.display.Stage;
 	import feathers.controls.ScreenNavigator;
 
 	//--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ package com.derp_octo_lana.app.consts
 		//
 		//--------------------------------------------------------------------------
 		public static var screenNavigator:ScreenNavigator;
+		public static var flashStage:Stage;
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------

@@ -1,6 +1,7 @@
 
 package
 {
+	import com.derp_octo_lana.app.consts.FlexGlobals;
 	//--------------------------------------------------------------------------
 	//
 	// Imports
@@ -89,6 +90,7 @@ package
 		{
 			_starling = new Starling(MainView, stage);
 			_starling.start();
+			FlexGlobals.flashStage=stage;
 			// loader info.
 			this.loaderInfo.addEventListener(flash.events.Event.COMPLETE, loaderInfoCompleteHandler);
 		}

@@ -1,4 +1,6 @@
 package com.derp_octo_lana.app.views {
+	import flash.display.StageDisplayState;
+	import feathers.controls.Check;
 	import com.derp_octo_lana.app.consts.FlexGlobals;
 	
 	import feathers.controls.Button;
@@ -23,6 +25,7 @@ package com.derp_octo_lana.app.views {
 		// Variables
 		//
 		//--------------------------------------------------------------------------
+		private var _fullBtn:Check;
 		//--------------------------------------------------------------------------
 		//
 		// CONSTANTS
@@ -60,11 +63,35 @@ package com.derp_octo_lana.app.views {
 		//
 		// Protected methods
 		//
-		//--------------------------------------------------------------------------
+		// --------------------------------------------------------------------------
+		override protected function initialize() : void {
+			super.initialize();
+			_fullBtn=new Check();
+			_fullBtn.label="全屏";
+			_fullBtn.x=50;
+			addChild(_fullBtn);
+			_fullBtn.addEventListener(Event.TRIGGERED, fullHandler);
+		}
+
+		
+
+		override protected function draw() : void {
+			super.draw();
+			_fullBtn.y=_header.height+50;
+		}
 		//--------------------------------------------------------------------------
 		//
 		// Private methods
 		//
 		//--------------------------------------------------------------------------
+		private function fullHandler(event : Event) : void {
+			event;
+			var nowstate:String=FlexGlobals.flashStage.displayState;
+			if(nowstate==StageDisplayState.NORMAL){
+				FlexGlobals.flashStage.displayState=StageDisplayState.FULL_SCREEN;
+			}else{
+				FlexGlobals.flashStage.displayState=StageDisplayState.NORMAL;
+			}
+		}
 	}
 }
