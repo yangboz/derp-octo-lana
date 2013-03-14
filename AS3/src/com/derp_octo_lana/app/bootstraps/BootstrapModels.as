@@ -2,6 +2,7 @@
 package com.derp_octo_lana.app.bootstraps
 {
 	import com.derp_octo_lana.app.models.MainModel;
+	import com.derp_octo_lana.app.models.TrafficSignsModel;
 	
 	import org.robotlegs.core.IInjector;
 
@@ -54,6 +55,7 @@ package com.derp_octo_lana.app.bootstraps
 		public function BootstrapModels(injector:IInjector)
 		{
 			injector.mapSingleton(MainModel);
+			injector.mapSingleton(TrafficSignsModel);
 		} 
 		//--------------------------------------------------------------------------
 		//

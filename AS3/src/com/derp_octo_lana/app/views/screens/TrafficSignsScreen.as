@@ -1,6 +1,8 @@
 
 package com.derp_octo_lana.app.views.screens
 {
+	import com.derp_octo_lana.app.consts.FlexGlobals;
+	import com.derp_octo_lana.app.models.TrafficSignsModel;
 	import com.godpaper.as3.utils.LogUtil;
 	
 	import mx.logging.ILogger;
@@ -33,6 +35,9 @@ package com.derp_octo_lana.app.views.screens
 		//
 		//--------------------------------------------------------------------------
 		private var _gList:GroupedList;
+		//Injects
+		[Inject]
+		public var traffic_signs_model:TrafficSignsModel;
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
@@ -59,6 +64,7 @@ package com.derp_octo_lana.app.views.screens
 		public function TrafficSignsScreen()
 		{
 			super();
+			//
 			this.headerTitle = "交通标识大全";
 		} 
 		//--------------------------------------------------------------------------
@@ -76,34 +82,8 @@ package com.derp_octo_lana.app.views.screens
 		{
 			super.initialize();
 			//
-			var groups:Array =
-				[
-					{
-						header: "道路交通标志",
-						children:
-						[
-							{ text: "1、警告标志" },
-							{ text: "2、禁令标志" },
-							{ text: "3、指示标志" },
-							{ text: "4、指路标志" },
-							{ text: "5、旅游区标志" },
-							{ text: "6、道路施工安全标志" },
-							{ text: "7、辅助标志" }
-						]
-					},
-					{
-						header: "道路交通标线",
-						children:
-						[
-							{ text: "8、禁止标线" },
-							{ text: "9、指示标线" },
-							{ text: "10、警告标线" },
-						]
-					}
-				];
-			//
 			this._gList = new GroupedList();
-			this._gList.dataProvider = new HierarchicalCollection(groups);
+			this._gList.dataProvider = new HierarchicalCollection(traffic_signs_model.traffic_signs_groups);
 			this._gList.typicalItem = { text: "Item 1000" };
 			this._gList.typicalHeader = "Group 10";
 			this._gList.typicalFooter = "Footer 10";
@@ -130,7 +110,11 @@ package com.derp_octo_lana.app.views.screens
 		//--------------------------------------------------------------------------
 		private function list_changeHandler(event:Event):void
 		{
-			trace("GroupedList onChange:", this._gList.selectedGroupIndex, this._gList.selectedItemIndex);
+			LOG.info("GroupedList onChange:{0},{1},{2}", this._gList.selectedGroupIndex, this._gList.selectedItemIndex, this._gList.selectedItem.text);
+			//
+			FlexGlobals.selectedTSgroup = this._gList.selectedItem.text;
+			//
+			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS_CATEGORY);
 		}
 	}
 	

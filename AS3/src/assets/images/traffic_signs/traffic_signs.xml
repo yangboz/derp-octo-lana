@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:dd76b13358aafbbeda4e44e106b9dadb$ -->
+<TextureAtlas imagePath="traffic_signs.png">
+    <SubTexture name="T形交叉" x="2" y="2" width="75" height="67"/>
+    <SubTexture name="T形交叉L" x="79" y="2" width="75" height="67"/>
+    <SubTexture name="T形交叉R" x="156" y="2" width="75" height="67"/>
+    <SubTexture name="Y形交叉" x="233" y="2" width="75" height="67"/>
+    <SubTexture name="上陡坡" x="310" y="2" width="75" height="67"/>
+    <SubTexture name="下陡坡" x="387" y="2" width="75" height="67"/>
+    <SubTexture name="两侧变窄" x="2" y="71" width="75" height="67"/>
+    <SubTexture name="事故易发路段" x="79" y="71" width="75" height="67"/>
+    <SubTexture name="傍山险路" x="156" y="71" width="75" height="67"/>
+    <SubTexture name="傍山险路L" x="233" y="71" width="75" height="67"/>
+    <SubTexture name="十字交叉" x="310" y="71" width="75" height="67"/>
+    <SubTexture name="叉形符号" x="2" y="140" width="150" height="95"/>
+    <SubTexture name="双向交通" x="154" y="140" width="75" height="67"/>
+    <SubTexture name="反向弯路" x="231" y="140" width="75" height="67"/>
+    <SubTexture name="右侧变窄" x="308" y="140" width="75" height="67"/>
+    <SubTexture name="右侧绕行" x="385" y="140" width="75" height="67"/>
+    <SubTexture name="向右急弯路" x="2" y="237" width="75" height="67"/>
+    <SubTexture name="向左急弯路" x="79" y="237" width="75" height="67"/>
+    <SubTexture name="堤坝路L" x="156" y="237" width="75" height="67"/>
+    <SubTexture name="堤坝路R" x="233" y="237" width="75" height="67"/>
+    <SubTexture name="左侧变窄" x="310" y="237" width="75" height="67"/>
+    <SubTexture name="左侧绕行" x="387" y="237" width="75" height="67"/>
+    <SubTexture name="左右绕行" x="2" y="306" width="75" height="67"/>
+    <SubTexture name="慢行" x="79" y="306" width="75" height="67"/>
+    <SubTexture name="斜杠符号" x="156" y="306" width="100" height="159"/>
+    <SubTexture name="斜杠符号2" x="258" y="306" width="100" height="159"/>
+    <SubTexture name="斜杠符号3" x="360" y="306" width="100" height="159"/>
+    <SubTexture name="施工" x="2" y="467" width="75" height="67"/>
+    <SubTexture name="无人看守铁路道口" x="79" y="467" width="75" height="67"/>
+    <SubTexture name="易滑" x="156" y="467" width="75" height="67"/>
+    <SubTexture name="有人看守铁路道口" x="233" y="467" width="75" height="67"/>
+    <SubTexture name="村庄" x="310" y="467" width="75" height="67"/>
+    <SubTexture name="注意信号灯" x="387" y="467" width="75" height="67"/>
+    <SubTexture name="注意儿童" x="2" y="536" width="75" height="67"/>
+    <SubTexture name="注意危险" x="79" y="536" width="75" height="67"/>
+    <SubTexture name="注意横风" x="156" y="536" width="75" height="67"/>
+    <SubTexture name="注意牲畜" x="233" y="536" width="75" height="67"/>
+    <SubTexture name="注意落石L" x="310" y="536" width="75" height="67"/>
+    <SubTexture name="注意落石R" x="387" y="536" width="75" height="67"/>
+    <SubTexture name="注意行人" x="2" y="605" width="75" height="67"/>
+    <SubTexture name="注意非机动车" x="79" y="605" width="75" height="67"/>
+    <SubTexture name="渡口" x="156" y="605" width="75" height="67"/>
+    <SubTexture name="环形交叉" x="233" y="605" width="75" height="67"/>
+    <SubTexture name="窄桥" x="310" y="605" width="75" height="67"/>
+    <SubTexture name="路面不平" x="387" y="605" width="75" height="67"/>
+    <SubTexture name="过水路面" x="2" y="674" width="75" height="67"/>
+    <SubTexture name="连续弯路" x="79" y="674" width="75" height="67"/>
+    <SubTexture name="隧道" x="156" y="674" width="75" height="67"/>
+    <SubTexture name="驼峰桥" x="233" y="674" width="75" height="67"/>
+</TextureAtlas>

@@ -8,6 +8,7 @@ package com.derp_octo_lana.app.views
 	import com.derp_octo_lana.app.views.screens.MainMenuScreen;
 	import com.derp_octo_lana.app.views.screens.SettingScreen;
 	import com.derp_octo_lana.app.views.screens.SplashScreen;
+	import com.derp_octo_lana.app.views.screens.TrafficSignsCategoryScreen;
 	import com.derp_octo_lana.app.views.screens.TrafficSignsScreen;
 	import com.godpaper.as3.utils.LogUtil;
 	
@@ -124,6 +125,7 @@ package com.derp_octo_lana.app.views
 			this._navigator.addScreen(FlexGlobals.SCREEN_HELP, new ScreenNavigatorItem(HelpScreen));
 			this._navigator.addScreen(FlexGlobals.SCREEN_LOOBY, new ScreenNavigatorItem(LobbyScreen));
 			this._navigator.addScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS, new ScreenNavigatorItem(TrafficSignsScreen));
+			this._navigator.addScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS_CATEGORY, new ScreenNavigatorItem(TrafficSignsCategoryScreen));
 			
 			//Store the navigator ref to FlexGlobals.
 			FlexGlobals.screenNavigator = this._navigator;

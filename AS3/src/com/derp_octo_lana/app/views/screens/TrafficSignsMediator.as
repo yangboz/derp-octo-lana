@@ -22,7 +22,7 @@ package com.derp_octo_lana.app.views.screens
 	 * Created Mar 14, 2013 10:23:42 AM
 	 * @history 05/00/12,
 	 */ 
-	public class TrafficSignsScreenMediator extends StarlingMediator
+	public class TrafficSignsMediator extends StarlingMediator
 	{ 
 		//--------------------------------------------------------------------------
 		//
@@ -33,7 +33,7 @@ package com.derp_octo_lana.app.views.screens
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		private static const LOG:ILogger = LogUtil.getLogger(TrafficSignsScreenMediator);
+		private static const LOG:ILogger = LogUtil.getLogger(TrafficSignsMediator);
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -53,7 +53,7 @@ package com.derp_octo_lana.app.views.screens
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function TrafficSignsScreenMediator()
+		public function TrafficSignsMediator()
 		{
 			super();
 		} 

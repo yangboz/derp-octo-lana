@@ -1,13 +1,7 @@
 
-package com.derp_octo_lana.app.consts
+package com.derp_octo_lana.app.views.screens
 {
-	import com.derp_octo_lana.app.models.UserModel;
-	import com.godpaper.as3.plugins.playerIO.PlayerIoPlugin;
-	import com.godpaper.as3.utils.SingletonFactory;
-	
-	import flash.display.Stage;
-	
-	import feathers.controls.ScreenNavigator;
+	import org.robotlegs.mvcs.StarlingMediator;
 
 	//--------------------------------------------------------------------------
 	//
@@ -16,47 +10,26 @@ package com.derp_octo_lana.app.consts
 	//--------------------------------------------------------------------------
 	
 	/**
-	 * FlexGlobals.as class. 
+	 * TrafficSignsCategoryMediator.as class. 
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
-	 * Created Mar 9, 2013 5:43:21 PM
+	 * Created Mar 14, 2013 6:37:52 PM
 	 * @history 05/00/12,
 	 */ 
-	public class FlexGlobals
+	public class TrafficSignsCategoryMediator extends StarlingMediator
 	{ 
 		//--------------------------------------------------------------------------
 		//
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-		public static var screenNavigator:ScreenNavigator;
-		public static var flashStage:Stage;
-		//Model
-		public static var userModel:UserModel = SingletonFactory.produce(UserModel);
-		//Plugin
-		public static var playerIoPlugin:PlayerIoPlugin = SingletonFactory.produce(PlayerIoPlugin);
-		//Game turn flag init.(0,1,2...)
-		public static var turnFlag:int;
-		//Store the user pre-selected category value comes from Traffic Signs Screen.
-		public static var selectedTSgroup:String;
+
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		public static const SCREEN_SPLASH:String = "screen_splash";
-		public static const SCREEN_MAIN_MENU:String = "screen_main_menu";
-		public static const SCREEN_GAME:String = "screen_game";
-		public static const SCREEN_HANDSHAKE:String = "screen_handshake";
-		public static const SCREEN_SETTINGS:String = "screen_settings";
-		public static const SCREEN_HELP:String = "screen_help";
-		public static const SCREEN_LOOBY:String = "screen_looby";
-		public static const SCREEN_TRAFFIC_SIGNS:String = "screen_traffic_signs";
-		public static const SCREEN_TRAFFIC_SIGNS_CATEGORY:String = "screen_traffic_signs_category";
-		//about chess pieces' flag
-		public static const FLAG_RED:uint=0;//0(000)
-		public static const FLAG_BLUE:uint=1<<0;//1(010)
-		public static const FLAG_GREEN:uint=1<<1;//2(100)
+		
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -76,7 +49,10 @@ package com.derp_octo_lana.app.consts
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		
+		public function TrafficSignsCategoryMediator()
+		{
+			super();
+		} 
 		//--------------------------------------------------------------------------
 		//
 		// Public methods

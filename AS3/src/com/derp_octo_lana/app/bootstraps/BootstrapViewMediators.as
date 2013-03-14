@@ -11,8 +11,10 @@ package com.derp_octo_lana.app.bootstraps
 	import com.derp_octo_lana.app.views.screens.LobbyScreenMediator;
 	import com.derp_octo_lana.app.views.screens.SplashScreen;
 	import com.derp_octo_lana.app.views.screens.SplashScreenMediator;
+	import com.derp_octo_lana.app.views.screens.TrafficSignsCategoryMediator;
+	import com.derp_octo_lana.app.views.screens.TrafficSignsCategoryScreen;
+	import com.derp_octo_lana.app.views.screens.TrafficSignsMediator;
 	import com.derp_octo_lana.app.views.screens.TrafficSignsScreen;
-	import com.derp_octo_lana.app.views.screens.TrafficSignsScreenMediator;
 	
 	import org.robotlegs.core.IStarlingMediatorMap;
 
@@ -69,7 +71,8 @@ package com.derp_octo_lana.app.bootstraps
 			mediatorMap.mapView(GameScreen,GameScreenMediator);
 			mediatorMap.mapView(LobbyScreen,LobbyScreenMediator);
 			mediatorMap.mapView(HelpScreen,HelpScreenMediator);
-			mediatorMap.mapView(TrafficSignsScreen,TrafficSignsScreenMediator);
+			mediatorMap.mapView(TrafficSignsScreen,TrafficSignsMediator);
+			mediatorMap.mapView(TrafficSignsCategoryScreen,TrafficSignsCategoryMediator);
 		} 
 		//--------------------------------------------------------------------------
 		//
