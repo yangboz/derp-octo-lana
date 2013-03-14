@@ -6,6 +6,10 @@ package com.derp_octo_lana.app.views.screens
 	// Imports
 	//
 	//--------------------------------------------------------------------------
+	import com.godpaper.as3.utils.LogUtil;
+	
+	import mx.logging.ILogger;
+	
 	import org.robotlegs.mvcs.StarlingMediator;
 	
 	
@@ -29,7 +33,7 @@ package com.derp_octo_lana.app.views.screens
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		
+		private static const LOG:ILogger = LogUtil.getLogger(TrafficSignsScreenMediator);
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -58,7 +62,19 @@ package com.derp_octo_lana.app.views.screens
 		// Public methods
 		//
 		//--------------------------------------------------------------------------
-		
+		override public function onRegister():void
+		{
+			LOG.info("onRegister");
+			//
+			
+		}
+		//
+		override public function onRemove():void
+		{
+			LOG.info("onRemove");
+			//
+			
+		}
 		//--------------------------------------------------------------------------
 		//
 		// Protected methods

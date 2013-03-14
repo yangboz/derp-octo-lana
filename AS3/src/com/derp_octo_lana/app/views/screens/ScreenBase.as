@@ -1,13 +1,16 @@
 
 package com.derp_octo_lana.app.views.screens {
+	import com.derp_octo_lana.app.consts.FlexGlobals;
+	
 	import feathers.controls.Button;
 	import feathers.controls.Header;
 	import feathers.controls.Screen;
-
+	import feathers.system.DeviceCapabilities;
+	
+	import starling.core.Starling;
 	import starling.display.DisplayObject;
 	import starling.events.Event;
 
-	import com.derp_octo_lana.app.consts.FlexGlobals;
 	//--------------------------------------------------------------------------
 	//
 	// Imports
@@ -90,7 +93,9 @@ package com.derp_octo_lana.app.views.screens {
 		{
 			//
 			this._backButton = new Button();
-			this._backButton.label = "BACK";
+			this._backButton.label = "返回";
+			//TODO:tablet handler
+			//
 			this._backButton.addEventListener(Event.TRIGGERED, back_button_triggeredHandler);
 			var items:Vector.<DisplayObject>  = new Vector.<DisplayObject>();
 			items.push(_backButton);

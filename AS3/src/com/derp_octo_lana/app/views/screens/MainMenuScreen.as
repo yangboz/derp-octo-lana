@@ -64,7 +64,8 @@ package com.derp_octo_lana.app.views.screens
 		public function MainMenuScreen()
 		{
 			super();
-			this.headerTitle = "Main Menu";
+			//
+			this.headerTitle = "主菜单";
 		} 
 		//--------------------------------------------------------------------------
 		//
@@ -83,10 +84,10 @@ package com.derp_octo_lana.app.views.screens
 			this._buttonGroup = new ButtonGroup();
 			this._buttonGroup.dataProvider = new ListCollection(
 				[
-					{ label: "Play", triggered: play_button_triggeredHandler },
-					{ label: "Help", triggered: button_triggeredHandler },
-					{ label: "About", triggered: button_triggeredHandler },
-					{ label: "Test", triggered: test_button_triggeredHandler }
+					{ label: "开始游戏", triggered: play_button_triggeredHandler },
+					{ label: "帮助", triggered: button_triggeredHandler },
+					{ label: "关于", triggered: button_triggeredHandler },
+					{ label: "交通标识", triggered: test_button_triggeredHandler }
 				]);
 			this.addChild(this._buttonGroup);
 			// handles the back hardware key on android
@@ -96,7 +97,7 @@ package com.derp_octo_lana.app.views.screens
 		{
 			var items:Vector.<DisplayObject>=new Vector.<DisplayObject>();
 			this._settingBtn = new Button();
-			this._settingBtn.label = "Setting";
+			this._settingBtn.label = "设置";
 			this._settingBtn.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 			items.push(_settingBtn);
 			return items;
