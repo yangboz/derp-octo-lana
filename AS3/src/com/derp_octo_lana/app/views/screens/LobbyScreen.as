@@ -112,6 +112,7 @@ package com.derp_octo_lana.app.views.screens
 		//--------------------------------------------------------------------------
 		protected function layout():void
 		{
+			if(!this._pageIndicator) this._pageIndicator = new PageIndicator();
 			this._pageIndicator.width = this.stage.stageWidth;
 			this._pageIndicator.validate();
 			this._pageIndicator.y = this.stage.stageHeight - this._pageIndicator.height;

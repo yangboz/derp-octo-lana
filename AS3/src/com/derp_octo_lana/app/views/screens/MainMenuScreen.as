@@ -1,4 +1,5 @@
-package com.derp_octo_lana.app.views.screens {
+package com.derp_octo_lana.app.views.screens 
+{
 	import feathers.controls.Button;
 	import feathers.controls.ButtonGroup;
 	import feathers.data.ListCollection;
@@ -19,7 +20,6 @@ package com.derp_octo_lana.app.views.screens {
 	//
 	// --------------------------------------------------------------------------
 	
-	[Event(name="complete",type="starling.events.Event")]
 	/**
 	 * MainMenuScreen.as class. 
 	 * @author yangboz
@@ -79,19 +79,21 @@ package com.derp_octo_lana.app.views.screens {
 		override protected function initialize():void
 		{
 			super.initialize();
+			//
 			this._buttonGroup = new ButtonGroup();
 			this._buttonGroup.dataProvider = new ListCollection(
 				[
 					{ label: "Play", triggered: play_button_triggeredHandler },
 					{ label: "Help", triggered: button_triggeredHandler },
-					{ label: "Credits", triggered: button_triggeredHandler },
 					{ label: "About", triggered: button_triggeredHandler },
+					{ label: "Test", triggered: test_button_triggeredHandler }
 				]);
 			this.addChild(this._buttonGroup);
 			// handles the back hardware key on android
 		}
 
-		override protected function getHeaderRightItems() : Vector.<DisplayObject> {
+		override protected function getHeaderRightItems() : Vector.<DisplayObject> 
+		{
 			var items:Vector.<DisplayObject>=new Vector.<DisplayObject>();
 			this._settingBtn = new Button();
 			this._settingBtn.label = "Setting";
@@ -100,13 +102,15 @@ package com.derp_octo_lana.app.views.screens {
 			return items;
 		}
 
-		override protected function getHeaderLeftItems() : Vector.<DisplayObject> {
+		override protected function getHeaderLeftItems() : Vector.<DisplayObject> 
+		{
 			return new Vector.<DisplayObject>();
 		}
 		
 		override protected function draw():void
 		{
 			super.draw();
+			//
 			this._buttonGroup.validate();
 			this._buttonGroup.x = (this.actualWidth - this._buttonGroup.width) / 2;
 			this._buttonGroup.y = this._header.height + (this.actualHeight - this._header.height - this._buttonGroup.height) / 2;
@@ -116,24 +120,26 @@ package com.derp_octo_lana.app.views.screens {
 		// Private methods
 		//
 		//--------------------------------------------------------------------------
+		//
 		private function backButton_triggeredHandler(event:Event):void
 		{
-			event;
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_SETTINGS);
 		}
-		
+		//
 		private function button_triggeredHandler(event:Event):void
 		{
-			const button:Button = Button(event.currentTarget);
-			button.label;
 			//trace(button.label + " triggered.");
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_HELP);
 		}
 		//
 		private function play_button_triggeredHandler(event:Event):void
 		{
-			event;
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_LOOBY);
+		}
+		//
+		private function test_button_triggeredHandler(event:Event):void
+		{
+			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS);
 		}
 	}
 	

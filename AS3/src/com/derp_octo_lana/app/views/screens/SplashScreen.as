@@ -1,4 +1,3 @@
-
 package com.derp_octo_lana.app.views.screens
 {
 	//--------------------------------------------------------------------------
@@ -64,10 +63,10 @@ package com.derp_octo_lana.app.views.screens
 		private static const LOG:ILogger = LogUtil.getLogger(SplashScreen);
 		
 		//Particle system(config,texture)
-		[Embed(source="../../../../assets/particleSystem/particle-snow.pex", mimeType="application/octet-stream")]
+		[Embed(source="../../../../../assets/particleSystem/particle-snow.pex", mimeType="application/octet-stream")]
 		private static const StarParticleConfig:Class;
 		
-		[Embed(source="../../../../assets/particleSystem/particle-snow.png")]
+		[Embed(source="../../../../../assets/particleSystem/particle-snow.png")]
 		private static const StarParticle:Class;
 		//--------------------------------------------------------------------------
 		//
@@ -124,7 +123,7 @@ package com.derp_octo_lana.app.views.screens
 			this.addChild(this._container);
 			//
 			//			this._label = new TextField(100,20,"LOADING...");
-			this._label = new TextField(100,20,"LOADING");
+			this._label = new TextField(100,20,"LOADING...");
 			this._container.addChild(this._label);
 			//
 			this._progress = new ProgressBar();

@@ -10,7 +10,7 @@ package com.derp_octo_lana.app.views.screens
 	
 	import mx.logging.ILogger;
 	
-	import org.robotlegs.mvcs.Mediator;
+	import org.robotlegs.mvcs.StarlingMediator;
 	
 	
 	/**
@@ -22,7 +22,7 @@ package com.derp_octo_lana.app.views.screens
 	 * Created 2013-3-12 下午2:45:05
 	 * @history 05/00/12,
 	 */ 
-	public class HelpScreenMediator extends Mediator
+	public class HelpScreenMediator extends StarlingMediator
 	{ 
 		//--------------------------------------------------------------------------
 		//
