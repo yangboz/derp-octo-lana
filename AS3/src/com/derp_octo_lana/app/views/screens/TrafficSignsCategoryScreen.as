@@ -1,30 +1,17 @@
-
 package com.derp_octo_lana.app.views.screens
 {
 	import com.derp_octo_lana.app.consts.FlexGlobals;
-	import com.derp_octo_lana.app.models.TrafficSignsModel;
 	
 	import feathers.controls.Button;
-	import feathers.controls.Callout;
-	import feathers.controls.Label;
 	import feathers.controls.List;
 	import feathers.controls.PageIndicator;
 	import feathers.controls.renderers.DefaultListItemRenderer;
 	import feathers.controls.renderers.IListItemRenderer;
 	import feathers.data.ListCollection;
 	import feathers.layout.TiledRowsLayout;
-	import feathers.text.BitmapFontTextFormat;
 	
-	import org.robotlegs.mvcs.StarlingMediator;
-	
-	import starling.display.DisplayObject;
-	import starling.display.Image;
-	import starling.display.Sprite;
 	import starling.events.Event;
 	import starling.events.ResizeEvent;
-	import starling.text.BitmapFont;
-	import starling.textures.Texture;
-	import starling.textures.TextureAtlas;
 
 	//--------------------------------------------------------------------------
 	//
@@ -49,11 +36,9 @@ package com.derp_octo_lana.app.views.screens
 		//
 		//--------------------------------------------------------------------------
 		//
+		private var _collection:ListCollection;
 		private var _list:List;
 		private var _pageIndicator:PageIndicator;
-		//Model
-		[Inject]
-		public var traffic_signs_model:TrafficSignsModel;
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
@@ -88,7 +73,14 @@ package com.derp_octo_lana.app.views.screens
 		// Public methods
 		//
 		//--------------------------------------------------------------------------
-		
+		//
+		public function updateTileList(categories:ListCollection):void
+		{
+			this._collection = categories;//Refresh the tabel tile-list.
+			//relayout for view update.
+			this._list.dataProvider = this._collection;
+			this.layout();
+		}
 		//--------------------------------------------------------------------------
 		//
 		// Protected methods
@@ -100,8 +92,8 @@ package com.derp_octo_lana.app.views.screens
 			super.initialize();
 			//
 			this.stage.addEventListener(ResizeEvent.RESIZE, stage_resizeHandler);
-			
-			const collection:ListCollection = traffic_signs_model.traffic_signs_categories[FlexGlobals.selectedTSgroup];
+			//
+			this._collection = new ListCollection();
 			const listLayout:TiledRowsLayout = new TiledRowsLayout();
 			listLayout.paging = TiledRowsLayout.PAGING_HORIZONTAL;
 			listLayout.useSquareTiles = false;
@@ -109,7 +101,7 @@ package com.derp_octo_lana.app.views.screens
 			listLayout.horizontalAlign = TiledRowsLayout.HORIZONTAL_ALIGN_CENTER;
 			
 			this._list = new List();
-			this._list.dataProvider = collection;
+			this._list.dataProvider = this._collection;
 			this._list.layout = listLayout;
 			//			this._list.snapToPages = true;
 			//			this._list.scrollBarDisplayMode = List.SCROLL_BAR_DISPLAY_MODE_NONE;

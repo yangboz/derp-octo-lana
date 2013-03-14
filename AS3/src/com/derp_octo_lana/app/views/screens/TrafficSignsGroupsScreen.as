@@ -1,14 +1,11 @@
-
 package com.derp_octo_lana.app.views.screens
 {
 	import com.derp_octo_lana.app.consts.FlexGlobals;
-	import com.derp_octo_lana.app.models.TrafficSignsModel;
 	import com.godpaper.as3.utils.LogUtil;
 	
 	import mx.logging.ILogger;
 	
 	import feathers.controls.GroupedList;
-	import feathers.data.HierarchicalCollection;
 	
 	import starling.events.Event;
 
@@ -19,7 +16,7 @@ package com.derp_octo_lana.app.views.screens
 	//--------------------------------------------------------------------------
 	
 	/**
-	 * TrafficSignsScreen.as class. 
+	 * TrafficSignsGroupsScreen.as class. 
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
@@ -27,21 +24,18 @@ package com.derp_octo_lana.app.views.screens
 	 * Created Mar 14, 2013 10:21:45 AM
 	 * @history 05/00/12,
 	 */ 
-	public class TrafficSignsScreen extends ScreenBase
+	public class TrafficSignsGroupsScreen extends ScreenBase
 	{ 
 		//--------------------------------------------------------------------------
 		//
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-		private var _gList:GroupedList;
-		//Injects
-		[Inject]
-		public var traffic_signs_model:TrafficSignsModel;
+		public var _gList:GroupedList;
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		private static const LOG:ILogger = LogUtil.getLogger(TrafficSignsScreen);
+		private static const LOG:ILogger = LogUtil.getLogger(TrafficSignsGroupsScreen);
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -61,7 +55,7 @@ package com.derp_octo_lana.app.views.screens
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function TrafficSignsScreen()
+		public function TrafficSignsGroupsScreen()
 		{
 			super();
 			//
@@ -83,7 +77,7 @@ package com.derp_octo_lana.app.views.screens
 			super.initialize();
 			//
 			this._gList = new GroupedList();
-			this._gList.dataProvider = new HierarchicalCollection(traffic_signs_model.traffic_signs_groups);
+//			this._gList.dataProvider = new HierarchicalCollection(traffic_signs_model.traffic_signs_groups);
 			this._gList.typicalItem = { text: "Item 1000" };
 			this._gList.typicalHeader = "Group 10";
 			this._gList.typicalFooter = "Footer 10";

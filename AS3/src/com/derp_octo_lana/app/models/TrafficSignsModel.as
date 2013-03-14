@@ -106,6 +106,11 @@ package com.derp_octo_lana.app.models
 			this.traffic_signs_categories['警告标志'] = new ListCollection(
 				[
 					{ label: "T形交叉", texture: this._iconAtlas.getTexture("T形交叉") },
+					{ label: "T形交叉L", texture: this._iconAtlas.getTexture("T形交叉L") },
+					{ label: "T形交叉R", texture: this._iconAtlas.getTexture("T形交叉R") },
+					{ label: "Y形交叉", texture: this._iconAtlas.getTexture("Y形交叉") },
+					{ label: "上坡路", texture: this._iconAtlas.getTexture("上坡路") },
+					{ label: "下坡路", texture: this._iconAtlas.getTexture("下坡路") },
 				]);
 			this.traffic_signs_categories['禁令标志'] = new ListCollection(
 				[

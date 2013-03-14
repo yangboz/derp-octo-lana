@@ -1,6 +1,8 @@
-
 package com.derp_octo_lana.app.views.screens
 {
+	import com.derp_octo_lana.app.consts.FlexGlobals;
+	import com.derp_octo_lana.app.models.TrafficSignsModel;
+	
 	import org.robotlegs.mvcs.StarlingMediator;
 
 	//--------------------------------------------------------------------------
@@ -25,7 +27,9 @@ package com.derp_octo_lana.app.views.screens
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-
+		//Model
+		[Inject]
+		public var traffic_signs_model:TrafficSignsModel;
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
@@ -64,7 +68,10 @@ package com.derp_octo_lana.app.views.screens
 		// Protected methods
 		//
 		//--------------------------------------------------------------------------
-		
+		override public function onRegister():void
+		{
+			this.viewComponent.updateTileList( traffic_signs_model.traffic_signs_categories[FlexGlobals.selectedTSgroup] );
+		}
 		//--------------------------------------------------------------------------
 		//
 		// Private methods
