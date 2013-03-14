@@ -23,6 +23,7 @@ package com.derp_octo_lana.app.models
 	
 	/**
 	 * TrafficSignsModel.as class. 
+	 * @see http://www.jsyks.com/jtbz/zhishibiaozhi/%E6%8C%87%E7%A4%BA%E6%A0%87%E5%BF%97/1
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
@@ -105,12 +106,23 @@ package com.derp_octo_lana.app.models
 			//Static data sets initialization.
 			this.traffic_signs_categories['警告标志'] = new ListCollection(
 				[
+					{ label: "十字交叉", texture: this._iconAtlas.getTexture("十字交叉") },
 					{ label: "T形交叉", texture: this._iconAtlas.getTexture("T形交叉") },
 					{ label: "T形交叉L", texture: this._iconAtlas.getTexture("T形交叉L") },
 					{ label: "T形交叉R", texture: this._iconAtlas.getTexture("T形交叉R") },
 					{ label: "Y形交叉", texture: this._iconAtlas.getTexture("Y形交叉") },
-					{ label: "上坡路", texture: this._iconAtlas.getTexture("上坡路") },
-					{ label: "下坡路", texture: this._iconAtlas.getTexture("下坡路") },
+					{ label: "环形交叉", texture: this._iconAtlas.getTexture("环形交叉") },
+					{ label: "向左急弯路", texture: this._iconAtlas.getTexture("向左急弯路") },
+					{ label: "向右急弯路", texture: this._iconAtlas.getTexture("向右急弯路") },
+					{ label: "反向弯路", texture: this._iconAtlas.getTexture("反向弯路") },
+					{ label: "连续弯路", texture: this._iconAtlas.getTexture("连续弯路") },
+					{ label: "上陡坡", texture: this._iconAtlas.getTexture("上陡坡") },
+					{ label: "下陡坡", texture: this._iconAtlas.getTexture("下陡坡") },
+					{ label: "两侧变窄", texture: this._iconAtlas.getTexture("两侧变窄") },
+					{ label: "右侧变窄", texture: this._iconAtlas.getTexture("右侧变窄") },
+					{ label: "左侧变窄", texture: this._iconAtlas.getTexture("左侧变窄") },
+					
+					
 				]);
 			this.traffic_signs_categories['禁令标志'] = new ListCollection(
 				[

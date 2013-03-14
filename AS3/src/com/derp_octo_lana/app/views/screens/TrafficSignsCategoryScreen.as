@@ -130,7 +130,12 @@ package com.derp_octo_lana.app.views.screens
 				this._pageIndicator.paddingLeft = 6;
 			this._pageIndicator.addEventListener(Event.CHANGE, pageIndicator_changeHandler);
 			this.addChild(this._pageIndicator);
-			
+		}
+		//
+		override protected function draw():void
+		{
+			super.draw();
+			//
 			this.layout();
 		}
 		//
@@ -177,6 +182,7 @@ package com.derp_octo_lana.app.views.screens
 			this._list.itemRendererProperties.gap = shorterSide * 0.01;
 			
 			this._list.width = this.stage.stageWidth;
+			this._list.y = this._header.height;
 			this._list.height = this._pageIndicator.y;
 			this._list.validate();
 			
@@ -190,7 +196,7 @@ package com.derp_octo_lana.app.views.screens
 		//Call out the table detail information.
 		private function list_changeHandler(event:Event):void
 		{
-			trace(this._list.selectedItem);
+//			trace(this._list.selectedItem);
 		}
 	}
 	
