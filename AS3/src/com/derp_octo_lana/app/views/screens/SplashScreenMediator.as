@@ -1,36 +1,35 @@
 
-package com.derp_octo_lana.app.views
+package com.derp_octo_lana.app.views.screens
 {
 	//--------------------------------------------------------------------------
 	//
 	// Imports
 	//
 	//--------------------------------------------------------------------------
-	import com.godpaper.as3.utils.LogUtil;
-	
-	import mx.logging.ILogger;
+	import org.robotlegs.mvcs.StarlingMediator;
 	
 	
 	/**
-	 * GameScreen.as class. 
+	 * SplashScreenMediator.as class. 
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
-	 * Created Mar 12, 2013 12:22:12 PM
+	 * Created Mar 9, 2013 5:39:48 PM
 	 * @history 05/00/12,
 	 */ 
-	public class GameScreen extends ScreenBase
+	public class SplashScreenMediator extends StarlingMediator
 	{ 
 		//--------------------------------------------------------------------------
 		//
 		// Variables
 		//
 		//--------------------------------------------------------------------------
+		
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		private static const LOG:ILogger = LogUtil.getLogger(GameScreen);
+		
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -50,7 +49,7 @@ package com.derp_octo_lana.app.views
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function GameScreen()
+		public function SplashScreenMediator()
 		{
 			super();
 		} 
@@ -65,6 +64,7 @@ package com.derp_octo_lana.app.views
 		// Protected methods
 		//
 		//--------------------------------------------------------------------------
+		
 		//--------------------------------------------------------------------------
 		//
 		// Private methods

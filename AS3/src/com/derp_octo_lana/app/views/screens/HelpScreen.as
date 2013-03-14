@@ -1,35 +1,36 @@
 
-package com.derp_octo_lana.app.views
+package com.derp_octo_lana.app.views.screens
 {
 	//--------------------------------------------------------------------------
 	//
 	// Imports
 	//
 	//--------------------------------------------------------------------------
-	import org.robotlegs.mvcs.StarlingMediator;
+	import com.godpaper.as3.utils.LogUtil;
+	
+	import mx.logging.ILogger;
 	
 	
 	/**
-	 * SplashScreenMediator.as class. 
-	 * @author yangboz
+	 * HelpScreen.as class. 
+	 * @author Administrator
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
-	 * Created Mar 9, 2013 5:39:48 PM
+	 * Created 2013-3-12 下午2:34:47
 	 * @history 05/00/12,
 	 */ 
-	public class SplashScreenMediator extends StarlingMediator
+	public class HelpScreen extends ScreenBase
 	{ 
 		//--------------------------------------------------------------------------
 		//
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-		
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		
+		private static const LOG:ILogger = LogUtil.getLogger(HelpScreen);
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -49,9 +50,11 @@ package com.derp_octo_lana.app.views
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function SplashScreenMediator()
+		public function HelpScreen()
 		{
 			super();
+			
+			this.headerTitle = '帮助';
 		} 
 		//--------------------------------------------------------------------------
 		//
@@ -64,7 +67,7 @@ package com.derp_octo_lana.app.views
 		// Protected methods
 		//
 		//--------------------------------------------------------------------------
-		
+		 
 		//--------------------------------------------------------------------------
 		//
 		// Private methods

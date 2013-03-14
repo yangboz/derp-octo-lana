@@ -1,5 +1,5 @@
 
-package com.derp_octo_lana.app.views
+package com.derp_octo_lana.app.views.screens
 {
 	//--------------------------------------------------------------------------
 	//
@@ -14,15 +14,15 @@ package com.derp_octo_lana.app.views
 	
 	
 	/**
-	 * LobbyScreenMediator.as class. 
+	 * GameScreenMediator.as class. 
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
-	 * Created Mar 12, 2013 6:01:56 PM
+	 * Created Mar 12, 2013 12:28:13 PM
 	 * @history 05/00/12,
 	 */ 
-	public class LobbyScreenMediator extends StarlingMediator
+	public class GameScreenMediator extends StarlingMediator
 	{ 
 		//--------------------------------------------------------------------------
 		//
@@ -33,7 +33,7 @@ package com.derp_octo_lana.app.views
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		private static const LOG:ILogger = LogUtil.getLogger(LobbyScreenMediator);
+		private static const LOG:ILogger = LogUtil.getLogger(GameScreenMediator);
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -53,7 +53,7 @@ package com.derp_octo_lana.app.views
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function LobbyScreenMediator()
+		public function GameScreenMediator()
 		{
 			super();
 		} 
@@ -66,7 +66,7 @@ package com.derp_octo_lana.app.views
 		{
 			LOG.info("onRegister");
 		}
-		//
+		
 		override public function onRemove():void
 		{
 			LOG.info("onRemove");

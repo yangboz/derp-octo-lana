@@ -1,4 +1,4 @@
-package com.derp_octo_lana.app.views {
+package com.derp_octo_lana.app.views.screens {
 	import flash.display.StageDisplayState;
 	import feathers.controls.Check;
 	import com.derp_octo_lana.app.consts.FlexGlobals;

@@ -1,5 +1,5 @@
 
-package com.derp_octo_lana.app.views
+package com.derp_octo_lana.app.views.screens
 {
 	//--------------------------------------------------------------------------
 	//
@@ -10,31 +10,27 @@ package com.derp_octo_lana.app.views
 	
 	import mx.logging.ILogger;
 	
-	import org.robotlegs.mvcs.Mediator;
-	
 	
 	/**
-	 * HelpScreenMediator.as class. 
-	 * @author Administrator
+	 * GameScreen.as class. 
+	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
-	 * Created 2013-3-12 下午2:45:05
+	 * Created Mar 12, 2013 12:22:12 PM
 	 * @history 05/00/12,
 	 */ 
-	public class HelpScreenMediator extends Mediator
+	public class GameScreen extends ScreenBase
 	{ 
 		//--------------------------------------------------------------------------
 		//
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-		
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		private static const LOG:ILogger = LogUtil.getLogger(GameScreenMediator);
-		
+		private static const LOG:ILogger = LogUtil.getLogger(GameScreen);
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -54,7 +50,7 @@ package com.derp_octo_lana.app.views
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function HelpScreenMediator()
+		public function GameScreen()
 		{
 			super();
 		} 
@@ -63,21 +59,12 @@ package com.derp_octo_lana.app.views
 		// Public methods
 		//
 		//--------------------------------------------------------------------------
-		override public function onRegister():void
-		{
-			LOG.info("onRegister");
-		}
 		
-		override public function onRemove():void
-		{
-			LOG.info("onRemove");
-		}
 		//--------------------------------------------------------------------------
 		//
 		// Protected methods
 		//
 		//--------------------------------------------------------------------------
-		
 		//--------------------------------------------------------------------------
 		//
 		// Private methods

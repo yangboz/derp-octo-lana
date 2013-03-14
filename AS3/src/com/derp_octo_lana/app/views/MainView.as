@@ -1,7 +1,13 @@
-
-package com.derp_octo_lana.app.views {
+package com.derp_octo_lana.app.views 
+{
 	import com.derp_octo_lana.app.consts.FlexGlobals;
 	import com.derp_octo_lana.app.context.MainStarlingViewContext;
+	import com.derp_octo_lana.app.views.screens.GameScreen;
+	import com.derp_octo_lana.app.views.screens.HelpScreen;
+	import com.derp_octo_lana.app.views.screens.LobbyScreen;
+	import com.derp_octo_lana.app.views.screens.MainMenuScreen;
+	import com.derp_octo_lana.app.views.screens.SettingScreen;
+	import com.derp_octo_lana.app.views.screens.SplashScreen;
 	import com.godpaper.as3.utils.LogUtil;
 	
 	import flash.ui.Mouse;
@@ -17,6 +23,7 @@ package com.derp_octo_lana.app.views {
 	
 	import starling.display.Sprite;
 	import starling.events.Event;
+
 	//--------------------------------------------------------------------------
 	//
 	// Imports

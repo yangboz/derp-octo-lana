@@ -1,5 +1,5 @@
 
-package com.derp_octo_lana.app.views
+package com.derp_octo_lana.app.views.screens
 {
 	//--------------------------------------------------------------------------
 	//
@@ -10,19 +10,19 @@ package com.derp_octo_lana.app.views
 	
 	import mx.logging.ILogger;
 	
-	import org.robotlegs.mvcs.StarlingMediator;
+	import org.robotlegs.mvcs.Mediator;
 	
 	
 	/**
-	 * GameScreenMediator.as class. 
-	 * @author yangboz
+	 * HelpScreenMediator.as class. 
+	 * @author Administrator
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
-	 * Created Mar 12, 2013 12:28:13 PM
+	 * Created 2013-3-12 下午2:45:05
 	 * @history 05/00/12,
 	 */ 
-	public class GameScreenMediator extends StarlingMediator
+	public class HelpScreenMediator extends Mediator
 	{ 
 		//--------------------------------------------------------------------------
 		//
@@ -34,6 +34,7 @@ package com.derp_octo_lana.app.views
 		// CONSTANTS
 		//----------------------------------
 		private static const LOG:ILogger = LogUtil.getLogger(GameScreenMediator);
+		
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -53,7 +54,7 @@ package com.derp_octo_lana.app.views
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function GameScreenMediator()
+		public function HelpScreenMediator()
 		{
 			super();
 		} 

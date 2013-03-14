@@ -1,4 +1,4 @@
-package com.derp_octo_lana.app.views {
+package com.derp_octo_lana.app.views.screens {
 	import feathers.controls.Button;
 	import feathers.controls.ButtonGroup;
 	import feathers.data.ListCollection;
@@ -7,6 +7,7 @@ package com.derp_octo_lana.app.views {
 	import starling.events.Event;
 
 	import com.derp_octo_lana.app.consts.FlexGlobals;
+
 	//--------------------------------------------------------------------------
 	//
 	// Imports

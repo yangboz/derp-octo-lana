@@ -1,14 +1,14 @@
 
 package com.derp_octo_lana.app.bootstraps
 {
-	import com.derp_octo_lana.app.views.GameScreen;
-	import com.derp_octo_lana.app.views.GameScreenMediator;
-	import com.derp_octo_lana.app.views.LobbyScreen;
-	import com.derp_octo_lana.app.views.LobbyScreenMediator;
+	import com.derp_octo_lana.app.views.screens.GameScreen;
+	import com.derp_octo_lana.app.views.screens.GameScreenMediator;
+	import com.derp_octo_lana.app.views.screens.LobbyScreen;
+	import com.derp_octo_lana.app.views.screens.LobbyScreenMediator;
 	import com.derp_octo_lana.app.views.MainView;
 	import com.derp_octo_lana.app.views.MainViewMediator;
-	import com.derp_octo_lana.app.views.SplashScreen;
-	import com.derp_octo_lana.app.views.SplashScreenMediator;
+	import com.derp_octo_lana.app.views.screens.SplashScreen;
+	import com.derp_octo_lana.app.views.screens.SplashScreenMediator;
 	
 	import org.robotlegs.core.IStarlingMediatorMap;
 

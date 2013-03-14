@@ -1,5 +1,5 @@
 
-package com.derp_octo_lana.app.views {
+package com.derp_octo_lana.app.views.screens {
 	import feathers.controls.Button;
 	import feathers.controls.Header;
 	import feathers.controls.Screen;
