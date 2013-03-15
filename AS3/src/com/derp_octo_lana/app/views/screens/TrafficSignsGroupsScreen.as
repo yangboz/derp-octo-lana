@@ -6,8 +6,11 @@ package com.derp_octo_lana.app.views.screens
 	import mx.logging.ILogger;
 	
 	import feathers.controls.GroupedList;
+	import feathers.layout.AnchorLayoutData;
+	import feathers.skins.StandardIcons;
 	
 	import starling.events.Event;
+	import starling.textures.Texture;
 
 	//--------------------------------------------------------------------------
 	//
@@ -85,7 +88,8 @@ package com.derp_octo_lana.app.views.screens
 //			this._gList.hasElasticEdges = this.settings.hasElasticEdges;
 			this._gList.itemRendererProperties.labelField = "text";
 			this._gList.addEventListener(Event.CHANGE, list_changeHandler);
-//			this._gList.layoutData = new AnchorLayoutData(0, 0, 0, 0);
+			this._gList.layoutData = new AnchorLayoutData(0, 0, 0, 0);
+			this._gList.itemRendererProperties.accessorySourceFunction = accessorySourceFunction;
 			this.addChildAt(this._gList, 0);
 		}
 		//
@@ -109,6 +113,11 @@ package com.derp_octo_lana.app.views.screens
 			FlexGlobals.selectedTSgroup = this._gList.selectedItem.text;
 			//
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS_CATEGORY);
+		}
+		//
+		private function accessorySourceFunction(item:Object):Texture
+		{
+			return StandardIcons.listDrillDownAccessoryTexture;
 		}
 	}
 	

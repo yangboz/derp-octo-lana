@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:27b7f88502c6822844bd151a359425cd$ -->
+<!-- $TexturePacker:SmartUpdate:c9518b293764aaf1762e2cfe31f6aa2e$ -->
 <TextureAtlas imagePath="traffic_signs.png">
     <SubTexture name="T形交叉" x="2" y="2" width="75" height="67"/>
     <SubTexture name="T形交叉L" x="79" y="2" width="75" height="67"/>
@@ -10,45 +10,74 @@
     <SubTexture name="下陡坡" x="387" y="2" width="75" height="67"/>
     <SubTexture name="两侧变窄" x="2" y="71" width="75" height="67"/>
     <SubTexture name="事故易发路段" x="79" y="71" width="75" height="67"/>
-    <SubTexture name="傍山险路L" x="156" y="71" width="75" height="67"/>
-    <SubTexture name="傍山险路R" x="233" y="71" width="75" height="67"/>
-    <SubTexture name="十字交叉" x="310" y="71" width="75" height="67"/>
-    <SubTexture name="叉形符号" x="2" y="140" width="150" height="95"/>
-    <SubTexture name="双向交通" x="154" y="140" width="75" height="67"/>
-    <SubTexture name="反向弯路" x="231" y="140" width="75" height="67"/>
-    <SubTexture name="右侧变窄" x="308" y="140" width="75" height="67"/>
-    <SubTexture name="右侧绕行" x="385" y="140" width="75" height="67"/>
-    <SubTexture name="向右急弯路" x="2" y="237" width="75" height="67"/>
-    <SubTexture name="向左急弯路" x="79" y="237" width="75" height="67"/>
-    <SubTexture name="堤坝路L" x="156" y="237" width="75" height="67"/>
-    <SubTexture name="堤坝路R" x="233" y="237" width="75" height="67"/>
-    <SubTexture name="左侧变窄" x="310" y="237" width="75" height="67"/>
-    <SubTexture name="左侧绕行" x="387" y="237" width="75" height="67"/>
-    <SubTexture name="左右绕行" x="2" y="306" width="75" height="67"/>
-    <SubTexture name="慢行" x="79" y="306" width="75" height="67"/>
-    <SubTexture name="斜杠符号" x="156" y="306" width="100" height="159"/>
-    <SubTexture name="斜杠符号2" x="258" y="306" width="100" height="159"/>
-    <SubTexture name="斜杠符号3" x="360" y="306" width="100" height="159"/>
-    <SubTexture name="施工" x="2" y="467" width="75" height="67"/>
-    <SubTexture name="无人看守铁路道口" x="79" y="467" width="75" height="67"/>
-    <SubTexture name="易滑" x="156" y="467" width="75" height="67"/>
-    <SubTexture name="有人看守铁路道口" x="233" y="467" width="75" height="67"/>
-    <SubTexture name="村庄" x="310" y="467" width="75" height="67"/>
-    <SubTexture name="注意信号灯" x="387" y="467" width="75" height="67"/>
-    <SubTexture name="注意儿童" x="2" y="536" width="75" height="67"/>
-    <SubTexture name="注意危险" x="79" y="536" width="75" height="67"/>
-    <SubTexture name="注意横风" x="156" y="536" width="75" height="67"/>
-    <SubTexture name="注意牲畜" x="233" y="536" width="75" height="67"/>
-    <SubTexture name="注意落石L" x="310" y="536" width="75" height="67"/>
-    <SubTexture name="注意落石R" x="387" y="536" width="75" height="67"/>
-    <SubTexture name="注意行人" x="2" y="605" width="75" height="67"/>
-    <SubTexture name="注意非机动车" x="79" y="605" width="75" height="67"/>
-    <SubTexture name="渡口" x="156" y="605" width="75" height="67"/>
-    <SubTexture name="环形交叉" x="233" y="605" width="75" height="67"/>
-    <SubTexture name="窄桥" x="310" y="605" width="75" height="67"/>
-    <SubTexture name="路面不平" x="387" y="605" width="75" height="67"/>
-    <SubTexture name="过水路面" x="2" y="674" width="75" height="67"/>
-    <SubTexture name="连续弯路" x="79" y="674" width="75" height="67"/>
-    <SubTexture name="隧道" x="156" y="674" width="75" height="67"/>
-    <SubTexture name="驼峰桥" x="233" y="674" width="75" height="67"/>
+    <SubTexture name="人行横道" x="156" y="71" width="74" height="75"/>
+    <SubTexture name="会车先行" x="232" y="71" width="74" height="75"/>
+    <SubTexture name="傍山险路L" x="308" y="71" width="75" height="67"/>
+    <SubTexture name="傍山险路R" x="385" y="71" width="75" height="67"/>
+    <SubTexture name="允许掉头" x="2" y="148" width="74" height="75"/>
+    <SubTexture name="公交线路专用车道" x="78" y="148" width="75" height="56"/>
+    <SubTexture name="分向行驶车道" x="155" y="148" width="75" height="56"/>
+    <SubTexture name="十字交叉" x="232" y="148" width="75" height="67"/>
+    <SubTexture name="单行路向左或向右" x="309" y="148" width="75" height="41"/>
+    <SubTexture name="单行路直行" x="386" y="148" width="41" height="75"/>
+    <SubTexture name="叉形符号" x="429" y="148" width="75" height="47"/>
+    <SubTexture name="双向交通" x="2" y="225" width="75" height="67"/>
+    <SubTexture name="反向弯路" x="79" y="225" width="75" height="67"/>
+    <SubTexture name="右侧变窄" x="156" y="225" width="75" height="67"/>
+    <SubTexture name="右侧绕行" x="233" y="225" width="75" height="67"/>
+    <SubTexture name="右转车道" x="310" y="225" width="74" height="75"/>
+    <SubTexture name="向右急弯路" x="386" y="225" width="75" height="67"/>
+    <SubTexture name="向右转弯" x="2" y="302" width="75" height="67"/>
+    <SubTexture name="向左和向右转弯" x="79" y="302" width="75" height="67"/>
+    <SubTexture name="向左急弯路" x="156" y="302" width="75" height="67"/>
+    <SubTexture name="向左转弯" x="233" y="302" width="75" height="67"/>
+    <SubTexture name="堤坝路L" x="310" y="302" width="75" height="67"/>
+    <SubTexture name="堤坝路R" x="387" y="302" width="75" height="67"/>
+    <SubTexture name="左侧变窄" x="2" y="371" width="75" height="67"/>
+    <SubTexture name="左侧绕行" x="79" y="371" width="75" height="67"/>
+    <SubTexture name="左右绕行" x="156" y="371" width="75" height="67"/>
+    <SubTexture name="干路先行" x="233" y="371" width="74" height="75"/>
+    <SubTexture name="慢行" x="309" y="371" width="75" height="67"/>
+    <SubTexture name="斜杠符号" x="386" y="371" width="47" height="75"/>
+    <SubTexture name="斜杠符号1" x="435" y="371" width="47" height="75"/>
+    <SubTexture name="斜杠符号2" x="2" y="448" width="47" height="75"/>
+    <SubTexture name="施工" x="51" y="448" width="75" height="67"/>
+    <SubTexture name="无人看守铁路道口" x="128" y="448" width="75" height="67"/>
+    <SubTexture name="易滑" x="205" y="448" width="75" height="67"/>
+    <SubTexture name="最低限速" x="282" y="448" width="75" height="67"/>
+    <SubTexture name="有人看守铁路道口" x="359" y="448" width="75" height="67"/>
+    <SubTexture name="机动车行驶" x="2" y="525" width="75" height="67"/>
+    <SubTexture name="机动车车道" x="79" y="525" width="75" height="56"/>
+    <SubTexture name="村庄" x="156" y="525" width="75" height="67"/>
+    <SubTexture name="步行" x="233" y="525" width="75" height="67"/>
+    <SubTexture name="注意信号灯" x="310" y="525" width="75" height="67"/>
+    <SubTexture name="注意儿童" x="387" y="525" width="75" height="67"/>
+    <SubTexture name="注意危险" x="2" y="594" width="75" height="67"/>
+    <SubTexture name="注意横风" x="79" y="594" width="75" height="67"/>
+    <SubTexture name="注意牲畜" x="156" y="594" width="75" height="67"/>
+    <SubTexture name="注意落石L" x="233" y="594" width="75" height="67"/>
+    <SubTexture name="注意落石R" x="310" y="594" width="75" height="67"/>
+    <SubTexture name="注意行人" x="387" y="594" width="75" height="67"/>
+    <SubTexture name="注意非机动车" x="2" y="663" width="75" height="67"/>
+    <SubTexture name="渡口" x="79" y="663" width="75" height="67"/>
+    <SubTexture name="环岛行驶" x="156" y="663" width="75" height="67"/>
+    <SubTexture name="环形交叉" x="233" y="663" width="75" height="67"/>
+    <SubTexture name="直行" x="310" y="663" width="75" height="67"/>
+    <SubTexture name="直行和右转合用车道" x="387" y="663" width="74" height="75"/>
+    <SubTexture name="直行和向右转弯" x="2" y="740" width="75" height="67"/>
+    <SubTexture name="直行和向左转弯" x="79" y="740" width="75" height="67"/>
+    <SubTexture name="直行车道" x="156" y="740" width="74" height="75"/>
+    <SubTexture name="窄桥" x="232" y="740" width="75" height="67"/>
+    <SubTexture name="立交直行和右转弯行驶" x="309" y="740" width="75" height="67"/>
+    <SubTexture name="立交直行和左转弯行驶" x="386" y="740" width="75" height="67"/>
+    <SubTexture name="路面不平" x="2" y="817" width="75" height="67"/>
+    <SubTexture name="过水路面" x="79" y="817" width="75" height="67"/>
+    <SubTexture name="连续弯路" x="156" y="817" width="75" height="67"/>
+    <SubTexture name="隧道" x="233" y="817" width="75" height="67"/>
+    <SubTexture name="非机动车行驶" x="310" y="817" width="75" height="67"/>
+    <SubTexture name="非机动车车道" x="387" y="817" width="75" height="56"/>
+    <SubTexture name="靠右侧道路行驶" x="2" y="886" width="75" height="67"/>
+    <SubTexture name="靠左侧道路行驶" x="79" y="886" width="75" height="67"/>
+    <SubTexture name="驼峰桥" x="156" y="886" width="75" height="67"/>
+    <SubTexture name="鸣喇叭" x="233" y="886" width="75" height="67"/>
 </TextureAtlas>
