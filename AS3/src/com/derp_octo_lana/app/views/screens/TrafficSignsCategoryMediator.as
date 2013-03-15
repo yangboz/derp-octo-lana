@@ -70,7 +70,7 @@ package com.derp_octo_lana.app.views.screens
 		//--------------------------------------------------------------------------
 		override public function onRegister():void
 		{
-			this.viewComponent.updateTileList( traffic_signs_model.traffic_signs_categories[FlexGlobals.selectedTSgroup] );
+			this.viewComponent.updateTileList( traffic_signs_model.getAssembledCategories(FlexGlobals.selectedTSgroup) );
 		}
 		//--------------------------------------------------------------------------
 		//

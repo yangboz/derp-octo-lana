@@ -12,6 +12,7 @@ package com.derp_octo_lana.app.models
 	
 	import mx.logging.ILogger;
 	
+	import feathers.controls.List;
 	import feathers.data.ListCollection;
 	
 	import org.robotlegs.mvcs.Actor;
@@ -104,70 +105,53 @@ package com.derp_octo_lana.app.models
 			this._iconAtlas = new TextureAtlas(Texture.fromBitmap(new ICONS_IMAGE(), false), XML(new ICONS_XML()));
 			//			this._font = new BitmapFont(this._iconAtlas.getTexture("arial20_0"), XML(new FONT_XML()));
 			//Static data sets initialization.
-			this.traffic_signs_categories['警告标志'] = new ListCollection(
-				[
-					{ label: "十字交叉", texture: this._iconAtlas.getTexture("十字交叉") },
-					{ label: "T形交叉", texture: this._iconAtlas.getTexture("T形交叉") },
-					{ label: "T形交叉L", texture: this._iconAtlas.getTexture("T形交叉L") },
-					{ label: "T形交叉R", texture: this._iconAtlas.getTexture("T形交叉R") },
-					{ label: "Y形交叉", texture: this._iconAtlas.getTexture("Y形交叉") },
-					{ label: "环形交叉", texture: this._iconAtlas.getTexture("环形交叉") },
-					{ label: "向左急弯路", texture: this._iconAtlas.getTexture("向左急弯路") },
-					{ label: "向右急弯路", texture: this._iconAtlas.getTexture("向右急弯路") },
-					{ label: "反向弯路", texture: this._iconAtlas.getTexture("反向弯路") },
-					{ label: "连续弯路", texture: this._iconAtlas.getTexture("连续弯路") },
-					{ label: "上陡坡", texture: this._iconAtlas.getTexture("上陡坡") },
-					{ label: "下陡坡", texture: this._iconAtlas.getTexture("下陡坡") },
-					{ label: "两侧变窄", texture: this._iconAtlas.getTexture("两侧变窄") },
-					{ label: "右侧变窄", texture: this._iconAtlas.getTexture("右侧变窄") },
-					{ label: "左侧变窄", texture: this._iconAtlas.getTexture("左侧变窄") },
-					
-					
-				]);
-			this.traffic_signs_categories['禁令标志'] = new ListCollection(
-				[
-					{ label: "T形交叉", texture: this._iconAtlas.getTexture("T形交叉") },
-				]);
-			this.traffic_signs_categories['指示标志'] = new ListCollection(
-				[
-					{ label: "T形交叉", texture: this._iconAtlas.getTexture("T形交叉") },
-				]);
-			this.traffic_signs_categories['指路标志'] = new ListCollection(
-				[
-					{ label: "T形交叉", texture: this._iconAtlas.getTexture("T形交叉") },
-				]);
-			this.traffic_signs_categories['旅游区标志'] = new ListCollection(
-				[
-					{ label: "T形交叉", texture: this._iconAtlas.getTexture("T形交叉") },
-				]);
-			this.traffic_signs_categories['道路施工安全标志'] = new ListCollection(
-				[
-					{ label: "T形交叉", texture: this._iconAtlas.getTexture("T形交叉") },
-				]);
-			this.traffic_signs_categories['辅助标志'] = new ListCollection(
-				[
-					{ label: "T形交叉", texture: this._iconAtlas.getTexture("T形交叉") },
-				]);
-			//
-			this.traffic_signs_categories['禁止标线'] = new ListCollection(
-				[
-					{ label: "T形交叉", texture: this._iconAtlas.getTexture("T形交叉") },
-				]);
-			this.traffic_signs_categories['指示标线'] = new ListCollection(
-				[
-					{ label: "T形交叉", texture: this._iconAtlas.getTexture("T形交叉") },
-				]);
-			this.traffic_signs_categories['警告标线'] = new ListCollection(
-				[
-					{ label: "T形交叉", texture: this._iconAtlas.getTexture("T形交叉") },
-				]);
+			this.traffic_signs_categories['警告标志'] = [
+				"十字交叉","T形交叉","T形交叉L","T形交叉R","Y形交叉","环形交叉","向左急弯路","向右急弯路","反向弯路","连续弯路","上陡坡","下陡坡","两侧变窄","右侧变窄","左侧变窄",
+			];
+			this.traffic_signs_categories['禁令标志'] = [
+				
+			];
+			this.traffic_signs_categories['指示标志'] = [
+				
+			];
+			this.traffic_signs_categories['指路标志'] = [
+				
+			];
+			this.traffic_signs_categories['旅游区标志'] = [
+				
+			];
+			this.traffic_signs_categories['道路施工安全标志'] = [
+				
+			];
+			this.traffic_signs_categories['辅助标志'] = [
+				
+			];
+			this.traffic_signs_categories['禁止标线'] = [
+				
+			];
+			this.traffic_signs_categories['指示标线'] = [
+				
+			];
+			this.traffic_signs_categories['警告标线'] = [
+				
+			];
 		} 
 		//--------------------------------------------------------------------------
 		//
 		// Public methods
 		//
 		//--------------------------------------------------------------------------
-		
+		public function getAssembledCategories(group:String):ListCollection
+		{
+			var category:Array = this.traffic_signs_categories[group];
+			var len:int = category.length;
+			var collection:ListCollection = new ListCollection();
+			for(var i:int=0;i<len;i++)
+			{
+				collection.push({label:category[i],texture: this._iconAtlas.getTexture(category[i])});
+			}
+			return collection;	
+		}
 		//--------------------------------------------------------------------------
 		//
 		// Protected methods
