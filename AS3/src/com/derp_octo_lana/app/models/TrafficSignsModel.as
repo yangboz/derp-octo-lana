@@ -56,22 +56,22 @@ package com.derp_octo_lana.app.models
 				header: "道路交通标志",
 				children:
 				[
-					{ text: "警告标志" },
-					{ text: "禁令标志" },
-					{ text: "指示标志" },
-					{ text: "指路标志" },
-					{ text: "旅游区标志" },
-					{ text: "道路施工安全标志" },
-					{ text: "辅助标志" }
+					{ text: "警告标志" , enabled:true},
+					{ text: "禁令标志" , enabled:true},
+					{ text: "指示标志" , enabled:true},
+					{ text: "指路标志" , enabled:false},
+					{ text: "旅游区标志" , enabled:false},
+					{ text: "道路施工安全标志" , enabled:false},
+					{ text: "辅助标志" , enabled:false}
 				]
 			},
 			{
 				header: "道路交通标线",
 				children:
 				[
-					{ text: "禁止标线" },
-					{ text: "指示标线" },
-					{ text: "警告标线" },
+					{ text: "禁止标线" , enabled:false},
+					{ text: "指示标线" , enabled:false},
+					{ text: "警告标线" , enabled:false},
 				]
 			}
 		];

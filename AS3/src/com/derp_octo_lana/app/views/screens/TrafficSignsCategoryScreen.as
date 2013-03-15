@@ -174,11 +174,11 @@ package com.derp_octo_lana.app.views.screens
 		protected function layout():void
 		{
 			if(!this._pageIndicator) this._pageIndicator = new PageIndicator();
-			this._pageIndicator.width = this.stage.stageWidth;
+			this._pageIndicator.width = FlexGlobals.flashStage.stageWidth;
 			this._pageIndicator.validate();
-			this._pageIndicator.y = this.stage.stageHeight - this._pageIndicator.height;
+			this._pageIndicator.y = FlexGlobals.flashStage.stageHeight - this._pageIndicator.height;
 			
-			const shorterSide:Number = Math.min(this.stage.stageWidth, this.stage.stageHeight);
+			const shorterSide:Number = Math.min(FlexGlobals.flashStage.stageWidth, FlexGlobals.flashStage.stageHeight);
 			const layout:TiledRowsLayout = TiledRowsLayout(this._list.layout);
 			layout.paddingTop = layout.paddingRight = layout.paddingBottom =
 				layout.paddingLeft = shorterSide * 0.06;
@@ -186,7 +186,7 @@ package com.derp_octo_lana.app.views.screens
 			
 			this._list.itemRendererProperties.gap = shorterSide * 0.01;
 			
-			this._list.width = this.stage.stageWidth;
+			this._list.width = FlexGlobals.flashStage.stageWidth;
 			this._list.y = this._header.height;
 			this._list.height = this._pageIndicator.y;
 			this._list.validate();

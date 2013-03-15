@@ -65,7 +65,7 @@ package com.derp_octo_lana.app.views.screens {
 		//
 		// --------------------------------------------------------------------------
 		override protected function initialize() : void {
-			super.initialize();
+			return super.initialize();
 			_fullBtn=new Check();
 			_fullBtn.label="全屏";
 			_fullBtn.x=50;
@@ -77,7 +77,7 @@ package com.derp_octo_lana.app.views.screens {
 
 		override protected function draw() : void {
 			super.draw();
-			_fullBtn.y=_header.height+50;
+//			_fullBtn.y=_header.height+50;
 		}
 		//--------------------------------------------------------------------------
 		//

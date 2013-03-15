@@ -117,7 +117,11 @@ package com.derp_octo_lana.app.views.screens
 		//
 		private function accessorySourceFunction(item:Object):Texture
 		{
-			return StandardIcons.listDrillDownAccessoryTexture;
+			if(item.hasOwnProperty("enabled")&&item.enabled==true)
+			{
+				return StandardIcons.listDrillDownAccessoryTexture;
+			}
+			return null;
 		}
 	}
 	

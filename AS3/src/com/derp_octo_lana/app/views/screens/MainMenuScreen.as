@@ -65,7 +65,7 @@ package com.derp_octo_lana.app.views.screens
 		{
 			super();
 			//
-			this.headerTitle = "主菜单";
+			this.headerTitle = "驾考APP";
 		} 
 		//--------------------------------------------------------------------------
 		//
@@ -84,10 +84,10 @@ package com.derp_octo_lana.app.views.screens
 			this._buttonGroup = new ButtonGroup();
 			this._buttonGroup.dataProvider = new ListCollection(
 				[
-					{ label: "开始游戏", triggered: play_button_triggeredHandler },
-					{ label: "帮助", triggered: button_triggeredHandler },
-					{ label: "关于", triggered: button_triggeredHandler },
-					{ label: "交通标识", triggered: test_button_triggeredHandler }
+					{ label: "开始考试", triggered: play_button_triggeredHandler},
+					{ label: "开始练习", triggered: quiz_button_triggeredHandler },
+					{ label: "准驾车型及代号", triggered: help_button_triggeredHandler },
+					{ label: "交通标识大全", triggered: ts_button_triggeredHandler }
 				]);
 			this.addChild(this._buttonGroup);
 			// handles the back hardware key on android
@@ -105,7 +105,12 @@ package com.derp_octo_lana.app.views.screens
 
 		override protected function getHeaderLeftItems() : Vector.<DisplayObject> 
 		{
-			return new Vector.<DisplayObject>();
+			var items:Vector.<DisplayObject>=new Vector.<DisplayObject>();
+			this._settingBtn = new Button();
+			this._settingBtn.label = "关于";
+			this._settingBtn.addEventListener(Event.TRIGGERED, about_button_triggeredHandler);
+			items.push(_settingBtn);
+			return items;
 		}
 		
 		override protected function draw():void
@@ -127,7 +132,7 @@ package com.derp_octo_lana.app.views.screens
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_SETTINGS);
 		}
 		//
-		private function button_triggeredHandler(event:Event):void
+		private function help_button_triggeredHandler(event:Event):void
 		{
 			//trace(button.label + " triggered.");
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_HELP);
@@ -139,9 +144,19 @@ package com.derp_octo_lana.app.views.screens
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_LOOBY);
 		}
 		//
-		private function test_button_triggeredHandler(event:Event):void
+		private function ts_button_triggeredHandler(event:Event):void
 		{
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS_GROUPS);
+		}
+		//
+		private function about_button_triggeredHandler(event:Event):void
+		{
+			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_ABOUT);
+		}
+		//
+		private function quiz_button_triggeredHandler(event:Event):void
+		{
+			return;//Disable it.
 		}
 	}
 	

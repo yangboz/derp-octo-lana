@@ -2,6 +2,7 @@ package com.derp_octo_lana.app.views
 {
 	import com.derp_octo_lana.app.consts.FlexGlobals;
 	import com.derp_octo_lana.app.context.MainStarlingViewContext;
+	import com.derp_octo_lana.app.views.screens.AboutScreen;
 	import com.derp_octo_lana.app.views.screens.GameScreen;
 	import com.derp_octo_lana.app.views.screens.HelpScreen;
 	import com.derp_octo_lana.app.views.screens.LobbyScreen;
@@ -126,7 +127,7 @@ package com.derp_octo_lana.app.views
 			this._navigator.addScreen(FlexGlobals.SCREEN_LOOBY, new ScreenNavigatorItem(LobbyScreen));
 			this._navigator.addScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS_GROUPS, new ScreenNavigatorItem(TrafficSignsGroupsScreen));
 			this._navigator.addScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS_CATEGORY, new ScreenNavigatorItem(TrafficSignsCategoryScreen));
-			
+			this._navigator.addScreen(FlexGlobals.SCREEN_ABOUT, new ScreenNavigatorItem(AboutScreen));
 			//Store the navigator ref to FlexGlobals.
 			FlexGlobals.screenNavigator = this._navigator;
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_SPLASH);//Screen swither here.

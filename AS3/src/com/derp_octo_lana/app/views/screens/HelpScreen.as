@@ -53,8 +53,8 @@ package com.derp_octo_lana.app.views.screens
 		public function HelpScreen()
 		{
 			super();
-			
-			this.headerTitle = '帮助';
+			//
+			this.headerTitle = '准驾车型及代号';
 		} 
 		//--------------------------------------------------------------------------
 		//
