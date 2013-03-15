@@ -1,4 +1,3 @@
-
 package com.derp_octo_lana.app.models
 {
 	//--------------------------------------------------------------------------
@@ -12,7 +11,6 @@ package com.derp_octo_lana.app.models
 	
 	import mx.logging.ILogger;
 	
-	import feathers.controls.List;
 	import feathers.data.ListCollection;
 	
 	import org.robotlegs.mvcs.Actor;
@@ -39,10 +37,10 @@ package com.derp_octo_lana.app.models
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-		[Embed(source="../../../../assets/images/traffic_signs/traffic_signs.png")]
+		[Embed(source="../../../../assets/images/traffic_signs.png")]
 		private static const ICONS_IMAGE:Class;
 		
-		[Embed(source="../../../../assets/images/traffic_signs/traffic_signs.xml",mimeType="application/octet-stream")]
+		[Embed(source="../../../../assets/images/traffic_signs.xml",mimeType="application/octet-stream")]
 		private static const ICONS_XML:Class;
 		//
 		private var _iconAtlas:TextureAtlas;
