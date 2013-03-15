@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:dd76b13358aafbbeda4e44e106b9dadb$ -->
+<!-- $TexturePacker:SmartUpdate:27b7f88502c6822844bd151a359425cd$ -->
 <TextureAtlas imagePath="traffic_signs.png">
     <SubTexture name="T形交叉" x="2" y="2" width="75" height="67"/>
     <SubTexture name="T形交叉L" x="79" y="2" width="75" height="67"/>
@@ -10,8 +10,8 @@
     <SubTexture name="下陡坡" x="387" y="2" width="75" height="67"/>
     <SubTexture name="两侧变窄" x="2" y="71" width="75" height="67"/>
     <SubTexture name="事故易发路段" x="79" y="71" width="75" height="67"/>
-    <SubTexture name="傍山险路" x="156" y="71" width="75" height="67"/>
-    <SubTexture name="傍山险路L" x="233" y="71" width="75" height="67"/>
+    <SubTexture name="傍山险路L" x="156" y="71" width="75" height="67"/>
+    <SubTexture name="傍山险路R" x="233" y="71" width="75" height="67"/>
     <SubTexture name="十字交叉" x="310" y="71" width="75" height="67"/>
     <SubTexture name="叉形符号" x="2" y="140" width="150" height="95"/>
     <SubTexture name="双向交通" x="154" y="140" width="75" height="67"/>

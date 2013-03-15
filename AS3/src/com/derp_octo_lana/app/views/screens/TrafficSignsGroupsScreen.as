@@ -81,7 +81,7 @@ package com.derp_octo_lana.app.views.screens
 			this._gList.typicalItem = { text: "Item 1000" };
 			this._gList.typicalHeader = "Group 10";
 			this._gList.typicalFooter = "Footer 10";
-//			this._gList.isSelectable = this.settings.isSelectable;
+			this._gList.isSelectable = true;
 //			this._gList.hasElasticEdges = this.settings.hasElasticEdges;
 			this._gList.itemRendererProperties.labelField = "text";
 			this._gList.addEventListener(Event.CHANGE, list_changeHandler);
