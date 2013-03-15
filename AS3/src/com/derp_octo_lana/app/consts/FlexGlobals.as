@@ -51,7 +51,7 @@ package com.derp_octo_lana.app.consts
 		public static const SCREEN_SETTINGS:String = "screen_settings";
 		public static const SCREEN_HELP:String = "screen_help";
 		public static const SCREEN_LOOBY:String = "screen_looby";
-		public static const SCREEN_TRAFFIC_SIGNS:String = "screen_traffic_signs";
+		public static const SCREEN_TRAFFIC_SIGNS_GROUPS:String = "screen_traffic_signs_groups";
 		public static const SCREEN_TRAFFIC_SIGNS_CATEGORY:String = "screen_traffic_signs_category";
 		//about chess pieces' flag
 		public static const FLAG_RED:uint=0;//0(000)

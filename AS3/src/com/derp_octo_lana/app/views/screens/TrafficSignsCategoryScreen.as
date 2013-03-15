@@ -1,6 +1,9 @@
 package com.derp_octo_lana.app.views.screens
 {
 	import com.derp_octo_lana.app.consts.FlexGlobals;
+	import com.godpaper.as3.utils.LogUtil;
+	
+	import mx.logging.ILogger;
 	
 	import feathers.controls.Button;
 	import feathers.controls.List;
@@ -42,7 +45,7 @@ package com.derp_octo_lana.app.views.screens
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		
+		private static const LOG:ILogger = LogUtil.getLogger(TrafficSignsCategoryScreen);
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -103,9 +106,9 @@ package com.derp_octo_lana.app.views.screens
 			this._list = new List();
 			this._list.dataProvider = this._collection;
 			this._list.layout = listLayout;
-			//			this._list.snapToPages = true;
-			//			this._list.scrollBarDisplayMode = List.SCROLL_BAR_DISPLAY_MODE_NONE;
-			//			this._list.horizontalScrollPolicy = List.SCROLL_POLICY_ON;
+			this._list.snapToPages = true;
+			this._list.scrollBarDisplayMode = List.SCROLL_BAR_DISPLAY_MODE_NONE;
+			this._list.horizontalScrollPolicy = List.SCROLL_POLICY_ON;
 			this._list.itemRendererFactory = tileListItemRendererFactory;
 			this._list.addEventListener(Event.SCROLL, list_scrollHandler);
 			this._list.addEventListener(Event.CHANGE, list_changeHandler);
@@ -153,11 +156,13 @@ package com.derp_octo_lana.app.views.screens
 		//
 		protected function list_scrollHandler(event:Event):void
 		{
+//			LOG.info("List scroll to index:{0}",this._list.horizontalPageIndex);
 			this._pageIndicator.selectedIndex = this._list.horizontalPageIndex;
 		}
 		//
 		protected function pageIndicator_changeHandler(event:Event):void
 		{
+//			LOG.info("Page Indicator scroll to index:{0}",this._pageIndicator.selectedIndex);
 			this._list.scrollToPageIndex(this._pageIndicator.selectedIndex, 0, 0.25);
 		}
 		//
@@ -187,6 +192,11 @@ package com.derp_octo_lana.app.views.screens
 			this._list.validate();
 			
 			this._pageIndicator.pageCount = Math.ceil(this._list.maxHorizontalScrollPosition / this._list.width) + 1;
+		}
+		//
+		override protected function back_button_triggeredHandler(event:Event):void
+		{
+			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS_GROUPS);
 		}
 		//--------------------------------------------------------------------------
 		//

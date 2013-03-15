@@ -10,12 +10,14 @@ package feathers.core
 	import feathers.controls.text.BitmapFontTextRenderer;
 	import feathers.controls.text.StageTextTextEditor;
 	import feathers.events.FeathersEventType;
+	import feathers.layout.ILayoutData;
+	import feathers.layout.ILayoutDisplayObject;
 
+	import flash.errors.IllegalOperationError;
 	import flash.geom.Matrix;
 	import flash.geom.Point;
 	import flash.geom.Rectangle;
 
-	import starling.core.RenderSupport;
 	import starling.display.DisplayObject;
 	import starling.display.Sprite;
 	import starling.events.Event;
@@ -41,7 +43,7 @@ package feathers.core
 	 * basic template functions like <code>initialize()</code> and
 	 * <code>draw()</code>.
 	 */
-	public class FeathersControl extends Sprite implements IFeathersControl
+	public class FeathersControl extends Sprite implements IFeathersControl, ILayoutDisplayObject
 	{
 		/**
 		 * @private
@@ -60,14 +62,6 @@ package feathers.core
 		 * Starling is initialized.
 		 */
 		protected static var VALIDATION_QUEUE:ValidationQueue = new ValidationQueue();
-
-		/**
-		 * @private
-		 * Used for clipping.
-		 *
-		 * @see #clipRect
-		 */
-		protected static var currentScissorRect:Rectangle;
 
 		/**
 		 * Flag to indicate that everything is invalid and should be redrawn.
@@ -134,6 +128,16 @@ package feathers.core
 		protected static const INVALIDATION_FLAG_TEXT_EDITOR:String = "textEditor";
 
 		/**
+		 * @private
+		 */
+		protected static const ILLEGAL_WIDTH_ERROR:String = "A component's width cannot be NaN.";
+
+		/**
+		 * @private
+		 */
+		protected static const ILLEGAL_HEIGHT_ERROR:String = "A component's height cannot be NaN.";
+
+		/**
 		 * A function used by all UI controls that support text renderers to
 		 * create an ITextRenderer instance. You may replace the default
 		 * function with your own, if you prefer not to use the
@@ -174,6 +178,7 @@ package feathers.core
 		{
 			super();
 			this.addEventListener(Event.ADDED_TO_STAGE, initialize_addedToStageHandler);
+			this.addEventListener(Event.FLATTEN, feathersControl_flattenHandler);
 		}
 
 		/**
@@ -324,6 +329,17 @@ package feathers.core
 		 * explicit width value is provided. Each component has a different
 		 * automatic sizing behavior, but it's usually based on the component's
 		 * skin or content, including text or subcomponents.
+		 * 
+		 * <p><strong>Note:</strong> Values of the <code>width</code> and
+		 * <code>height</code> properties may not be accurate until after
+		 * validation. If you are seeing <code>width</code> or <code>height</code>
+		 * values of <code>0</code>, but you can see something on the screen and
+		 * know that the value should be larger, it may be because you asked for
+		 * the dimensions before the component had validated. Call
+		 * <code>validate()</code> to tell the component to immediately redraw
+		 * and calculate an accurate values for the dimensions.</p>
+		 * 
+		 * @see feathers.core.IFeathersControl#validate()
 		 */
 		override public function get width():Number
 		{
@@ -335,12 +351,25 @@ package feathers.core
 		 */
 		override public function set width(value:Number):void
 		{
-			if(this.explicitWidth == value || (isNaN(value) && isNaN(this.explicitWidth)))
+			if(this.explicitWidth == value)
+			{
+				return;
+			}
+			const valueIsNaN:Boolean = isNaN(value);
+			if(valueIsNaN && isNaN(this.explicitWidth))
 			{
 				return;
 			}
 			this.explicitWidth = value;
-			this.setSizeInternal(value, this.actualHeight, true);
+			if(valueIsNaN)
+			{
+				this.actualWidth = 0;
+				this.invalidate(INVALIDATION_FLAG_SIZE);
+			}
+			else
+			{
+				this.setSizeInternal(value, this.actualHeight, true);
+			}
 		}
 
 		/**
@@ -364,6 +393,17 @@ package feathers.core
 		 * explicit height value is provided. Each component has a different
 		 * automatic sizing behavior, but it's usually based on the component's
 		 * skin or content, including text or subcomponents.
+		 * 
+		 * <p><strong>Note:</strong> Values of the <code>width</code> and
+		 * <code>height</code> properties may not be accurate until after
+		 * validation. If you are seeing <code>width</code> or <code>height</code>
+		 * values of <code>0</code>, but you can see something on the screen and
+		 * know that the value should be larger, it may be because you asked for
+		 * the dimensions before the component had validated. Call
+		 * <code>validate()</code> to tell the component to immediately redraw
+		 * and calculate an accurate values for the dimensions.</p>
+		 * 
+		 * @see feathers.core.IFeathersControl#validate()
 		 */
 		override public function get height():Number
 		{
@@ -375,12 +415,25 @@ package feathers.core
 		 */
 		override public function set height(value:Number):void
 		{
-			if(this.explicitHeight == value || (isNaN(value) && isNaN(this.explicitHeight)))
+			if(this.explicitHeight == value)
+			{
+				return;
+			}
+			const valueIsNaN:Boolean = isNaN(value);
+			if(valueIsNaN && isNaN(this.explicitHeight))
 			{
 				return;
 			}
 			this.explicitHeight = value;
-			this.setSizeInternal(this.actualWidth, value, true);
+			if(valueIsNaN)
+			{
+				this.actualHeight = 0;
+				this.invalidate(INVALIDATION_FLAG_SIZE);
+			}
+			else
+			{
+				this.setSizeInternal(this.actualWidth, value, true);
+			}
 		}
 
 		/**
@@ -573,48 +626,139 @@ package feathers.core
 			this.invalidate(INVALIDATION_FLAG_SIZE);
 		}
 
-		private var _scaledClipRectXY:Point;
-		private var _scissorRect:Rectangle;
-
 		/**
 		 * @private
 		 */
-		protected var _clipRect:Rectangle;
+		protected var _includeInLayout:Boolean = true;
 
 		/**
-		 * @private
-		 * <strong>THIS PROPERTY MAY BE REMOVED WITHOUT WARNING</strong>. It
-		 * lives outside of the standard beta or deprecated system that Feathers
-		 * uses. After Starling Framework finalizes masking, it may be removed
-		 * or refactored. Use at your own risk.
+		 * @inheritDoc
 		 */
-		public function get clipRect():Rectangle
+		public function get includeInLayout():Boolean
 		{
-			return this._clipRect;
+			return this._includeInLayout;
 		}
 
 		/**
 		 * @private
 		 */
-		public function set clipRect(value:Rectangle):void
+		public function set includeInLayout(value:Boolean):void
 		{
-			this._clipRect = value;
-			if(this._clipRect)
+			if(this._includeInLayout == value)
 			{
-				if(!this._scaledClipRectXY)
-				{
-					this._scaledClipRectXY = new Point();
-				}
-				if(!this._scissorRect)
-				{
-					this._scissorRect = new Rectangle();
-				}
+				return;
 			}
-			else
+			this._includeInLayout = value;
+			this.dispatchEventWith(FeathersEventType.LAYOUT_DATA_CHANGE);
+		}
+
+		/**
+		 * @private
+		 */
+		protected var _layoutData:ILayoutData;
+
+		/**
+		 * @inheritDoc
+		 */
+		public function get layoutData():ILayoutData
+		{
+			return this._layoutData;
+		}
+
+		/**
+		 * @private
+		 */
+		public function set layoutData(value:ILayoutData):void
+		{
+			if(this._layoutData == value)
 			{
-				this._scaledClipRectXY = null;
-				this._scissorRect = null;
+				return;
 			}
+			if(this._layoutData)
+			{
+				this._layoutData.removeEventListener(Event.CHANGE, layoutData_changeHandler);
+			}
+			this._layoutData = value;
+			if(this._layoutData)
+			{
+				this._layoutData.addEventListener(Event.CHANGE, layoutData_changeHandler);
+			}
+			this.dispatchEventWith(FeathersEventType.LAYOUT_DATA_CHANGE);
+		}
+
+		/**
+		 * @private
+		 */
+		protected var _focusManager:IFocusManager;
+
+		/**
+		 * @copy feathers.core.IFocusDisplayObject#focusManager
+		 */
+		public function get focusManager():IFocusManager
+		{
+			return this._focusManager;
+		}
+
+		/**
+		 * @private
+		 */
+		public function set focusManager(value:IFocusManager):void
+		{
+			if(this._focusManager == value)
+			{
+				return;
+			}
+			this._focusManager = value;
+		}
+
+		/**
+		 * @private
+		 */
+		protected var _isFocusEnabled:Boolean = true;
+
+		/**
+		 * @copy feathers.core.IFocusDisplayObject#isFocusEnabled
+		 */
+		public function get isFocusEnabled():Boolean
+		{
+			return this._isFocusEnabled;
+		}
+
+		/**
+		 * @private
+		 */
+		public function set isFocusEnabled(value:Boolean):void
+		{
+			if(this._isFocusEnabled == value)
+			{
+				return;
+			}
+			this._isFocusEnabled = value;
+		}
+
+		/**
+		 * @private
+		 */
+		protected var _nextTabFocus:IFocusDisplayObject;
+
+		/**
+		 * @copy feathers.core.IFocusDisplayObject#nextTabFocus
+		 */
+		public function get nextTabFocus():IFocusDisplayObject
+		{
+			return this._nextTabFocus;
+		}
+
+		/**
+		 * @private
+		 */
+		public function set nextTabFocus(value:IFocusDisplayObject):void
+		{
+			if(this._nextTabFocus == value)
+			{
+				return;
+			}
+			this._nextTabFocus = value;
 		}
 
 		/**
@@ -688,64 +832,16 @@ package feathers.core
 		/**
 		 * @private
 		 */
-		override public function render(support:RenderSupport, parentAlpha:Number):void
-		{
-			if(this._clipRect)
-			{
-				this.getBounds(this.stage, this._scissorRect);
-				this.getTransformationMatrix(this.stage, HELPER_MATRIX);
-				const scaleX:Number = HELPER_MATRIX.a;
-				const scaleY:Number = HELPER_MATRIX.d;
-				this._scissorRect.x += this._clipRect.x * scaleX;
-				this._scissorRect.y += this._clipRect.y * scaleY;
-				this._scissorRect.width = this._clipRect.width * scaleX;
-				this._scissorRect.height = this._clipRect.height * scaleY;
-
-				const oldRect:Rectangle = currentScissorRect;
-				if(oldRect)
-				{
-					this._scissorRect = this._scissorRect.intersection(oldRect);
-				}
-				//round to nearest pixels because the GPU will force it to
-				//happen, and the check that follows needs it
-				this._scissorRect.x = Math.round(this._scissorRect.x);
-				this._scissorRect.y = Math.round(this._scissorRect.y);
-				this._scissorRect.width = Math.round(this._scissorRect.width);
-				this._scissorRect.height = Math.round(this._scissorRect.height);
-				if(this._scissorRect.isEmpty() ||
-					this._scissorRect.x >= this.stage.stageWidth ||
-					this._scissorRect.y >= this.stage.stageHeight ||
-					(this._scissorRect.x + this._scissorRect.width) <= 0 ||
-					(this._scissorRect.y + this._scissorRect.height) <= 0)
-				{
-					//not in bounds of stage. don't render.
-					return;
-				}
-				support.finishQuadBatch();
-				support.scissorRectangle = this._scissorRect;
-				currentScissorRect = this._scissorRect;
-			}
-			super.render(support, parentAlpha);
-			if(this._clipRect)
-			{
-				support.finishQuadBatch();
-				currentScissorRect = oldRect;
-				support.scissorRectangle = oldRect;
-			}
-		}
-
-		/**
-		 * @private
-		 */
 		override public function hitTest(localPoint:Point, forTouch:Boolean=false):DisplayObject
 		{
-			if(this._clipRect && !this._clipRect.contains(localPoint.x, localPoint.y))
-			{
-				return null;
-			}
 			if(this._isQuickHitAreaEnabled)
 			{
 				if(forTouch && (!this.visible || !this.touchable))
+				{
+					return null;
+				}
+				const clipRect:Rectangle = this.clipRect;
+				if(clipRect && !clipRect.containsPoint(localPoint))
 				{
 					return null;
 				}
@@ -755,12 +851,19 @@ package feathers.core
 		}
 
 		/**
-		 * When called, the UI control will redraw within one frame.
-		 * Invalidation limits processing so that multiple property changes only
-		 * trigger a single redraw.
-		 *
-		 * <p>If the UI control isn't on the display list, it will never redraw.
-		 * The control will automatically invalidate once it has been added.</p>
+		 * Call this function to tell the UI control that a redraw is pending.
+		 * The redraw will happen immediately before Starling renders the UI
+		 * control to the screen. The validation system exists to ensure that
+		 * multiple properties can be set together without redrawing multiple
+		 * times in between each property change.
+		 * 
+		 * <p>If you cannot wait until later for the validation to happen, you
+		 * can call <code>validate()</code> to redraw immediately. As an example,
+		 * you might want to validate immediately if you need to access the
+		 * correct <code>width</code> or <code>height</code> values of the UI
+		 * control, since these values are calculated during validation.</p>
+		 * 
+		 * @see feathers.core.FeathersControl#validate()
 		 */
 		public function invalidate(flag:String = INVALIDATION_FLAG_ALL):void
 		{
@@ -822,7 +925,18 @@ package feathers.core
 
 		/**
 		 * Immediately validates the control, which triggers a redraw, if one
-		 * is pending.
+		 * is pending. Validation exists to postpone redrawing a component until
+		 * the last possible moment before rendering so that multiple properties
+		 * can be changed at once without requiring a full redraw after each
+		 * change.
+		 * 
+		 * <p>A component cannot validate if it does not have access to the
+		 * stage and if it hasn't initialized yet. A component initializes the
+		 * first time that it has been added to the stage.</p>
+		 * 
+		 * @see #invalidate()
+		 * @see #initialize()
+		 * @see feathers.events.FeathersEventType#INITIALIZE
 		 */
 		public function validate():void
 		{
@@ -860,9 +974,12 @@ package feathers.core
 		}
 
 		/**
-		 * Indicates whether the control is invalid or not. You may optionally
-		 * pass in a specific flag to check if that particular flag is set. If
-		 * the "all" flag is set, the result will always be true.
+		 * Indicates whether the control is pending validation or not. By
+		 * default, returns <code>true</code> if any invalidation flag has been
+		 * set. If you pass in a specific flag, returns <code>true</code> only
+		 * if that flag has been set (others may be set too, but it checks the
+		 * specific flag only. If all flags have been marked as invalid, always
+		 * returns <code>true</code>.
 		 */
 		public function isInvalid(flag:String = null):Boolean
 		{
@@ -893,13 +1010,12 @@ package feathers.core
 
 		/**
 		 * Sets the width and height of the control, with the option of
-		 * invalidating or not. Intended to be used for automatic resizing.
+		 * invalidating or not. Intended to be used when the <code>width</code>
+		 * and <code>height</code> values have not been set explicitly, and the
+		 * UI control needs to measure itself and choose an "ideal" size.
 		 */
 		protected function setSizeInternal(width:Number, height:Number, canInvalidate:Boolean):Boolean
 		{
-			const oldWidth:Number = this.actualWidth;
-			const oldHeight:Number = this.actualHeight;
-			var resized:Boolean = false;
 			if(!isNaN(this.explicitWidth))
 			{
 				width = this.explicitWidth;
@@ -916,6 +1032,15 @@ package feathers.core
 			{
 				height = Math.min(this._maxHeight, Math.max(this._minHeight, height));
 			}
+			if(isNaN(width))
+			{
+				throw new ArgumentError(ILLEGAL_WIDTH_ERROR);
+			}
+			if(isNaN(height))
+			{
+				throw new ArgumentError(ILLEGAL_HEIGHT_ERROR);
+			}
+			var resized:Boolean = false;
 			if(this.actualWidth != width)
 			{
 				this.actualWidth = width;
@@ -950,8 +1075,13 @@ package feathers.core
 		}
 
 		/**
-		 * Override to initialize the UI control. Should be used to create
-		 * children and set up event listeners.
+		 * Called the first time that the UI control is added to the stage, and
+		 * you should override this function to customize the initialization
+		 * process. Do things like create children and set up event listeners.
+		 * After this function is called, <code>FeathersEventType.INITIALIZE</code>
+		 * is dispatched.
+		 *
+		 * @see feathers.events.FeathersEventType#INITIALIZE
 		 */
 		protected function initialize():void
 		{
@@ -960,10 +1090,24 @@ package feathers.core
 
 		/**
 		 * Override to customize layout and to adjust properties of children.
+		 * Called when the component validates, if any flags have been marked
+		 * to indicate that validation is pending.
 		 */
 		protected function draw():void
 		{
 
+		}
+
+		/**
+		 * @private
+		 */
+		protected function feathersControl_flattenHandler(event:Event):void
+		{
+			if(!this.stage || !this._isInitialized)
+			{
+				throw new IllegalOperationError("Cannot flatten this component until it is initialized and has access to the stage.");
+			}
+			this.validate();
 		}
 
 		/**
@@ -990,6 +1134,14 @@ package feathers.core
 				this._invalidateCount = 0;
 				VALIDATION_QUEUE.addControl(this, false);
 			}
+		}
+
+		/**
+		 * @private
+		 */
+		protected function layoutData_changeHandler(event:Event):void
+		{
+			this.dispatchEventWith(FeathersEventType.LAYOUT_DATA_CHANGE);
 		}
 	}
 }

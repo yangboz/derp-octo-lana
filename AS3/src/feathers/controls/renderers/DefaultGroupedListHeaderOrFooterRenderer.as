@@ -23,37 +23,51 @@ package feathers.controls.renderers
 	{
 		/**
 		 * The content will be aligned horizontally to the left edge of the renderer.
+		 *
+		 * @see #horizontalAlign
 		 */
 		public static const HORIZONTAL_ALIGN_LEFT:String = "left";
 
 		/**
 		 * The content will be aligned horizontally to the center of the renderer.
+		 *
+		 * @see #horizontalAlign
 		 */
 		public static const HORIZONTAL_ALIGN_CENTER:String = "center";
 
 		/**
 		 * The content will be aligned horizontally to the right edge of the renderer.
+		 *
+		 * @see #horizontalAlign
 		 */
 		public static const HORIZONTAL_ALIGN_RIGHT:String = "right";
 
 		/**
 		 * The content will be aligned vertically to the top edge of the renderer.
+		 *
+		 * @see #verticalAlign
 		 */
 		public static const VERTICAL_ALIGN_TOP:String = "top";
 
 		/**
 		 * The content will be aligned vertically to the middle of the renderer.
+		 *
+		 * @see #verticalAlign
 		 */
 		public static const VERTICAL_ALIGN_MIDDLE:String = "middle";
 
 		/**
 		 * The content will be aligned vertically to the bottom edge of the renderer.
+		 *
+		 * @see #verticalAlign
 		 */
 		public static const VERTICAL_ALIGN_BOTTOM:String = "bottom";
 
 		/**
 		 * The default value added to the <code>nameList</code> of the content
 		 * label.
+		 *
+		 * @see feathers.core.IFeathersControl#nameList
 		 */
 		public static const DEFAULT_CHILD_NAME_CONTENT_LABEL:String = "feathers-header-footer-renderer-content-label";
 
@@ -67,6 +81,8 @@ package feathers.controls.renderers
 
 		/**
 		 * The value added to the <code>nameList</code> of the content label.
+		 *
+		 * @see feathers.core.IFeathersControl#nameList
 		 */
 		protected var contentLabelName:String = DEFAULT_CHILD_NAME_CONTENT_LABEL;
 
@@ -827,6 +843,28 @@ package feathers.controls.renderers
 				this.addChildAt(this._backgroundDisabledSkin, 0);
 			}
 			this.invalidate(INVALIDATION_FLAG_STYLES);
+		}
+
+		/**
+		 * Quickly sets all padding properties to the same value. The
+		 * <code>padding</code> getter always returns the value of
+		 * <code>paddingTop</code>, but the other padding values may be
+		 * different.
+		 */
+		public function get padding():Number
+		{
+			return this._paddingTop;
+		}
+
+		/**
+		 * @private
+		 */
+		public function set padding(value:Number):void
+		{
+			this.paddingTop = value;
+			this.paddingRight = value;
+			this.paddingBottom = value;
+			this.paddingLeft = value;
 		}
 
 		/**

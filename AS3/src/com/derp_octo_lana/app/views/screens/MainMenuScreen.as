@@ -140,7 +140,7 @@ package com.derp_octo_lana.app.views.screens
 		//
 		private function test_button_triggeredHandler(event:Event):void
 		{
-			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS);
+			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS_GROUPS);
 		}
 	}
 	

@@ -124,7 +124,7 @@ package com.derp_octo_lana.app.views
 			this._navigator.addScreen(FlexGlobals.SCREEN_GAME, new ScreenNavigatorItem(GameScreen));
 			this._navigator.addScreen(FlexGlobals.SCREEN_HELP, new ScreenNavigatorItem(HelpScreen));
 			this._navigator.addScreen(FlexGlobals.SCREEN_LOOBY, new ScreenNavigatorItem(LobbyScreen));
-			this._navigator.addScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS, new ScreenNavigatorItem(TrafficSignsGroupsScreen));
+			this._navigator.addScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS_GROUPS, new ScreenNavigatorItem(TrafficSignsGroupsScreen));
 			this._navigator.addScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS_CATEGORY, new ScreenNavigatorItem(TrafficSignsCategoryScreen));
 			
 			//Store the navigator ref to FlexGlobals.

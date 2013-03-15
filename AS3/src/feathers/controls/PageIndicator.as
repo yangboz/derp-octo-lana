@@ -319,6 +319,28 @@ package feathers.controls
 		}
 
 		/**
+		 * Quickly sets all padding properties to the same value. The
+		 * <code>padding</code> getter always returns the value of
+		 * <code>paddingTop</code>, but the other padding values may be
+		 * different.
+		 */
+		public function get padding():Number
+		{
+			return this._paddingTop;
+		}
+
+		/**
+		 * @private
+		 */
+		public function set padding(value:Number):void
+		{
+			this.paddingTop = value;
+			this.paddingRight = value;
+			this.paddingBottom = value;
+			this.paddingLeft = value;
+		}
+
+		/**
 		 * @private
 		 */
 		protected var _paddingTop:Number = 0;
@@ -613,6 +635,8 @@ package feathers.controls
 					horizontalLayout.verticalAlign = this._verticalAlign;
 				}
 			}
+			SUGGESTED_BOUNDS.x = SUGGESTED_BOUNDS.y = 0;
+			SUGGESTED_BOUNDS.scrollX = SUGGESTED_BOUNDS.scrollY = 0;
 			SUGGESTED_BOUNDS.explicitWidth = this.explicitWidth;
 			SUGGESTED_BOUNDS.explicitHeight = this.explicitHeight;
 			SUGGESTED_BOUNDS.maxWidth = this._maxWidth;
@@ -662,10 +686,11 @@ package feathers.controls
 				if(touch.phase == TouchPhase.ENDED)
 				{
 					this.touchPointID = -1;
-					touch.getLocation(this, HELPER_POINT);
-					const isInBounds:Boolean = this.hitTest(HELPER_POINT, true) != null;
+					touch.getLocation(this.stage, HELPER_POINT);
+					const isInBounds:Boolean = this.contains(this.stage.hitTest(HELPER_POINT, true));
 					if(isInBounds)
 					{
+						this.globalToLocal(HELPER_POINT, HELPER_POINT);
 						if(this._direction == DIRECTION_VERTICAL)
 						{
 							if(HELPER_POINT.y < this.selectedSymbol.y)

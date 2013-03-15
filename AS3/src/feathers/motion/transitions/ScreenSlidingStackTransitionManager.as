@@ -96,6 +96,12 @@ package feathers.motion.transitions
 		 * The easing function to use.
 		 */
 		public var ease:Object = Transitions.EASE_OUT;
+
+		/**
+		 * Determines if the next transition should be skipped. After the
+		 * transition, this value returns to <code>false</code>.
+		 */
+		public var skipNextTransition:Boolean = false;
 		
 		/**
 		 * Removes all saved classes from the stack that are used to determine
@@ -106,15 +112,24 @@ package feathers.motion.transitions
 		{
 			this._stack.length = 0;
 		}
-		
+
 		/**
 		 * The function passed to the <code>transition</code> property of the
 		 * <code>ScreenNavigator</code>.
 		 */
 		protected function onTransition(oldScreen:DisplayObject, newScreen:DisplayObject, onComplete:Function):void
 		{
-			if(!oldScreen || !newScreen)
+			if(this._activeTransition)
 			{
+				this._savedOtherTarget = null;
+				Starling.juggler.remove(this._activeTransition);
+				this._activeTransition = null;
+			}
+
+			if(!oldScreen || !newScreen || this.skipNextTransition)
+			{
+				this.skipNextTransition = false;
+				this._savedCompleteHandler = null;
 				if(newScreen)
 				{
 					newScreen.x = 0;
@@ -123,15 +138,11 @@ package feathers.motion.transitions
 				{
 					oldScreen.x = 0;
 				}
-				onComplete();
+				if(onComplete != null)
+				{
+					onComplete();
+				}
 				return;
-			}
-			
-			if(this._activeTransition)
-			{
-				this._savedOtherTarget = null;
-				Starling.juggler.remove(this._activeTransition);
-				this._activeTransition = null;
 			}
 			
 			this._savedCompleteHandler = onComplete;

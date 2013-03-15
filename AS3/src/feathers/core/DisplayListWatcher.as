@@ -59,11 +59,11 @@ package feathers.core
 		/**
 		 * Constructor.
 		 *
-		 * @param root		The root display object to watch (not necessarily Starling's root object)
+		 * @param topLevelContainer		The root display object to watch (not necessarily Starling's root object)
 		 */
-		public function DisplayListWatcher(root:DisplayObjectContainer)
+		public function DisplayListWatcher(topLevelContainer:DisplayObjectContainer)
 		{
-			this.root = root;
+			this.root = topLevelContainer;
 			this.root.addEventListener(Event.ADDED, addedHandler);
 		}
 		

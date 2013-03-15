@@ -7,6 +7,8 @@ accordance with the terms of the accompanying license agreement.
 */
 package feathers.layout
 {
+	import feathers.core.IFeathersControl;
+
 	import flash.geom.Point;
 
 	import starling.display.DisplayObject;
@@ -20,14 +22,11 @@ package feathers.layout
 
 	/**
 	 * Positions items from top to bottom in a single column.
+	 *
+	 * @see http://wiki.starling-framework.org/feathers/vertical-layout
 	 */
-	public class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout
+	public class VerticalLayout extends EventDispatcher implements IVariableVirtualLayout, ITrimmedVirtualLayout
 	{
-		/**
-		 * @private
-		 */
-		private static const HELPER_VECTOR:Vector.<DisplayObject> = new <DisplayObject>[];
-
 		/**
 		 * If the total item height is smaller than the height of the bounds,
 		 * the items will be aligned to the top.
@@ -81,6 +80,11 @@ package feathers.layout
 		/**
 		 * @private
 		 */
+		protected var _discoveredItemsCache:Vector.<DisplayObject> = new <DisplayObject>[];
+
+		/**
+		 * @private
+		 */
 		protected var _gap:Number = 0;
 
 		/**
@@ -102,6 +106,28 @@ package feathers.layout
 			}
 			this._gap = value;
 			this.dispatchEventWith(Event.CHANGE);
+		}
+
+		/**
+		 * Quickly sets all padding properties to the same value. The
+		 * <code>padding</code> getter always returns the value of
+		 * <code>paddingTop</code>, but the other padding values may be
+		 * different.
+		 */
+		public function get padding():Number
+		{
+			return this._paddingTop;
+		}
+
+		/**
+		 * @private
+		 */
+		public function set padding(value:Number):void
+		{
+			this.paddingTop = value;
+			this.paddingRight = value;
+			this.paddingBottom = value;
+			this.paddingLeft = value;
 		}
 
 		/**
@@ -322,6 +348,58 @@ package feathers.layout
 		/**
 		 * @private
 		 */
+		protected var _beforeVirtualizedItemCount:int = 0;
+
+		/**
+		 * @inheritDoc
+		 */
+		public function get beforeVirtualizedItemCount():int
+		{
+			return this._beforeVirtualizedItemCount;
+		}
+
+		/**
+		 * @private
+		 */
+		public function set beforeVirtualizedItemCount(value:int):void
+		{
+			if(this._beforeVirtualizedItemCount == value)
+			{
+				return;
+			}
+			this._beforeVirtualizedItemCount = value;
+			this.dispatchEventWith(Event.CHANGE);
+		}
+
+		/**
+		 * @private
+		 */
+		protected var _afterVirtualizedItemCount:int = 0;
+
+		/**
+		 * @inheritDoc
+		 */
+		public function get afterVirtualizedItemCount():int
+		{
+			return this._afterVirtualizedItemCount;
+		}
+
+		/**
+		 * @private
+		 */
+		public function set afterVirtualizedItemCount(value:int):void
+		{
+			if(this._afterVirtualizedItemCount == value)
+			{
+				return;
+			}
+			this._afterVirtualizedItemCount = value;
+			this.dispatchEventWith(Event.CHANGE);
+		}
+
+		/**
+		 * @private
+		 */
 		protected var _typicalItemWidth:Number = -1;
 
 		/**
@@ -406,34 +484,55 @@ package feathers.layout
 			const explicitWidth:Number = viewPortBounds ? viewPortBounds.explicitWidth : NaN;
 			const explicitHeight:Number = viewPortBounds ? viewPortBounds.explicitHeight : NaN;
 
-			HELPER_VECTOR.length = 0;
+			if(!this._useVirtualLayout || this._hasVariableItemDimensions ||
+				this._horizontalAlign != HORIZONTAL_ALIGN_JUSTIFY || isNaN(explicitWidth))
+			{
+				this.validateItems(items);
+			}
+
+			this._discoveredItemsCache.length = 0;
 			var maxItemWidth:Number = this._useVirtualLayout ? this._typicalItemWidth : 0;
 			var positionY:Number = boundsY + this._paddingTop;
+			var indexOffset:int = 0;
+			if(this._useVirtualLayout && !this._hasVariableItemDimensions)
+			{
+				indexOffset = this._beforeVirtualizedItemCount;
+				positionY += (this._beforeVirtualizedItemCount * (this._typicalItemHeight + this._gap));
+			}
 			const itemCount:int = items.length;
 			for(var i:int = 0; i < itemCount; i++)
 			{
 				var item:DisplayObject = items[i];
+				var iNormalized:int = i + indexOffset;
 				if(this._useVirtualLayout && !item)
 				{
-					if(!this._hasVariableItemDimensions || isNaN(this._heightCache[i]))
+					if(!this._hasVariableItemDimensions || isNaN(this._heightCache[iNormalized]))
 					{
 						positionY += this._typicalItemHeight + this._gap;
 					}
 					else
 					{
-						positionY += this._heightCache[i] + this._gap;
+						positionY += this._heightCache[iNormalized] + this._gap;
 					}
 				}
 				else
 				{
+					if(item is ILayoutDisplayObject)
+					{
+						var layoutItem:ILayoutDisplayObject = ILayoutDisplayObject(item);
+						if(!layoutItem.includeInLayout)
+						{
+							continue;
+						}
+					}
 					item.y = positionY;
 					if(this._useVirtualLayout)
 					{
 						if(this._hasVariableItemDimensions)
 						{
-							if(isNaN(this._heightCache[i]))
+							if(isNaN(this._heightCache[iNormalized]))
 							{
-								this._heightCache[i] = item.height;
+								this._heightCache[iNormalized] = item.height;
 								this.dispatchEventWith(Event.CHANGE);
 							}
 						}
@@ -446,12 +545,16 @@ package feathers.layout
 					maxItemWidth = Math.max(maxItemWidth, item.width);
 					if(this._useVirtualLayout)
 					{
-						HELPER_VECTOR.push(item);
+						this._discoveredItemsCache.push(item);
 					}
 				}
 			}
+			if(this._useVirtualLayout && !this._hasVariableItemDimensions)
+			{
+				positionY += (this._afterVirtualizedItemCount * (this._typicalItemHeight + this._gap));
+			}
 
-			const discoveredItems:Vector.<DisplayObject> = this._useVirtualLayout ? HELPER_VECTOR : items;
+			const discoveredItems:Vector.<DisplayObject> = this._useVirtualLayout ? this._discoveredItemsCache : items;
 			const totalWidth:Number = maxItemWidth + this._paddingLeft + this._paddingRight;
 			const availableWidth:Number = isNaN(explicitWidth) ? Math.min(maxWidth, Math.max(minWidth, totalWidth)) : explicitWidth;
 			const discoveredItemCount:int = discoveredItems.length;
@@ -505,7 +608,7 @@ package feathers.layout
 					}
 				}
 			}
-			HELPER_VECTOR.length = 0;
+			this._discoveredItemsCache.length = 0;
 
 			if(!result)
 			{
@@ -604,6 +707,23 @@ package feathers.layout
 				this._heightCache[index] = item.height;
 				this.dispatchEventWith(Event.CHANGE);
 			}
+		}
+
+		/**
+		 * @inheritDoc
+		 */
+		public function addToVariableVirtualCacheAtIndex(index:int, item:DisplayObject = null):void
+		{
+			const heightValue:* = item ? item.height : undefined;
+			this._heightCache.splice(index, 0, heightValue);
+		}
+
+		/**
+		 * @inheritDoc
+		 */
+		public function removeFromVariableVirtualCacheAtIndex(index:int):void
+		{
+			this._heightCache.splice(index, 1);
 		}
 
 		/**
@@ -712,28 +832,40 @@ package feathers.layout
 			}
 
 			var positionY:Number = y + this._paddingTop;
+			var startIndexOffset:int = 0;
+			var endIndexOffset:Number = 0;
+			if(this._useVirtualLayout && !this._hasVariableItemDimensions)
+			{
+				startIndexOffset = this._beforeVirtualizedItemCount;
+				positionY += (this._beforeVirtualizedItemCount * (this._typicalItemHeight + this._gap));
+
+				endIndexOffset = Math.max(0, index - items.length - this._beforeVirtualizedItemCount + 1);
+				positionY += (endIndexOffset * (this._typicalItemHeight + this._gap));
+			}
+			index -= (startIndexOffset + endIndexOffset);
 			var lastHeight:Number = 0;
 			for(var i:int = 0; i <= index; i++)
 			{
 				var item:DisplayObject = items[i];
+				var iNormalized:int = i + startIndexOffset;
 				if(this._useVirtualLayout && !item)
 				{
-					if(!this._hasVariableItemDimensions || isNaN(this._heightCache[i]))
+					if(!this._hasVariableItemDimensions || isNaN(this._heightCache[iNormalized]))
 					{
 						lastHeight = this._typicalItemHeight;
 					}
 					else
 					{
-						lastHeight = this._heightCache[i];
+						lastHeight = this._heightCache[iNormalized];
 					}
 				}
 				else
 				{
 					if(this._hasVariableItemDimensions)
 					{
-						if(isNaN(this._heightCache[i]))
+						if(isNaN(this._heightCache[iNormalized]))
 						{
-							this._heightCache[i] = item.height;
+							this._heightCache[iNormalized] = item.height;
 							this.dispatchEventWith(Event.CHANGE);
 						}
 					}
@@ -758,6 +890,22 @@ package feathers.layout
 			result.y = positionY;
 
 			return result;
+		}
+
+		/**
+		 * @private
+		 */
+		protected function validateItems(items:Vector.<DisplayObject>):void
+		{
+			const itemCount:int = items.length;
+			for(var i:int = 0; i < itemCount; i++)
+			{
+				var control:IFeathersControl = items[i] as IFeathersControl;
+				if(control)
+				{
+					control.validate();
+				}
+			}
 		}
 	}
 }
