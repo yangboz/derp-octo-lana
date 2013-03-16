@@ -35,8 +35,8 @@ package
 	 */ 
 	//
 //	[SWF(frameRate="60", width="320", height="480", backgroundColor="0xffffff")] //320×480 for iPhone devices
-		[SWF(frameRate="60", width="384", height="512", backgroundColor="0xffffff")]//384×512 for iPad devices
-//	[SWF(frameRate="60", width="1024", height="768", backgroundColor="0xffffff")] //1024×768 for ipad retina devices
+//		[SWF(frameRate="60", width="384", height="512", backgroundColor="0xffffff")]//384×512 for iPad devices
+	[SWF(frameRate="60", width="1024", height="768", backgroundColor="0xffffff")] //1024×768 for ipad retina devices
 	public class Main extends Sprite
 	{ 
 		//--------------------------------------------------------------------------

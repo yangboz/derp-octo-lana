@@ -1,13 +1,11 @@
-package com.derp_octo_lana.app.views.screens {
-	import flash.display.StageDisplayState;
-	import feathers.controls.Check;
+package com.derp_octo_lana.app.views.screens 
+{
 	import com.derp_octo_lana.app.consts.FlexGlobals;
 	
-	import feathers.controls.Button;
-	import feathers.controls.Header;
-	import feathers.controls.Screen;
+	import flash.display.StageDisplayState;
 	
-	import starling.display.DisplayObject;
+	import feathers.controls.Check;
+	
 	import starling.events.Event;
 	/**
 	* SettingScreen.as
@@ -51,6 +49,7 @@ package com.derp_octo_lana.app.views.screens {
 		public function SettingScreen() 
 		{
 			super();
+			//
 			this.headerTitle = "设置";
 		}
 		//--------------------------------------------------------------------------
@@ -64,8 +63,10 @@ package com.derp_octo_lana.app.views.screens {
 		// Protected methods
 		//
 		// --------------------------------------------------------------------------
-		override protected function initialize() : void {
+		override protected function initialize() : void 
+		{
 			return super.initialize();
+			//
 			_fullBtn=new Check();
 			_fullBtn.label="全屏";
 			_fullBtn.x=50;
@@ -84,8 +85,9 @@ package com.derp_octo_lana.app.views.screens {
 		// Private methods
 		//
 		//--------------------------------------------------------------------------
-		private function fullHandler(event : Event) : void {
-			event;
+		private function fullHandler(event : Event) : void 
+		{
+			//
 			var nowstate:String=FlexGlobals.flashStage.displayState;
 			if(nowstate==StageDisplayState.NORMAL){
 				FlexGlobals.flashStage.displayState=StageDisplayState.FULL_SCREEN;

@@ -9,10 +9,13 @@
 
 	<initialWindow>
 		<content>Main.swf</content>
-		<autoOrients>true</autoOrients>
+		<autoOrients>false</autoOrients>
 		<fullScreen>true</fullScreen>
 		<visible>true</visible>
 		<renderMode>direct</renderMode>
+		<systemChrome>standard</systemChrome>
+		<transparent>false</transparent>
+    	<aspectRatio>landscape</aspectRatio>
 	</initialWindow>
 
 	<supportedLanguages>en</supportedLanguages>
