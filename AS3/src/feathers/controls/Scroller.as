@@ -318,8 +318,8 @@ package feathers.controls
 			this._viewPortWrapper = new Sprite();
 			this.addChild(this._viewPortWrapper);
 
-			this.addEventListener(Event.ADDED_TO_STAGE, addedToStageHandler);
-			this.addEventListener(Event.REMOVED_FROM_STAGE, removedFromStageHandler);
+			this.addEventListener(Event.ADDED_TO_STAGE, scroller_addedToStageHandler);
+			this.addEventListener(Event.REMOVED_FROM_STAGE, scroller_removedFromStageHandler);
 		}
 
 		/**
@@ -879,6 +879,20 @@ package feathers.controls
 		/**
 		 * @private
 		 */
+		protected var _horizontalPageCount:int = 1;
+
+		/**
+		 * The number of horizontal pages, if snapping is enabled. If snapping
+		 * is disabled, the page count will always be <code>1</code>.
+		 */
+		public function get horizontalPageCount():int
+		{
+			return this._horizontalPageCount;
+		}
+
+		/**
+		 * @private
+		 */
 		protected var _horizontalScrollPolicy:String = SCROLL_POLICY_AUTO;
 
 		[Inspectable(type="String",enumeration="auto,on,off")]
@@ -1023,6 +1037,20 @@ package feathers.controls
 				return this.pendingVerticalPageIndex;
 			}
 			return this._verticalPageIndex;
+		}
+
+		/**
+		 * @private
+		 */
+		protected var _verticalPageCount:int = 1;
+
+		/**
+		 * The number of vertical pages, if snapping is enabled. If snapping
+		 * is disabled, the page count will always be <code>1</code>.
+		 */
+		public function get verticalPageCount():int
+		{
+			return this._verticalPageCount;
 		}
 		
 		/**
@@ -1720,6 +1748,8 @@ package feathers.controls
 			this._velocityY = 0;
 			this._previousVelocityX.length = 0;
 			this._previousVelocityY.length = 0;
+			this.hideHorizontalScrollBar();
+			this.hideVerticalScrollBar();
 		}
 
 		/**
@@ -2176,6 +2206,16 @@ package feathers.controls
 			{
 				this._maxHorizontalScrollPosition = 0;
 				this._maxVerticalScrollPosition = 0;
+			}
+			if(this._snapToPages)
+			{
+				this._horizontalPageCount = int(this._maxHorizontalScrollPosition / pageWidth) + 1;
+				this._verticalPageCount = int(this._maxVerticalScrollPosition / pageHeight) + 1;
+			}
+			else
+			{
+				this._horizontalPageCount = 1;
+				this._verticalPageCount = 1;
 			}
 
 			const maximumPositionsChanged:Boolean = this._maxHorizontalScrollPosition != oldMaxHSP || this._maxVerticalScrollPosition != oldMaxVSP;
@@ -3453,7 +3493,7 @@ package feathers.controls
 		/**
 		 * @private
 		 */
-		protected function addedToStageHandler(event:Event):void
+		protected function scroller_addedToStageHandler(event:Event):void
 		{
 			Starling.current.nativeStage.addEventListener(MouseEvent.MOUSE_WHEEL, nativeStage_mouseWheelHandler, false, 0, true);
 			Starling.current.nativeStage.addEventListener("orientationChange", nativeStage_orientationChangeHandler, false, 0, true);
@@ -3462,7 +3502,7 @@ package feathers.controls
 		/**
 		 * @private
 		 */
-		protected function removedFromStageHandler(event:Event):void
+		protected function scroller_removedFromStageHandler(event:Event):void
 		{
 			Starling.current.nativeStage.removeEventListener(MouseEvent.MOUSE_WHEEL, nativeStage_mouseWheelHandler);
 			Starling.current.nativeStage.removeEventListener("orientationChange", nativeStage_orientationChangeHandler);

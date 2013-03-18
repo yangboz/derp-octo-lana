@@ -11,6 +11,7 @@ package com.derp_octo_lana.app.views.screens
 	import feathers.controls.renderers.DefaultListItemRenderer;
 	import feathers.controls.renderers.IListItemRenderer;
 	import feathers.data.ListCollection;
+	import feathers.layout.TiledColumnsLayout;
 	import feathers.layout.TiledRowsLayout;
 	
 	import starling.events.Event;
@@ -98,10 +99,13 @@ package com.derp_octo_lana.app.views.screens
 			//
 			this._collection = new ListCollection();
 			const listLayout:TiledRowsLayout = new TiledRowsLayout();
+//			const listLayout:TiledColumnsLayout = new TiledColumnsLayout();
 			listLayout.paging = TiledRowsLayout.PAGING_HORIZONTAL;
 			listLayout.useSquareTiles = false;
+			listLayout.tileVerticalAlign = TiledRowsLayout.TILE_VERTICAL_ALIGN_JUSTIFY;
 			listLayout.tileHorizontalAlign = TiledRowsLayout.TILE_HORIZONTAL_ALIGN_CENTER;
 			listLayout.horizontalAlign = TiledRowsLayout.HORIZONTAL_ALIGN_CENTER;
+			listLayout.verticalAlign = TiledRowsLayout.VERTICAL_ALIGN_MIDDLE;
 			
 			this._list = new List();
 			this._list.dataProvider = this._collection;
@@ -146,11 +150,25 @@ package com.derp_octo_lana.app.views.screens
 		{
 			const renderer:DefaultListItemRenderer = new DefaultListItemRenderer();
 			renderer.labelField = "label";
+			renderer.labelFunction = function(value:Object):String
+			{
+				var result:String=value.label;
+				var len:int = 4;
+				if (value.label.length > len)
+				{
+					result=value.label.substr(0, len-1).concat("..");//Detail string required.
+				}else if (value.label.length < len)
+				{
+					result = result.concat(" ");//Append white space.
+				}
+				return result;
+			};
 			renderer.iconSourceField = "texture";
-			renderer.iconPosition = Button.ICON_POSITION_TOP;
+//			renderer.iconPosition = Button.ICON_POSITION_TOP;
+			renderer.iconPosition = Button.VERTICAL_ALIGN_TOP;
 			//			renderer.accessoryField = "accessory";
 			//			renderer.accessoryLabelField = "accessory";
-			//			renderer.defaultLabelProperties.textFormat = new BitmapFontTextFormat(this._font, NaN, 0x000000);
+//			renderer.defaultLabelProperties.textFormat = new BitmapFontTextFormat(this._font, NaN, 0x000000);
 			return renderer;
 		}
 		//
@@ -180,6 +198,7 @@ package com.derp_octo_lana.app.views.screens
 			
 			const shorterSide:Number = Math.min(FlexGlobals.flashStage.stageWidth, FlexGlobals.flashStage.stageHeight);
 			const layout:TiledRowsLayout = TiledRowsLayout(this._list.layout);
+//			const layout:TiledColumnsLayout = TiledColumnsLayout(this._list.layout);
 			layout.paddingTop = layout.paddingRight = layout.paddingBottom =
 				layout.paddingLeft = shorterSide * 0.06;
 			layout.gap = shorterSide * 0.04;
