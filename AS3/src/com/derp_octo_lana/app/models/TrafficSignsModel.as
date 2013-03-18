@@ -126,7 +126,7 @@ package com.derp_octo_lana.app.models
 			this.traffic_signs_categories['指路标志'] = [
 				
 			];
-			this.traffic_signs_categories['旅游区标志'] = [
+			this.traffic_signs_categories['旅游区标识'] = [
 				
 			];
 			this.traffic_signs_categories['道路施工安全标志'] = [

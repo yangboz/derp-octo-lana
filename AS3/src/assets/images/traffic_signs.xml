@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with TexturePacker http://texturepacker.com-->
-<!-- $TexturePacker:SmartUpdate:c904ca4bba84f95b773b36d48e7b40a3$ -->
+<!-- $TexturePacker:SmartUpdate:9ebe73a5ba8d55ce6d66deeffddb8449$ -->
 <TextureAtlas imagePath="traffic_signs.png">
     <SubTexture name="T形交叉" x="2" y="2" width="75" height="67"/>
     <SubTexture name="T形交叉L" x="79" y="2" width="75" height="67"/>
