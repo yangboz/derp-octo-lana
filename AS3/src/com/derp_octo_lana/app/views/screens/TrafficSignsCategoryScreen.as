@@ -6,6 +6,8 @@ package com.derp_octo_lana.app.views.screens
 	import mx.logging.ILogger;
 	
 	import feathers.controls.Button;
+	import feathers.controls.Callout;
+	import feathers.controls.Label;
 	import feathers.controls.List;
 	import feathers.controls.PageIndicator;
 	import feathers.controls.renderers.DefaultListItemRenderer;
@@ -14,6 +16,7 @@ package com.derp_octo_lana.app.views.screens
 	import feathers.layout.TiledColumnsLayout;
 	import feathers.layout.TiledRowsLayout;
 	
+	import starling.display.DisplayObject;
 	import starling.events.Event;
 	import starling.events.ResizeEvent;
 
@@ -47,6 +50,8 @@ package com.derp_octo_lana.app.views.screens
 		// CONSTANTS
 		//----------------------------------
 		private static const LOG:ILogger = LogUtil.getLogger(TrafficSignsCategoryScreen);
+		//
+		private static const MAX_LEN_LABEL:int = 4;
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -153,7 +158,7 @@ package com.derp_octo_lana.app.views.screens
 			renderer.labelFunction = function(value:Object):String
 			{
 				var result:String=value.label;
-				var len:int = 4;
+				var len:int = MAX_LEN_LABEL;
 				if (value.label.length > len)
 				{
 					result=value.label.substr(0, len-1).concat("..");//Detail string required.
@@ -226,6 +231,13 @@ package com.derp_octo_lana.app.views.screens
 		private function list_changeHandler(event:Event):void
 		{
 //			trace(this._list.selectedItem);
+			if(this._list.selectedItem.label.length>MAX_LEN_LABEL)
+			{
+				var target:DisplayObject = event.target as DisplayObject;
+				const content:Label = new Label();
+				content.text = this._list.selectedItem.label;
+				Callout.show(DisplayObject(content), this._header, Callout.DIRECTION_DOWN);
+			}
 		}
 	}
 	
