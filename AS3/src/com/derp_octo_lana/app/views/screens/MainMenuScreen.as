@@ -140,7 +140,6 @@ package com.derp_octo_lana.app.views.screens
 		//
 		private function play_button_triggeredHandler(event:Event):void
 		{
-			return;//Disable it.
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_LOOBY);
 		}
 		//
