@@ -27,9 +27,9 @@ package com.derp_octo_lana.app.consts
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		public static const OVALS:uint = 1<<0;
-		public static const SQUIGGLES:uint = 1<<1;
-		public static const DIAMONDS:uint = 1<<2;
+		public static const OVALS:uint = 1<<9;
+		public static const SQUIGGLES:uint = 1<<10;
+		public static const DIAMONDS:uint = 1<<11;
 		//--------------------------------------------------------------------------
 		//
 		// Public properties

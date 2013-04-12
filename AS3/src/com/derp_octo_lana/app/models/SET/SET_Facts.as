@@ -1,5 +1,5 @@
 
-package com.derp_octo_lana.app.consts
+package com.derp_octo_lana.app.models.SET
 {
 	//--------------------------------------------------------------------------
 	//
@@ -8,28 +8,29 @@ package com.derp_octo_lana.app.consts
 	//--------------------------------------------------------------------------
 	
 	/**
-	 * Set rules, 4) SHADING: Each card is solid, open, or striped. 
+	 * SET_Facts.as class. the only argument it expects in the constructor is a SET_FactsBuilder instance:
 	 * @author yangboz
 	 * @langVersion 3.0
 	 * @playerVersion 11.2+
 	 * @airVersion 3.2+
-	 * Created Apr 12, 2013 9:56:48 PM
+	 * Created Apr 12, 2013 10:21:15 PM
 	 * @history 05/00/12,
 	 */ 
-	public class SHADINGs
+	public class SET_Facts
 	{ 
 		//--------------------------------------------------------------------------
 		//
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-		
+		private var _color:uint;//@required
+		private var _number:uint;//@required
+		private var _shading:uint;//@required
+		private var _symbol:uint;//@required
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		public static const SOLID:uint = 1<<6;
-		public static const OPEN:uint = 1<<7;
-		public static const STRIPED:uint = 1<<8;
+		
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
@@ -49,7 +50,13 @@ package com.derp_octo_lana.app.consts
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		
+		public function SET_Facts(builder:SET_FactsBuilder)
+		{
+			this._color = builder.color;
+			this._number = builder.number;
+			this._shading = builder.shading;
+			this._symbol = builder.symbol;
+		} 
 		//--------------------------------------------------------------------------
 		//
 		// Public methods
