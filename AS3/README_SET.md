@@ -1,3 +1,7 @@
+Reference:
+
+http://smart-games.org/en/set_classic/start/10
+
 Rules
 
 The object of the game is to identify a 'Set' of three cards from 12 cards laid out on the table. Each card has a variation of the following four features:
