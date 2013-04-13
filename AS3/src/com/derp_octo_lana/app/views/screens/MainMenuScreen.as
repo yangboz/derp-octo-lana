@@ -85,9 +85,9 @@ package com.derp_octo_lana.app.views.screens
 			this._buttonGroup.dataProvider = new ListCollection(
 				[
 					{ label: "New Game", triggered: play_button_triggeredHandler},
-					{ label: "Set-10", triggered: quiz_button_triggeredHandler },
-					{ label: "Set-20", triggered: help_button_triggeredHandler },
-					{ label: "Set-30", triggered: ts_button_triggeredHandler }
+					{ label: "Set-10", triggered: set_10_button_triggeredHandler },
+					{ label: "Set-20", triggered: set_20_button_triggeredHandler },
+					{ label: "Set-30", triggered: set_30_button_triggeredHandler }
 				]);
 			this.addChild(this._buttonGroup);
 			// handles the back hardware key on android
@@ -132,10 +132,9 @@ package com.derp_octo_lana.app.views.screens
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_SETTINGS);
 		}
 		//
-		private function help_button_triggeredHandler(event:Event):void
+		private function set_20_button_triggeredHandler(event:Event):void
 		{
-			//trace(button.label + " triggered.");
-			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_HELP);
+			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_GAME);
 		}
 		//
 		private function play_button_triggeredHandler(event:Event):void
@@ -143,9 +142,9 @@ package com.derp_octo_lana.app.views.screens
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_LOOBY);
 		}
 		//
-		private function ts_button_triggeredHandler(event:Event):void
+		private function set_10_button_triggeredHandler(event:Event):void
 		{
-			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_TRAFFIC_SIGNS_GROUPS);
+			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_GAME);
 		}
 		//
 		private function about_button_triggeredHandler(event:Event):void
@@ -153,9 +152,9 @@ package com.derp_octo_lana.app.views.screens
 			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_ABOUT);
 		}
 		//
-		private function quiz_button_triggeredHandler(event:Event):void
+		private function set_30_button_triggeredHandler(event:Event):void
 		{
-			return;//Disable it.
+			FlexGlobals.screenNavigator.showScreen(FlexGlobals.SCREEN_GAME);
 		}
 	}
 	

@@ -53,6 +53,8 @@ package com.derp_octo_lana.app.views.screens
 		public function GameScreen()
 		{
 			super();
+			//
+			this.headerTitle = "SET-";
 		} 
 		//--------------------------------------------------------------------------
 		//
