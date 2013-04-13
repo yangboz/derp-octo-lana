@@ -6,7 +6,7 @@ package com.derp_octo_lana.app.views.screens.TS
 	// Imports
 	//
 	//--------------------------------------------------------------------------
-	import com.derp_octo_lana.app.models.TrafficSignsModel;
+	import com.derp_octo_lana.app.models.TS.TrafficSignsModel;
 	import com.godpaper.as3.utils.LogUtil;
 	
 	import mx.logging.ILogger;

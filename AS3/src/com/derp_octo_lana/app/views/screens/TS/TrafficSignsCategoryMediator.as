@@ -1,7 +1,7 @@
 package com.derp_octo_lana.app.views.screens.TS
 {
 	import com.derp_octo_lana.app.consts.FlexGlobals;
-	import com.derp_octo_lana.app.models.TrafficSignsModel;
+	import com.derp_octo_lana.app.models.TS.TrafficSignsModel;
 	
 	import org.robotlegs.mvcs.StarlingMediator;
 

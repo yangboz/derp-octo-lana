@@ -6,6 +6,9 @@ package com.derp_octo_lana.app.views.screens
 	// Imports
 	//
 	//--------------------------------------------------------------------------
+	import com.derp_octo_lana.app.consts.FlexGlobals;
+	import com.derp_octo_lana.app.models.SET.SETsModel;
+	import com.derp_octo_lana.app.models.TS.TrafficSignsModel;
 	import com.godpaper.as3.utils.LogUtil;
 	
 	import mx.logging.ILogger;
@@ -29,7 +32,9 @@ package com.derp_octo_lana.app.views.screens
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-		
+		//Model
+		[Inject]
+		public var sets_model:SETsModel;
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
@@ -64,7 +69,8 @@ package com.derp_octo_lana.app.views.screens
 		//--------------------------------------------------------------------------
 		override public function onRegister():void
 		{
-			LOG.info("onRegister");
+//			LOG.info("onRegister");
+			this.viewComponent.updateTileList( sets_model.getAssembledSets(0) );
 		}
 		
 		override public function onRemove():void

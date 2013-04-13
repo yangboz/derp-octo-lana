@@ -4,8 +4,6 @@ package com.derp_octo_lana.app.bootstraps
 	import com.derp_octo_lana.app.commands.EventCommand;
 	import com.derp_octo_lana.app.events.MainEvent;
 	
-	import flash.events.Event;
-	
 	import org.robotlegs.core.ICommandMap;
 
 	//--------------------------------------------------------------------------

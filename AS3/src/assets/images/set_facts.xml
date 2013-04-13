@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with TexturePacker http://texturepacker.com-->
+<!-- $TexturePacker:SmartUpdate:f4f3b4d48c3afce8935ce9fdfa71e563$ -->
+<TextureAtlas imagePath="set_facts.png">
+    <SubTexture name="BLUE_OVALS_1_OPEN" x="2" y="2" width="74" height="27"/>
+    <SubTexture name="BLUE_OVALS_1_SOLID" x="78" y="2" width="74" height="27"/>
+    <SubTexture name="BLUE_OVALS_1_STRIPED" x="154" y="2" width="74" height="27"/>
+    <SubTexture name="BLUE_OVALS_2_OPEN" x="2" y="31" width="74" height="57"/>
+    <SubTexture name="BLUE_OVALS_2_SOLID" x="78" y="31" width="74" height="57"/>
+    <SubTexture name="BLUE_OVALS_2_STRIPED" x="154" y="31" width="74" height="57"/>
+    <SubTexture name="BLUE_OVALS_3_OPEN" x="2" y="90" width="74" height="87"/>
+    <SubTexture name="BLUE_OVALS_3_SOLID" x="78" y="90" width="74" height="87"/>
+    <SubTexture name="BLUE_OVALS_3_STRIPED" x="154" y="90" width="74" height="87"/>
+    <SubTexture name="GREEN_OVALS_1_OPEN" x="2" y="179" width="74" height="27"/>
+    <SubTexture name="GREEN_OVALS_1_SOLID" x="78" y="179" width="74" height="27"/>
+    <SubTexture name="GREEN_OVALS_1_STRIPED" x="154" y="179" width="74" height="27"/>
+    <SubTexture name="GREEN_OVALS_2_OPEN" x="2" y="208" width="74" height="57"/>
+    <SubTexture name="GREEN_OVALS_2_SOLID" x="78" y="208" width="74" height="57"/>
+    <SubTexture name="GREEN_OVALS_2_STRIPED" x="154" y="208" width="74" height="57"/>
+    <SubTexture name="GREEN_OVALS_3_OPEN" x="2" y="267" width="74" height="87"/>
+    <SubTexture name="GREEN_OVALS_3_SOLID" x="78" y="267" width="74" height="87"/>
+    <SubTexture name="GREEN_OVALS_3_STRIPED" x="154" y="267" width="74" height="87"/>
+    <SubTexture name="RED_OVALS_1_OPEN" x="2" y="356" width="74" height="27"/>
+    <SubTexture name="RED_OVALS_1_SOLID" x="78" y="356" width="74" height="27"/>
+    <SubTexture name="RED_OVALS_1_STRIPED" x="154" y="356" width="74" height="27"/>
+    <SubTexture name="RED_OVALS_2_OPEN" x="2" y="385" width="74" height="57"/>
+    <SubTexture name="RED_OVALS_2_SOLID" x="78" y="385" width="74" height="57"/>
+    <SubTexture name="RED_OVALS_2_STRIPED" x="154" y="385" width="74" height="57"/>
+    <SubTexture name="RED_OVALS_3_OPEN" x="2" y="444" width="74" height="87"/>
+    <SubTexture name="RED_OVALS_3_SOLID" x="78" y="444" width="74" height="87"/>
+    <SubTexture name="RED_OVALS_3_STRIPED" x="154" y="444" width="74" height="87"/>
+</TextureAtlas>
