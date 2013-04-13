@@ -9,8 +9,8 @@ package com.derp_octo_lana.app.views
 	import com.derp_octo_lana.app.views.screens.MainMenuScreen;
 	import com.derp_octo_lana.app.views.screens.SettingScreen;
 	import com.derp_octo_lana.app.views.screens.SplashScreen;
-	import com.derp_octo_lana.app.views.screens.TrafficSignsCategoryScreen;
-	import com.derp_octo_lana.app.views.screens.TrafficSignsGroupsScreen;
+	import com.derp_octo_lana.app.views.screens.TS.TrafficSignsCategoryScreen;
+	import com.derp_octo_lana.app.views.screens.TS.TrafficSignsGroupsScreen;
 	import com.godpaper.as3.utils.LogUtil;
 	
 	import flash.ui.Mouse;

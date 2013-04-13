@@ -123,7 +123,7 @@ package com.derp_octo_lana.app.views.screens
 			this.addChild(this._container);
 			//
 			//			this._label = new TextField(100,20,"LOADING...");
-			this._label = new TextField(100,20,"加载中...");
+			this._label = new TextField(100,20,"LOADING...");
 			this._container.addChild(this._label);
 			//
 			this._progress = new ProgressBar();

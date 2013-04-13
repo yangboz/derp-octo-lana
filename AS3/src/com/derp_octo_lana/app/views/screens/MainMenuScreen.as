@@ -65,7 +65,7 @@ package com.derp_octo_lana.app.views.screens
 		{
 			super();
 			//
-			this.headerTitle = "驾考APP";
+			this.headerTitle = "SET";
 		} 
 		//--------------------------------------------------------------------------
 		//
@@ -84,10 +84,10 @@ package com.derp_octo_lana.app.views.screens
 			this._buttonGroup = new ButtonGroup();
 			this._buttonGroup.dataProvider = new ListCollection(
 				[
-					{ label: "开始考试", triggered: play_button_triggeredHandler},
-					{ label: "开始练习", triggered: quiz_button_triggeredHandler },
-					{ label: "准驾车型及代号", triggered: help_button_triggeredHandler },
-					{ label: "交通标识大全", triggered: ts_button_triggeredHandler }
+					{ label: "New Game", triggered: play_button_triggeredHandler},
+					{ label: "Set-10", triggered: quiz_button_triggeredHandler },
+					{ label: "Set-20", triggered: help_button_triggeredHandler },
+					{ label: "Set-30", triggered: ts_button_triggeredHandler }
 				]);
 			this.addChild(this._buttonGroup);
 			// handles the back hardware key on android
@@ -97,7 +97,7 @@ package com.derp_octo_lana.app.views.screens
 		{
 			var items:Vector.<DisplayObject>=new Vector.<DisplayObject>();
 			this._settingBtn = new Button();
-			this._settingBtn.label = "设置";
+			this._settingBtn.label = "Settings";
 			this._settingBtn.addEventListener(Event.TRIGGERED, backButton_triggeredHandler);
 			items.push(_settingBtn);
 			return items;
@@ -107,7 +107,7 @@ package com.derp_octo_lana.app.views.screens
 		{
 			var items:Vector.<DisplayObject>=new Vector.<DisplayObject>();
 			this._settingBtn = new Button();
-			this._settingBtn.label = "关于";
+			this._settingBtn.label = "About";
 			this._settingBtn.addEventListener(Event.TRIGGERED, about_button_triggeredHandler);
 			items.push(_settingBtn);
 			return items;

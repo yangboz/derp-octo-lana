@@ -93,7 +93,7 @@ package com.derp_octo_lana.app.views.screens {
 		{
 			//
 			this._backButton = new Button();
-			this._backButton.label = "返回";
+			this._backButton.label = "BACK";
 			//TODO:tablet handler
 			//
 			this._backButton.addEventListener(Event.TRIGGERED, back_button_triggeredHandler);

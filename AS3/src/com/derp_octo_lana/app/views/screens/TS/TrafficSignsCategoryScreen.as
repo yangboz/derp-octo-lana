@@ -1,4 +1,4 @@
-package com.derp_octo_lana.app.views.screens
+package com.derp_octo_lana.app.views.screens.TS
 {
 	import com.derp_octo_lana.app.consts.FlexGlobals;
 	import com.godpaper.as3.utils.LogUtil;
@@ -19,6 +19,7 @@ package com.derp_octo_lana.app.views.screens
 	import starling.display.DisplayObject;
 	import starling.events.Event;
 	import starling.events.ResizeEvent;
+	import com.derp_octo_lana.app.views.screens.ScreenBase;
 
 	//--------------------------------------------------------------------------
 	//

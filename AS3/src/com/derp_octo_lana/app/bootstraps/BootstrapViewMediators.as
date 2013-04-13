@@ -11,10 +11,10 @@ package com.derp_octo_lana.app.bootstraps
 	import com.derp_octo_lana.app.views.screens.LobbyScreenMediator;
 	import com.derp_octo_lana.app.views.screens.SplashScreen;
 	import com.derp_octo_lana.app.views.screens.SplashScreenMediator;
-	import com.derp_octo_lana.app.views.screens.TrafficSignsCategoryMediator;
-	import com.derp_octo_lana.app.views.screens.TrafficSignsCategoryScreen;
-	import com.derp_octo_lana.app.views.screens.TrafficSignsGroupsMediator;
-	import com.derp_octo_lana.app.views.screens.TrafficSignsGroupsScreen;
+	import com.derp_octo_lana.app.views.screens.TS.TrafficSignsCategoryMediator;
+	import com.derp_octo_lana.app.views.screens.TS.TrafficSignsCategoryScreen;
+	import com.derp_octo_lana.app.views.screens.TS.TrafficSignsGroupsMediator;
+	import com.derp_octo_lana.app.views.screens.TS.TrafficSignsGroupsScreen;
 	
 	import org.robotlegs.core.IStarlingMediatorMap;
 

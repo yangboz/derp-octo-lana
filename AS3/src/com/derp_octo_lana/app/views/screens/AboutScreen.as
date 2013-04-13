@@ -51,7 +51,7 @@ package com.derp_octo_lana.app.views.screens
 		{
 			super();
 			//
-			this.headerTitle = '关于';
+			this.headerTitle = 'ABOUT';
 		} 
 		//--------------------------------------------------------------------------
 		//
