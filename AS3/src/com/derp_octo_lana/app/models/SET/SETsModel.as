@@ -78,7 +78,7 @@ package com.derp_octo_lana.app.models.SET
 			var collection:ListCollection = new ListCollection();
 			for(var i:int=0;i<12;i++)
 			{
-				collection.push({label:"",texture: this._iconAtlas.getTexture("BLUE_OVALS_2_OPEN")});
+				collection.push({label:"",texture: this._iconAtlas.getTexture("BLUE_DIAMONDS_3_STRIPED")});
 			}
 			return collection;
 		}
