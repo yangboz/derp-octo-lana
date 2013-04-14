@@ -24,7 +24,7 @@ package com.derp_octo_lana.app.models.SET
 		//
 		//--------------------------------------------------------------------------
 		private var _color:uint;//@required
-		private var _number:uint;//@required
+		private var _number:int;//@required
 		private var _shading:uint;//@required
 		private var _symbol:uint;//@required
 		//----------------------------------

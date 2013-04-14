@@ -1,6 +1,10 @@
 
 package com.derp_octo_lana.app.models.SET
 {
+	import com.derp_octo_lana.app.consts.COLORs;
+	import com.derp_octo_lana.app.consts.SHADINGs;
+	import com.derp_octo_lana.app.consts.SYMBOLs;
+
 	//--------------------------------------------------------------------------
 	//
 	// Imports
@@ -24,7 +28,7 @@ package com.derp_octo_lana.app.models.SET
 		//
 		//--------------------------------------------------------------------------
 		internal var color:uint;
-		internal var number:uint;
+		internal var number:int;
 		internal var shading:uint;
 		internal var symbol:uint;
 		//----------------------------------
@@ -50,7 +54,7 @@ package com.derp_octo_lana.app.models.SET
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function SET_FactsBuilder(color:uint,number:uint,shading:uint,symbol:uint)
+		public function SET_FactsBuilder(color:uint,number:int,shading:uint,symbol:uint)
 		{
 			this.color = color;
 			this.number = number;
@@ -69,7 +73,7 @@ package com.derp_octo_lana.app.models.SET
 			return this;
 		}
 		//builder with number number
-		public function withNumber(value:uint):SET_FactsBuilder
+		public function withNumber(value:int):SET_FactsBuilder
 		{
 			this.number = value;
 			return this;
@@ -92,6 +96,14 @@ package com.derp_octo_lana.app.models.SET
 		{
 			return new SET_Facts(this);
 		}
+		
+		//
+		public function toString():String
+		{
+			var result:String = "";
+			result = result.concat(this.getColorString(color),"_",this.getSymbolString(symbol),"_",this.number,"_",this.getShadingString(shading));
+			return result;
+		}
 		//--------------------------------------------------------------------------
 		//
 		// Protected methods
@@ -103,6 +115,30 @@ package com.derp_octo_lana.app.models.SET
 		// Private methods
 		//
 		//--------------------------------------------------------------------------
+		//color
+		private function getColorString(color:uint):String
+		{
+			if(color==COLORs.BLUE) return "BLUE";
+			if(color==COLORs.RED) return "RED";
+			if(color==COLORs.GREEN) return "GREEN";
+			return null;
+		}
+		//symbol
+		private function getSymbolString(symbol:uint):String
+		{
+			if(symbol==SYMBOLs.DIAMONDS) return "DIAMONDS";
+			if(symbol==SYMBOLs.OVALS) return "OVALS";
+			if(symbol==SYMBOLs.SQUIGGLES) return "SQUIGGLES";
+			return null;
+		}
+		//shading
+		private function getShadingString(shading:uint):String
+		{
+			if(shading==SHADINGs.OPEN) return "OPEN";
+			if(shading==SHADINGs.SOLID) return "SOLID";
+			if(shading==SHADINGs.STRIPED) return "STRIPED";
+			return null;
+		}
 	}
 	
 }
