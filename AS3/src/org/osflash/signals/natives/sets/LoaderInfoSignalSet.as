@@ -26,7 +26,7 @@ package org.osflash.signals.natives.sets {
 
 		public function get init():NativeSignal {
 			return getNativeSignal(Event.INIT);
-		}
+		}
 		public function get ioError():NativeSignal {
 			return getNativeSignal(IOErrorEvent.IO_ERROR, IOErrorEvent);
 		}

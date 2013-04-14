@@ -20,7 +20,7 @@ package org.osflash.signals.natives.sets {
 
 		public function get cancel():NativeSignal {
 			return getNativeSignal(Event.CANCEL);
-		}
+		}
 		public function get complete():NativeSignal {
 			return getNativeSignal(Event.COMPLETE);
 		}
@@ -43,10 +43,10 @@ package org.osflash.signals.natives.sets {
 
 		public function get securityError():NativeSignal {
 			return getNativeSignal(SecurityErrorEvent.SECURITY_ERROR, SecurityErrorEvent);
-		}
+		}
 		public function get select():NativeSignal {
 			return getNativeSignal(Event.SELECT);
-		}
+		}
 		public function get uploadCompleteData():NativeSignal {
 			return getNativeSignal(DataEvent.UPLOAD_COMPLETE_DATA, DataEvent);
 		}

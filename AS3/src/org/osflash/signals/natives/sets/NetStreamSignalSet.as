@@ -17,10 +17,10 @@ package org.osflash.signals.natives.sets {
 
 		public function get asyncError():NativeSignal {
 			return getNativeSignal(AsyncErrorEvent.ASYNC_ERROR, AsyncErrorEvent);
-		}
+		}
 		public function get ioError():NativeSignal {
 			return getNativeSignal(IOErrorEvent.IO_ERROR, IOErrorEvent);
-		}
+		}
 		public function get netStatus():NativeSignal {
 			return getNativeSignal(NetStatusEvent.NET_STATUS, NetStatusEvent);
 		}

@@ -16,7 +16,7 @@ package org.osflash.signals.natives.sets {
 
 		public function get change():NativeSignal {
 			return getNativeSignal(Event.CHANGE);
-		}
+		}
 		public function get link():NativeSignal {
 			return getNativeSignal(TextEvent.LINK, TextEvent);
 		}

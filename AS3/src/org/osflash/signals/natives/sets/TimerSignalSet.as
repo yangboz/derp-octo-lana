@@ -15,7 +15,7 @@ package org.osflash.signals.natives.sets {
 
 		public function get timer():NativeSignal {
 			return getNativeSignal(TimerEvent.TIMER, TimerEvent);
-		}
+		}
 		public function get timerComplete():NativeSignal {
 			return getNativeSignal(TimerEvent.TIMER_COMPLETE, TimerEvent);
 		}

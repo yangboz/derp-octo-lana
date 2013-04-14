@@ -16,7 +16,7 @@ package org.osflash.signals.natives.sets {
 
 		public function get activity():NativeSignal {
 			return getNativeSignal(ActivityEvent.ACTIVITY, ActivityEvent);
-		}
+		}
 		public function get status():NativeSignal {
 			return getNativeSignal(StatusEvent.STATUS, StatusEvent);
 		}
