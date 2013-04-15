@@ -24,6 +24,7 @@ package com.derp_octo_lana.app.views.screens
 	import feathers.layout.TiledRowsLayout;
 	
 	import starling.display.DisplayObject;
+	import starling.display.Image;
 	import starling.events.Event;
 	import starling.events.ResizeEvent;
 	
@@ -160,7 +161,8 @@ package com.derp_octo_lana.app.views.screens
 		{
 			var items:Vector.<DisplayObject>  = new Vector.<DisplayObject>();
 			this._shuffleButton = new Button();
-			this._shuffleButton.label = "SHUFFLE";
+//			this._shuffleButton.label = "SHUFFLE";
+			this._shuffleButton.defaultIcon = new Image(FlexGlobals.iconAtlas.getTexture("SHUFFLE"));
 			this._shuffleButton.isEnabled = true;//default value.
 			this._shuffleButton.addEventListener(Event.TRIGGERED, shuffle_button_triggeredHandler);
 			items.push(this._shuffleButton);
@@ -226,8 +228,8 @@ package com.derp_octo_lana.app.views.screens
 			const layout:TiledRowsLayout = TiledRowsLayout(this._list.layout);
 			//			const layout:TiledColumnsLayout = TiledColumnsLayout(this._list.layout);
 			layout.paddingTop = layout.paddingRight = layout.paddingBottom =
-				layout.paddingLeft = shorterSide * 0.06;
-			layout.gap = shorterSide * 0.04;
+				layout.paddingLeft = shorterSide * 0.02;
+			layout.gap = shorterSide * 0.02;
 			
 			this._list.itemRendererProperties.gap = shorterSide * 0.01;
 			

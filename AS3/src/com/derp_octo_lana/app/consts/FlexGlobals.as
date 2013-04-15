@@ -8,6 +8,8 @@ package com.derp_octo_lana.app.consts
 	import flash.display.Stage;
 	
 	import feathers.controls.ScreenNavigator;
+	
+	import starling.textures.TextureAtlas;
 
 	//--------------------------------------------------------------------------
 	//
@@ -41,6 +43,8 @@ package com.derp_octo_lana.app.consts
 		public static var turnFlag:int;
 		//Store the user pre-selected category value comes from Traffic Signs Screen.
 		public static var selectedTSgroup:String;
+		//Texture
+		public static var iconAtlas:TextureAtlas;
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------

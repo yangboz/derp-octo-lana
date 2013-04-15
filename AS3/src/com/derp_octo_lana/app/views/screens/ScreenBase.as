@@ -9,6 +9,7 @@ package com.derp_octo_lana.app.views.screens {
 	
 	import starling.core.Starling;
 	import starling.display.DisplayObject;
+	import starling.display.Image;
 	import starling.events.Event;
 
 	//--------------------------------------------------------------------------
@@ -93,7 +94,8 @@ package com.derp_octo_lana.app.views.screens {
 		{
 			//
 			this._backButton = new Button();
-			this._backButton.label = "BACK";
+//			this._backButton.label = "BACK";
+			this._backButton.defaultIcon = new Image(FlexGlobals.iconAtlas.getTexture("BACK"));
 			//TODO:tablet handler
 			//
 			this._backButton.addEventListener(Event.TRIGGERED, back_button_triggeredHandler);

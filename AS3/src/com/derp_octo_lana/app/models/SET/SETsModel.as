@@ -7,6 +7,7 @@ package com.derp_octo_lana.app.models.SET
 	//
 	//--------------------------------------------------------------------------
 	import com.derp_octo_lana.app.consts.COLORs;
+	import com.derp_octo_lana.app.consts.FlexGlobals;
 	import com.derp_octo_lana.app.consts.NUMBERs;
 	import com.derp_octo_lana.app.consts.SHADINGs;
 	import com.derp_octo_lana.app.consts.SYMBOLs;
@@ -45,8 +46,6 @@ package com.derp_octo_lana.app.models.SET
 		
 		[Embed(source="../../../../../assets/images/set_facts.xml",mimeType="application/octet-stream")]
 		private static const ICONS_XML:Class;
-		//
-		private var _iconAtlas:TextureAtlas;
 		//
 		public var setCards:Array = [];
 		private static var currentSetCards:ListCollection;
@@ -101,7 +100,7 @@ package com.derp_octo_lana.app.models.SET
 		{
 			super();
 			//
-			this._iconAtlas = new TextureAtlas(Texture.fromBitmap(new ICONS_IMAGE(), false), XML(new ICONS_XML()));
+			FlexGlobals.iconAtlas = new TextureAtlas(Texture.fromBitmap(new ICONS_IMAGE(), false), XML(new ICONS_XML()));
 			//
 			this.buildAllSetCards();
 		} 
@@ -120,7 +119,7 @@ package com.derp_octo_lana.app.models.SET
 			for(var i:int=0;i<len;i++)
 			{
 				var factStr:String = this.translateFact(facts[i]);
-				currentSetCards.push({label:"",texture: this._iconAtlas.getTexture(factStr),SETfact:facts[i]});
+				currentSetCards.push({label:"",texture: FlexGlobals.iconAtlas.getTexture(factStr),SETfact:facts[i]});
 			}
 			return currentSetCards;
 		}
