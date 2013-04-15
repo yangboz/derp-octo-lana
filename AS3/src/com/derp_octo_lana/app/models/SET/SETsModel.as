@@ -49,6 +49,7 @@ package com.derp_octo_lana.app.models.SET
 		private var _iconAtlas:TextureAtlas;
 		//
 		public var setCards:Array = [];
+		private static var currentSetCards:ListCollection;
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
@@ -115,13 +116,13 @@ package com.derp_octo_lana.app.models.SET
 			var facts:Array = MathUtil.randomPremutate(ALL_FACTS,12);
 			LOG.info("SET facts:{0}",facts);
 			var len:int = facts.length;
-			var collection:ListCollection = new ListCollection();
+			currentSetCards = new ListCollection();
 			for(var i:int=0;i<len;i++)
 			{
 				var factStr:String = this.translateFact(facts[i]);
-				collection.push({label:"",texture: this._iconAtlas.getTexture(factStr),SETfact:facts[i]});
+				currentSetCards.push({label:"",texture: this._iconAtlas.getTexture(factStr),SETfact:facts[i]});
 			}
-			return collection;
+			return currentSetCards;
 		}
 		//
 		public static function validateSet(setCards:Array):Boolean
@@ -134,6 +135,19 @@ package com.derp_octo_lana.app.models.SET
 				if(ALL_VALIDATED.indexOf(int(setCards[0][i]*setCards[1][i]*setCards[2][i]))==-1) return false;//All the different
 			}
 			return validated;
+		}
+		//
+		public static function getShuffledCurrentSetCards():ListCollection
+		{
+			trace("currentSetCards.length:",currentSetCards.length);
+			for (var i:int=0;i< currentSetCards.length;i++) {
+				var randomRemoveIndex:int = Math.round(Math.random() * (currentSetCards.length - 1));
+				var removedItem:Object = currentSetCards.removeItemAt(randomRemoveIndex);
+				trace("random removed index:",randomRemoveIndex," removed item:",removedItem);
+				currentSetCards.addItem( removedItem );
+			}
+			trace("shuffled current set cards:",currentSetCards);
+			return currentSetCards;
 		}
 		//--------------------------------------------------------------------------
 		//

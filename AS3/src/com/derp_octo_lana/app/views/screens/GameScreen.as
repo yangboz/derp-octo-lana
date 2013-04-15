@@ -49,6 +49,7 @@ package com.derp_octo_lana.app.views.screens
 		private var _list:List;
 		private var _pageIndicator:PageIndicator;
 		private var _setButton:Button;
+		private var _shuffleButton:Button;
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
@@ -86,9 +87,9 @@ package com.derp_octo_lana.app.views.screens
 		//
 		//--------------------------------------------------------------------------
 		//
-		public function updateTileList(categories:ListCollection):void
+		public function updateTileList(setCards:ListCollection):void
 		{
-			this._collection = categories;//Refresh the tabel tile-list.
+			this._collection = setCards;//Refresh the tabel tile-list.
 			//relayout for view update.
 			this._list.dataProvider = this._collection;
 			this.layout();
@@ -158,6 +159,11 @@ package com.derp_octo_lana.app.views.screens
 		override protected function getHeaderRightItems():Vector.<DisplayObject>
 		{
 			var items:Vector.<DisplayObject>  = new Vector.<DisplayObject>();
+			this._shuffleButton = new Button();
+			this._shuffleButton.label = "SHUFFLE";
+			this._shuffleButton.isEnabled = true;//default value.
+			this._shuffleButton.addEventListener(Event.TRIGGERED, shuffle_button_triggeredHandler);
+			items.push(this._shuffleButton);
 			this._setButton = new Button();
 			this._setButton.label = "SET";
 			this._setButton.isEnabled = false;//default value.
@@ -259,6 +265,14 @@ package com.derp_octo_lana.app.views.screens
 		private function set_button_triggeredHandler(event:Event):void
 		{
 			//TODO:
+		}
+		//
+		private function shuffle_button_triggeredHandler(event:Event):void
+		{
+			//
+			var shuffled:ListCollection = SETsModel.getShuffledCurrentSetCards();
+			LOG.info("shuffled set cards:{0}",shuffled);
+			this.updateTileList(shuffled);
 		}
 		//
 		private function validateSet():Boolean
