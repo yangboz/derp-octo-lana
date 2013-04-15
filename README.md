@@ -1,7 +1,7 @@
 derp-octo-lana
 ==============
 
-derp-octo-lana(SET),see: http://en.wikipedia.org/wiki/Set_(game)
+derp-octo-lana(SET,a flash version of "SET" game),see: http://en.wikipedia.org/wiki/Set_(game)
 
 ![Screenshot of "SET"](https://raw.github.com/yangboz/derp-octo-lana/master/AS3/resources/snapshot_SET_00.jpg)
 
