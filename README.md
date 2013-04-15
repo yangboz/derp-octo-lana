@@ -8,6 +8,11 @@ derp-octo-lana(SET)
 How to start
 ==============
 
+https://github.com/yangboz/derp-octo-lana/blob/master/SetTutorial.swf?raw=true
+
+Reference
+==============
+
 http://smart-games.org/en/set/start
 
 Git help
