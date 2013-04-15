@@ -27,9 +27,9 @@ package com.derp_octo_lana.app.consts
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		public static const SOLID:uint = 1<<6;
-		public static const OPEN:uint = 1<<7;
-		public static const STRIPED:uint = 1<<8;
+		public static const SOLID:int = 1;
+		public static const OPEN:int = 2;
+		public static const STRIPED:int = 3;
 		//--------------------------------------------------------------------------
 		//
 		// Public properties

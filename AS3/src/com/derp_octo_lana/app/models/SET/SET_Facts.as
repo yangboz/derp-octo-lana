@@ -23,10 +23,11 @@ package com.derp_octo_lana.app.models.SET
 		// Variables
 		//
 		//--------------------------------------------------------------------------
-		private var _color:uint;//@required
+		private var _color:int;//@required
 		private var _number:int;//@required
-		private var _shading:uint;//@required
-		private var _symbol:uint;//@required
+		private var _shading:int;//@required
+		private var _symbol:int;//@required
+		private var _builder:SET_FactsBuilder;//@optional
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
@@ -52,6 +53,7 @@ package com.derp_octo_lana.app.models.SET
 		//--------------------------------------------------------------------------
 		public function SET_Facts(builder:SET_FactsBuilder)
 		{
+			this._builder = builder;
 			this._color = builder.color;
 			this._number = builder.number;
 			this._shading = builder.shading;
@@ -62,7 +64,10 @@ package com.derp_octo_lana.app.models.SET
 		// Public methods
 		//
 		//--------------------------------------------------------------------------
-		
+		public function toString():String
+		{
+			return this._builder.toString();
+		}
 		//--------------------------------------------------------------------------
 		//
 		// Protected methods

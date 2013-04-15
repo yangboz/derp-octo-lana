@@ -54,7 +54,7 @@ package com.derp_octo_lana.app.models.SET
 		// Constructor
 		//
 		//--------------------------------------------------------------------------
-		public function SET_FactsBuilder(color:uint,number:int,shading:uint,symbol:uint)
+		public function SET_FactsBuilder(color:int=1,number:int=1,shading:int=1,symbol:int=1)
 		{
 			this.color = color;
 			this.number = number;
@@ -67,7 +67,7 @@ package com.derp_octo_lana.app.models.SET
 		//
 		//--------------------------------------------------------------------------
 		//builder with color feature
-		public function withColor(value:uint):SET_FactsBuilder
+		public function withColor(value:int):SET_FactsBuilder
 		{
 			this.color = value;
 			return this;
@@ -79,13 +79,13 @@ package com.derp_octo_lana.app.models.SET
 			return this;
 		}
 		//builder with color shading
-		public function withShading(value:uint):SET_FactsBuilder
+		public function withShading(value:int):SET_FactsBuilder
 		{
 			this.shading = value;
 			return this;
 		}
 		//builder with color symbol
-		public function withSymbol(value:uint):SET_FactsBuilder
+		public function withSymbol(value:int):SET_FactsBuilder
 		{
 			this.symbol = value;
 			return this;
@@ -116,7 +116,7 @@ package com.derp_octo_lana.app.models.SET
 		//
 		//--------------------------------------------------------------------------
 		//color
-		private function getColorString(color:uint):String
+		private function getColorString(color:int):String
 		{
 			if(color==COLORs.BLUE) return "BLUE";
 			if(color==COLORs.RED) return "RED";
@@ -124,7 +124,7 @@ package com.derp_octo_lana.app.models.SET
 			return null;
 		}
 		//symbol
-		private function getSymbolString(symbol:uint):String
+		private function getSymbolString(symbol:int):String
 		{
 			if(symbol==SYMBOLs.DIAMONDS) return "DIAMONDS";
 			if(symbol==SYMBOLs.OVALS) return "OVALS";
@@ -132,7 +132,7 @@ package com.derp_octo_lana.app.models.SET
 			return null;
 		}
 		//shading
-		private function getShadingString(shading:uint):String
+		private function getShadingString(shading:int):String
 		{
 			if(shading==SHADINGs.OPEN) return "OPEN";
 			if(shading==SHADINGs.SOLID) return "SOLID";

@@ -27,9 +27,9 @@ package com.derp_octo_lana.app.consts
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		public static const ONE:uint = 1<<3;
-		public static const TWO:uint = 1<<4;
-		public static const THREE:uint = 1<<5;
+		public static const ONE:uint = 1;
+		public static const TWO:uint = 2;
+		public static const THREE:uint = 3;
 		//--------------------------------------------------------------------------
 		//
 		// Public properties

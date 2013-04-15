@@ -27,9 +27,9 @@ package com.derp_octo_lana.app.consts
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
-		public static const RED:uint = 1<<0;
-		public static const GREEN:uint = 1<<1;
-		public static const BLUE:uint = 1<<2;
+		public static const RED:int = 1;
+		public static const GREEN:int = 2;
+		public static const BLUE:int = 3;
 		//--------------------------------------------------------------------------
 		//
 		// Public properties
