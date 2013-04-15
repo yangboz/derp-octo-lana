@@ -59,6 +59,20 @@ package com.derp_octo_lana.app.models.SET
 		private static const ALL_NUMBERS:Array = [NUMBERs.ONE,NUMBERs.TWO,NUMBERs.THREE];
 		private static const ALL_SHADINGS:Array = [SHADINGs.OPEN,SHADINGs.SOLID,SHADINGs.STRIPED];
 		private static const ALL_SYMBOLS:Array = [SYMBOLs.DIAMONDS,SYMBOLs.OVALS,SYMBOLs.SQUIGGLES];
+		private static const ALL_FACTS:Array = [
+			
+			[1,1,1,1],[1,1,1,2],[1,1,1,3],[1,1,2,1],[1,1,2,2],[1,1,2,3],[1,1,3,1],[1,1,3,2],[1,1,3,3],
+			[1,2,1,1],[1,2,1,2],[1,2,1,3],[1,2,2,1],[1,2,2,2],[1,2,2,3],[1,2,3,1],[1,2,3,2],[1,2,3,3],
+			[1,3,1,1],[1,3,1,2],[1,3,1,3],[1,3,2,1],[1,3,2,2],[1,3,3,3],[2,1,1,1],[2,1,1,2],[2,1,1,3],
+			
+			[2,1,2,1],[2,1,2,2],[2,1,2,3],[2,1,3,1],[2,1,3,2],[2,1,3,3],[2,2,1,1],[2,2,1,2],[2,2,1,3],
+			[2,2,2,1],[2,2,2,2],[2,2,2,3],[2,2,3,1],[2,2,3,2],[2,2,3,3],[2,3,1,1],[2,3,1,2],[2,3,1,3],
+			[2,3,2,1],[2,3,2,2],[2,3,2,3],[2,3,3,1],[2,3,3,2],[2,3,3,3],[3,1,1,1],[3,1,1,2],[3,1,1,3],
+			
+			[3,1,2,1],[3,1,2,2],[3,1,2,3],[3,1,3,1],[3,1,3,2],[3,1,3,3],[3,2,1,1],[3,2,1,2],[3,2,1,3],
+			[3,2,2,1],[3,2,2,2],[3,2,2,3],[3,2,3,1],[3,2,3,2],[3,2,3,3],[3,3,1,1],[3,3,1,2],[3,3,1,3],
+			[3,3,1,1],[3,3,1,2],[3,3,1,3],[3,3,2,1],[3,3,2,2],[3,3,2,3],[3,3,3,1],[3,3,3,2],[3,3,3,3],
+		];
 		//
 		private static const LOG:ILogger = LogUtil.getLogger(SETsModel);
 		//--------------------------------------------------------------------------
@@ -94,12 +108,15 @@ package com.derp_octo_lana.app.models.SET
 		//--------------------------------------------------------------------------
 		public function getAssembledSets(level:int):ListCollection
 		{
-			var category:Array = MathUtil.permutateArray(this.setCards,MAX_PER_SETS);
-			var len:int = category.length;
+			//
+			var facts:Array = MathUtil.randomPremutate(ALL_FACTS,3);
+			trace(facts);
+			var len:int = facts.length;
 			var collection:ListCollection = new ListCollection();
 			for(var i:int=0;i<len;i++)
 			{
-				collection.push({label:"",texture: this._iconAtlas.getTexture(category[i])});
+				var factStr:String = this.translateFact(facts[i]);
+				collection.push({label:"",texture: this._iconAtlas.getTexture(factStr),SETfact:facts[i]});
 			}
 			return collection;
 		}
@@ -108,7 +125,30 @@ package com.derp_octo_lana.app.models.SET
 		// Protected methods
 		//
 		//--------------------------------------------------------------------------
-		
+		//color
+		private function getColorValue(color:String):int
+		{
+			if(color=="BLUE") return COLORs.BLUE;
+			if(color=="RED") return COLORs.RED;
+			if(color=="GREEN") return COLORs.GREEN;
+			return null;
+		}
+		//symbol
+		private function getSymbolValue(symbol:String):int
+		{
+			if(symbol=="DIAMONDS") return SYMBOLs.DIAMONDS;
+			if(symbol=="OVALS") return SYMBOLs.OVALS;
+			if(symbol=="SQUIGGLES") return SYMBOLs.SQUIGGLES;
+			return null;
+		}
+		//shading
+		private function getShadingValue(shading:String):int
+		{
+			if(shading=="OPEN") return SHADINGs.OPEN;
+			if(shading=="SOLID") return SHADINGs.SOLID;
+			if(shading=="STRIPED") return SHADINGs.STRIPED;
+			return null;
+		}
 		//--------------------------------------------------------------------------
 		//
 		// Private methods
@@ -116,17 +156,25 @@ package com.derp_octo_lana.app.models.SET
 		//--------------------------------------------------------------------------
 		private function buildAllSetCards():void
 		{
-			for(var i:int=0;i<MAX_PER_SETS;i++)
+			for(var i:int=0;i<MAX_NUMBER_SETS;i++)
 			{
-				var builder:SET_FactsBuilder = new SET_FactsBuilder();
-				builder = builder.withColor(ALL_COLORS[i]);
-				builder = builder.withNumber(ALL_NUMBERS[i]);
-				builder = builder.withShading(ALL_SHADINGS[i]);
-				builder = builder.withSymbol(ALL_SYMBOLS[i]);
-				var setFacts:SET_Facts = new SET_Facts(builder);
-				this.setCards.push(setFacts.toString());
+				var setFact:String = this.translateFact(ALL_FACTS[i]);
+				//
+				this.setCards.push(setFact);
 			}
 			LOG.info("setCards:{0}",this.setCards);
+		}
+		//
+		private function translateFact(fact:Array):String
+		{
+			var builder:SET_FactsBuilder = new SET_FactsBuilder();
+			builder = builder.withColor(fact[0])
+				.withNumber(fact[1])
+				.withShading(fact[2])
+				.withSymbol(fact[3]);
+			//
+			var setFacts:SET_Facts = new SET_Facts(builder);
+			return setFacts.toString();
 		}
 	}
 	

@@ -377,7 +377,7 @@ package feathers.controls
 			for(var i:int = 0; i < indexCount; i++)
 			{
 				var index:int = this._selectedIndices.getItemAt(i) as int;
-				var item:Object = this._dataProvider[index];
+				var item:Object = this._dataProvider.data[index];
 				items.push(item);
 			}
 			return items;
