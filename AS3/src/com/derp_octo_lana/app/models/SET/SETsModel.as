@@ -47,13 +47,13 @@ package com.derp_octo_lana.app.models.SET
 		//
 		private var _iconAtlas:TextureAtlas;
 		//
-		public var setCards:Vector.<String> = new Vector.<String>();
+		public var setCards:Array = [];
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
 		//permute constants.
-		private static const MAX_NUMBER_SETS:Number = 81;
-		private static const MAX_PER_SETS:Number = 3;
+		public static const MAX_NUMBER_SETS:Number = 81;
+		public static const MAX_PER_SETS:Number = 3;
 		//All SET features.
 		private static const ALL_COLORS:Array = [COLORs.BLUE,COLORs.GREEN,COLORs.RED];
 		private static const ALL_NUMBERS:Array = [NUMBERs.ONE,NUMBERs.TWO,NUMBERs.THREE];
@@ -94,12 +94,12 @@ package com.derp_octo_lana.app.models.SET
 		//--------------------------------------------------------------------------
 		public function getAssembledSets(level:int):ListCollection
 		{
-			var category:Array = MathUtil.permutateArray([],MAX_PER_SETS);
+			var category:Array = MathUtil.permutateArray(this.setCards,MAX_PER_SETS);
 			var len:int = category.length;
 			var collection:ListCollection = new ListCollection();
-			for(var i:int=0;i<12;i++)
+			for(var i:int=0;i<len;i++)
 			{
-				collection.push({label:"",texture: this._iconAtlas.getTexture("BLUE_SQUIGGLES_3_STRIPED")});
+				collection.push({label:"",texture: this._iconAtlas.getTexture(category[i])});
 			}
 			return collection;
 		}

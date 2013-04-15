@@ -7,6 +7,8 @@ package com.derp_octo_lana.app.views.screens
 	//
 	//--------------------------------------------------------------------------
 	import com.derp_octo_lana.app.consts.FlexGlobals;
+	import com.derp_octo_lana.app.models.SET.SETsModel;
+	import com.derp_octo_lana.app.views.screens.ScreenBase;
 	import com.godpaper.as3.utils.LogUtil;
 	
 	import mx.logging.ILogger;
@@ -19,13 +21,11 @@ package com.derp_octo_lana.app.views.screens
 	import feathers.controls.renderers.DefaultListItemRenderer;
 	import feathers.controls.renderers.IListItemRenderer;
 	import feathers.data.ListCollection;
-//	import feathers.layout.TiledColumnsLayout;
 	import feathers.layout.TiledRowsLayout;
 	
 	import starling.display.DisplayObject;
 	import starling.events.Event;
 	import starling.events.ResizeEvent;
-	import com.derp_octo_lana.app.views.screens.ScreenBase;
 	
 	
 	/**
@@ -48,6 +48,7 @@ package com.derp_octo_lana.app.views.screens
 		private var _collection:ListCollection;
 		private var _list:List;
 		private var _pageIndicator:PageIndicator;
+		private var _setButton:Button;
 		//----------------------------------
 		// CONSTANTS
 		//----------------------------------
@@ -154,6 +155,17 @@ package com.derp_octo_lana.app.views.screens
 			this.layout();
 		}
 		//
+		override protected function getHeaderRightItems():Vector.<DisplayObject>
+		{
+			var items:Vector.<DisplayObject>  = new Vector.<DisplayObject>();
+			this._setButton = new Button();
+			this._setButton.label = "SET";
+			this._setButton.isEnabled = false;//default value.
+			this._setButton.addEventListener(Event.TRIGGERED, set_button_triggeredHandler);
+			items.push(this._setButton);
+			return items;
+		}
+		//
 		protected function tileListItemRendererFactory():IListItemRenderer
 		{
 			const renderer:DefaultListItemRenderer = new DefaultListItemRenderer();
@@ -233,14 +245,26 @@ package com.derp_octo_lana.app.views.screens
 		//Call out the table detail information.
 		private function list_changeHandler(event:Event):void
 		{
-			//			trace(this._list.selectedItem);
-			if(this._list.selectedItem.label.length>MAX_LEN_LABEL)
+//			trace(this._list.selectedItem);
+//			trace(this._list.selectedIndices);
+			if(this._list.selectedIndices.length==SETsModel.MAX_PER_SETS)
 			{
-				var target:DisplayObject = event.target as DisplayObject;
-				const content:Label = new Label();
-				content.text = this._list.selectedItem.label;
-				Callout.show(DisplayObject(content), this._header, Callout.DIRECTION_DOWN);
+				this._setButton.isEnabled = this.validateSet();
+			}else
+			{
+				this._setButton.isEnabled = false;
 			}
+		}
+		//
+		private function set_button_triggeredHandler(event:Event):void
+		{
+			//TODO:
+		}
+		//
+		private function validateSet():Boolean
+		{
+			//TODO:
+			return true;
 		}
 	}
 	
