@@ -263,12 +263,14 @@ package com.derp_octo_lana.app.views.screens
 		//
 		private function validateSet():Boolean
 		{
-			//TODO:
+			//
+			var setFacts:Array = [];
 			for each(var item:Object in this._list.selectedItems)
 			{
 				LOG.info("item.SETfact:{0}",item.SETfact);
+				setFacts.push(item.SETfact);
 			}
-			return true;
+			return SETsModel.validateSet(setFacts);
 		}
 	}
 	
