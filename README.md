@@ -1,11 +1,11 @@
 derp-octo-lana
 ==============
 
-derp-octo-lana(SET)
+derp-octo-lana(SET),see: http://en.wikipedia.org/wiki/Set_(game)
 
 ![Screenshot of "SET"](https://raw.github.com/yangboz/derp-octo-lana/master/AS3/resources/snapshot_SET_00.jpg)
 
-How to start
+How to play
 ==============
 
 https://github.com/yangboz/derp-octo-lana/blob/master/SetTutorial.swf?raw=true
