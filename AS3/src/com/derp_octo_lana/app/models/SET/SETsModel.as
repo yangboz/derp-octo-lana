@@ -159,7 +159,7 @@ package com.derp_octo_lana.app.models.SET
 			if(color=="BLUE") return COLORs.BLUE;
 			if(color=="RED") return COLORs.RED;
 			if(color=="GREEN") return COLORs.GREEN;
-			return null;
+			return -1;
 		}
 		//symbol
 		private function getSymbolValue(symbol:String):int
@@ -167,7 +167,7 @@ package com.derp_octo_lana.app.models.SET
 			if(symbol=="DIAMONDS") return SYMBOLs.DIAMONDS;
 			if(symbol=="OVALS") return SYMBOLs.OVALS;
 			if(symbol=="SQUIGGLES") return SYMBOLs.SQUIGGLES;
-			return null;
+			return -1;
 		}
 		//shading
 		private function getShadingValue(shading:String):int
@@ -175,7 +175,7 @@ package com.derp_octo_lana.app.models.SET
 			if(shading=="OPEN") return SHADINGs.OPEN;
 			if(shading=="SOLID") return SHADINGs.SOLID;
 			if(shading=="STRIPED") return SHADINGs.STRIPED;
-			return null;
+			return -1;
 		}
 		//--------------------------------------------------------------------------
 		//
