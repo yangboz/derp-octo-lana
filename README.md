@@ -10,7 +10,7 @@ Starling: https://github.com/yangboz/derp-octo-lana/tree/master/AS3/src/starling
 
 FeatherUI: https://github.com/yangboz/derp-octo-lana/tree/master/AS3/src/feathers
 
-Robotlegs: https://github.com/yangboz/derp-octo-lana/blob/master/AS3/libs/robotlegs-framework-v1.5.1.swc
+Robotlegs: https://github.com/robotlegs/robotlegs-framework
 
 PlayerIO(AS3): https://github.com/yangboz/derp-octo-lana/tree/master/AS3/src/playerio
 
@@ -39,3 +39,5 @@ TODO
 ==============
 
 1.Upgrade the Robotlegs framework version from 1.5.0 to 2.1.0 smoothly;
+
+2.1.Upgrade the Starling framework version from 1.2 to 1.3 smoothly;
