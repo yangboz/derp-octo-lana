@@ -41,3 +41,5 @@ TODO
 1.Upgrade the Robotlegs framework version from 1.5.0 to 2.1.0 smoothly;
 
 2.1.Upgrade the Starling framework version from 1.2 to 1.3 smoothly;
+
+3.App42 game API implementation: http://api.shephertz.com/app42-dev/ebook-turn-based-games.php
