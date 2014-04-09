@@ -42,4 +42,8 @@ TODO
 
 2.1.Upgrade the Starling framework version from 1.2 to 1.3 smoothly;
 
-3.App42 game API implementation: http://api.shephertz.com/app42-dev/ebook-turn-based-games.php
+3.App42 game API implementation: 
+
+http://api.shephertz.com/app42-dev/ebook-turn-based-games.php
+
+https://github.com/shephertz/App42-ActionScript-SDK/tree/master/sample
