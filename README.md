@@ -3,6 +3,8 @@ derp-octo-lana
 
 derp-octo-lana(SET,a flash version of "SET" game),see: http://en.wikipedia.org/wiki/Set_(game)
 
+Live DEMO: http://www.lookbackon.com/lab/SET/Main.html
+
 Technical Merit
 ==============
 
